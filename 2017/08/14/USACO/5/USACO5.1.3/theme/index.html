@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="USACO,hash,差分," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Musical Themes题意 ​    给定一个长度为N（N&amp;lt;=5000)的数字串(0~88)，问最长的一个子串，使得除了这个子串外，还有一个与该子串重合位置的另一个长度相同子串的对应位置都是该子串的对应位置增加">
+<meta name="keywords" content="USACO,hash,差分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="USACO5.1.3">
+<meta property="og:url" content="http://yoursite.com/2017/08/14/USACO/5/USACO5.1.3/theme/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Musical Themes题意 ​    给定一个长度为N（N&amp;lt;=5000)的数字串(0~88)，问最长的一个子串，使得除了这个子串外，还有一个与该子串重合位置的另一个长度相同子串的对应位置都是该子串的对应位置增加">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-18T03:26:38.673Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="USACO5.1.3">
+<meta name="twitter:description" content="Musical Themes题意 ​    给定一个长度为N（N&amp;lt;=5000)的数字串(0~88)，问最长的一个子串，使得除了这个子串外，还有一个与该子串重合位置的另一个长度相同子串的对应位置都是该子串的对应位置增加">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/14/USACO/5/USACO5.1.3/theme/"/>
+
+
+
+
+
+  <title>USACO5.1.3 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/14/USACO/5/USACO5.1.3/theme/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">USACO5.1.3</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-14T15:10:03+08:00">
+                2017-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Musical-Themes"><a href="#Musical-Themes" class="headerlink" title="Musical Themes"></a>Musical Themes</h1><p><strong>题意</strong></p>
+<p>​    给定一个长度为N（N&lt;=5000)的数字串(0~88)，问最长的一个子串，使得除了这个子串外，还有一个与该子串重合位置的另一个长度相同子串的对应位置都是该子串的对应位置增加</p>
+<a id="more"></a>
+<h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><p><strong>Brian Dean</strong></p>
+<p>A musical melody is represented as a sequence of N (1 &lt;= N &lt;= 5000) notes that are integers in the range 1..88, each representing a key on the piano. It is unfortunate but true that this representation of melodies ignores the notion of musical timing; but, this programming task is about notes and not timings.</p>
+<p>Many composers structure their music around a repeating “theme”, which, being a subsequence of an entire melody, is a sequence of integers in our representation. A subsequence of a melody is a theme if it:</p>
+<ul>
+<li>is at least five notes long</li>
+<li>appears (potentially transposed – see below) again somewhere else in the piece of music</li>
+<li>is disjoint from (i.e., non-overlapping with) at least one of its other appearance(s)</li>
+</ul>
+<p>Transposed means that a constant positive or negative value is added to every note value in the theme subsequence.</p>
+<p>Given a melody, compute the length (number of notes) of the longest theme.</p>
+<p>One second time limit for this problem’s solutions!</p>
+<h3 id="PROGRAM-NAME-theme"><a href="#PROGRAM-NAME-theme" class="headerlink" title="PROGRAM NAME: theme"></a>PROGRAM NAME: theme</h3><h3 id="INPUT-FORMAT"><a href="#INPUT-FORMAT" class="headerlink" title="INPUT FORMAT"></a>INPUT FORMAT</h3><p>The first line of the input file contains the integer N. Each subsequent line (except potentially the last) contains 20 integers representing the sequence of notes. The last line contains the remainder of the notes, potentially fewer than 20.</p>
+<h3 id="SAMPLE-INPUT-file-theme-in"><a href="#SAMPLE-INPUT-file-theme-in" class="headerlink" title="SAMPLE INPUT (file theme.in)"></a>SAMPLE INPUT (file theme.in)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">30</div><div class="line">25 27 30 34 39 45 52 60 69 79 69 60 52 45 39 34 30 26 22 18</div><div class="line">82 78 74 70 66 67 64 60 65 80</div></pre></td></tr></table></figure>
+<h3 id="OUTPUT-FORMAT"><a href="#OUTPUT-FORMAT" class="headerlink" title="OUTPUT FORMAT"></a>OUTPUT FORMAT</h3><p>The output file should contain a single line with a single integer that represents the length of the longest theme. If there are no themes, output 0.</p>
+<h3 id="SAMPLE-OUTPUT-file-theme-out"><a href="#SAMPLE-OUTPUT-file-theme-out" class="headerlink" title="SAMPLE OUTPUT (file theme.out)"></a>SAMPLE OUTPUT (file theme.out)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">5</div></pre></td></tr></table></figure>
+<p>[The five-long theme is the last five notes of the first line and the first five notes of the second] </p>
+<!--more-->
+<h1 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h1><p>做法很多。</p>
+<p>下面给出我的做法。</p>
+<p>第一想法是<strong>哈希</strong>。</p>
+<p>从而想到了二分答案。</p>
+<p>加入现在知道了长度D，只是问存不存在2个长度为D的串可能。</p>
+<p>那么存不存在呢？</p>
+<p>如果简单的哈希，难的就是因为有可能转调</p>
+<p>经过思考，查询一些题解，找到了一个好的方法</p>
+<p>——转自nocow——</p>
+<hr>
+<p>​    这个题考虑到相同的旋律之间的差是常数，可以把读入的序列变换一下。就是每个元素与其前一个元素做差。例如原序列 {3,5,7,3,4,4,6,8,4}，做差后是{2,2,-4,1,0,2,2,-4}。这样就可以在变换后的序列中直接查找最长的重复序列即可。上述例子中是2,2,-4，长度为3，对应原序列中3,5,7,3，长度为4。</p>
+<hr>
+<p>上述转化后我们就可以通过寻找最长重复串来做到。</p>
+<p><strong>做法1</strong></p>
+<p>​    可以通过上述转化后，以每一个为截开的位置，跑KMP。(N^2)</p>
+<p><strong>做法2</strong></p>
+<p>​    还是我刚才那个想法，每次二分后O(N)扫描，得到这个点以及这个点一直到前面总D个长度的哈希值——如果哈希值相同，很大可能是和前面的重复的，然后D+1就是最终的答案。(N log N)</p>
+<p>​    我后来写这种做法遇到了好多坑——建议大家多练习一下hash的题目，特别是应该多取几个模数，当然我取了2个bit。具体的细节很繁琐，可以看一下代码。</p>
+<p>​    虽然速度比较快，但是我不推荐这种做法，更简单的做法往下看</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">ID:cqz15311</span></div><div class="line"><span class="comment">LANG:C++</span></div><div class="line"><span class="comment">PROG:theme</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> Mod = (<span class="number">1e6</span>+<span class="number">7</span>);</div><div class="line"><span class="comment">//好像1e7就超空间了.</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> bit1 = <span class="number">17</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> bit2 = <span class="number">23</span>;</div><div class="line"><span class="comment">//但位17好像第八个点过了，第九个点WA了</span></div><div class="line"><span class="comment">//其实可以多重哈希，多取几个模数。</span></div><div class="line"><span class="comment">//我弄了2个bit就能过USACO所有数据了——其实最好还是取模数，代码改改少 </span></div><div class="line"><span class="comment">//其实如果是17，3之类的我试了一下是WA的，懒惰就改数字，其实最好是改模数</span></div><div class="line"><span class="comment">//这题坑了我好久，但是说到底还是Hash的题目做得少。</span></div><div class="line"><span class="comment">//或者说，以前做hash的题目都不卡单hash的。</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">5005</span>;</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</div><div class="line"><span class="keyword">int</span> Hash1[Mod],Hash2[Mod];</div><div class="line">LL f1[maxn],f2[maxn],a[maxn];</div><div class="line">LL Pow1[maxn],Pow2[maxn];</div><div class="line"><span class="keyword">int</span> n,L,R,Mid;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> Len)</span></span>&#123;</div><div class="line">	LL rec1 = <span class="number">0</span>,rec2 = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=Len;i++) rec1 = (rec1 * bit1 + a[i]) % Mod,rec2 = (rec2 * bit2 + a[i]) % Mod;</div><div class="line">	f1[Len] = rec1;</div><div class="line">	f2[Len] = rec2;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=Len+<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		rec1 = (((rec1 - Pow1[Len<span class="number">-1</span>] * a[i - Len]) % Mod + Mod) % Mod * bit1 + a[i]) % Mod;</div><div class="line">		rec2 = (((rec2 - Pow2[Len<span class="number">-1</span>] * a[i - Len]) % Mod + Mod) % Mod * bit2 + a[i]) % Mod;</div><div class="line">		f1[i] = rec1;	<span class="comment">//注意是Len-1不是Len——卡了N久 </span></div><div class="line">		f2[i] = rec2;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">bool</span> flag = <span class="literal">false</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=Len;i&lt;=n;i++)&#123;</div><div class="line">		<span class="keyword">if</span> (Hash1[f1[i]] == <span class="number">-1</span>) Hash1[f1[i]] = i;</div><div class="line">		<span class="keyword">if</span> (Hash2[f2[i]] == <span class="number">-1</span>) Hash2[f2[i]] = i;</div><div class="line">		<span class="keyword">if</span> ((Hash1[f1[i]] &lt; i - Len<span class="comment">/*+1*/</span>) &amp;&amp; (Hash2[f2[i]] &lt; i - Len)) flag = <span class="literal">true</span>;</div><div class="line">				<span class="comment">/*不能加一，因为差分过的最后一个等于前面最前面的一个*/</span></div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=Len;i&lt;=n;i++)&#123;</div><div class="line">		Hash1[f1[i]] = <span class="number">-1</span>;</div><div class="line">		Hash2[f2[i]] = <span class="number">-1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (flag) <span class="keyword">return</span> <span class="literal">true</span>; <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	freopen(<span class="string">"theme.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</div><div class="line">	freopen(<span class="string">"theme.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</div><div class="line">	Pow1[<span class="number">0</span>] = <span class="number">1</span>,Pow2[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">	<span class="built_in">memset</span>(Hash1,<span class="number">-1</span>,<span class="keyword">sizeof</span>(Hash1));</div><div class="line">	<span class="built_in">memset</span>(Hash2,<span class="number">-1</span>,<span class="keyword">sizeof</span>(Hash2));</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5000</span>;i++)Pow1[i] = Pow1[i<span class="number">-1</span>] * bit1 % Mod;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5000</span>;i++)Pow2[i] = Pow2[i<span class="number">-1</span>] * bit2 % Mod;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	a[<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">1</span>;i--)&#123;</div><div class="line">		a[i] = a[i] - a[i<span class="number">-1</span>];</div><div class="line">		a[i] = (a[i] % Mod + Mod) % Mod;</div><div class="line">	&#125;<span class="comment">//a0没用</span></div><div class="line">	n--;</div><div class="line">	L = <span class="number">1</span>;</div><div class="line">	R = n;</div><div class="line">	<span class="keyword">while</span> (L &lt; R)&#123;</div><div class="line">		Mid = (L + R + <span class="number">1</span>) &gt;&gt; <span class="number">1</span>;</div><div class="line">		<span class="keyword">if</span> (check(Mid))&#123;</div><div class="line">			L = Mid;</div><div class="line">		&#125; <span class="keyword">else</span> </div><div class="line">			R = Mid - <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (L+<span class="number">1</span> &lt; <span class="number">5</span>)  <span class="built_in">puts</span>(<span class="string">"0"</span>); <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,L + <span class="number">1</span>);</div><div class="line">	fclose(<span class="built_in">stdin</span>);</div><div class="line">	fclose(<span class="built_in">stdout</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>算法3</strong></p>
+<p>考虑用DP[i,j]表示左边匹配到i，右边匹配到j的最大匹配数。——直接跑，都不用转化……</p>
+<hr>
+<p>Let theme(i,j) be the length of the longest theme which occurs starting at both note i and j. Note that if note[i+1]-note[i] == note[j+1]-note[j], than theme(i,j) = 1+theme(i+1,j+1). Otherwise, theme(i,j) = 1. Thus, we order the search in such a way that theme(i,j) is tested immediately after theme(i+1,j+1), keeping track of the length of the current theme, as well as the length of the longest theme found so far.</p>
+<hr>
+<p><a href="http://train.usaco.org/usacoanal2?a=2ocZH3qaoaJ&amp;S=theme" target="_blank" rel="external">http://train.usaco.org/usacoanal2?a=2ocZH3qaoaJ&amp;S=theme</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">int</span>     n;</div><div class="line"><span class="keyword">int</span>     note[<span class="number">5000</span>];</div><div class="line"></div><div class="line"><span class="keyword">int</span> </div><div class="line">main () &#123;</div><div class="line">    <span class="function">ifstream <span class="title">filein</span> <span class="params">(<span class="string">"theme.in"</span>)</span></span>;</div><div class="line">    filein &gt;&gt; n;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) </div><div class="line">	filein &gt;&gt; note[i];</div><div class="line">    filein.close ();</div><div class="line"></div><div class="line">    <span class="keyword">int</span>     longest = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i) &#123;</div><div class="line">	<span class="keyword">int</span>     length = <span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = n - i - <span class="number">1</span> - <span class="number">1</span>; j &gt;= <span class="number">0</span>; --j) &#123;</div><div class="line">	    <span class="keyword">if</span> (note[j] - note[j + <span class="number">1</span>] == note[j + i] - note[j + i + <span class="number">1</span>]) &#123;</div><div class="line">		++length;</div><div class="line">		<span class="keyword">if</span> (length &gt; i) </div><div class="line">		    length = i;</div><div class="line">		<span class="keyword">if</span> (longest &lt; length)</div><div class="line">		    longest = length;</div><div class="line">	    &#125;</div><div class="line">	    <span class="keyword">else</span> &#123;</div><div class="line">		length = <span class="number">1</span>;</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function">ofstream <span class="title">fileout</span> <span class="params">(<span class="string">"theme.out"</span>)</span></span>;</div><div class="line">    fileout &lt;&lt; ((longest &gt;= <span class="number">5</span>) ? longest : <span class="number">0</span>) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    fileout.close ();</div><div class="line"></div><div class="line">    <span class="built_in">exit</span> (<span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>算法4+</strong></p>
+<p>​    一些我听说过的名词：好像也只是听说过——————后缀数组。后缀自动机。……</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/USACO/" rel="tag"># USACO</a>
+          
+            <a href="/tags/hash/" rel="tag"># hash</a>
+          
+            <a href="/tags/差分/" rel="tag"># 差分</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/14/USACO/5/USACO5.1.2/starry/" rel="next" title="USACO5.1.2">
+                <i class="fa fa-chevron-left"></i> USACO5.1.2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/14/USACO/5/USACO5.2.1/snail/" rel="prev" title="USACO5.2.1">
+                USACO5.2.1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="EMOAIRX" />
+          <p class="site-author-name" itemprop="name">EMOAIRX</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/zhouzhendong/" title="ZZD___Orz" target="_blank">ZZD___Orz</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/chunlvxiong/" title="CLJ___Orz" target="_blank">CLJ___Orz</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Musical-Themes"><span class="nav-number">1.</span> <span class="nav-text">Musical Themes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原题"><span class="nav-number">2.</span> <span class="nav-text">原题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PROGRAM-NAME-theme"><span class="nav-number">2.0.1.</span> <span class="nav-text">PROGRAM NAME: theme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#INPUT-FORMAT"><span class="nav-number">2.0.2.</span> <span class="nav-text">INPUT FORMAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SAMPLE-INPUT-file-theme-in"><span class="nav-number">2.0.3.</span> <span class="nav-text">SAMPLE INPUT (file theme.in)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OUTPUT-FORMAT"><span class="nav-number">2.0.4.</span> <span class="nav-text">OUTPUT FORMAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SAMPLE-OUTPUT-file-theme-out"><span class="nav-number">2.0.5.</span> <span class="nav-text">SAMPLE OUTPUT (file theme.out)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#做法"><span class="nav-number">3.</span> <span class="nav-text">做法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EMOAIRX</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

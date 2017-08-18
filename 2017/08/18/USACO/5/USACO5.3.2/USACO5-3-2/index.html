@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="USACO," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="window你刚刚接手一项窗体界面工程。窗体界面还算简单，而且幸运的是，你不必显示实际的窗体。有 5 种基本操作：  创建一个新窗体 将窗体置顶 将窗体置底 删除一个窗体 输出窗体可见部分的百分比（就是，不被其它窗体覆盖的部分）。">
+<meta name="keywords" content="USACO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="USACO5.3.2">
+<meta property="og:url" content="http://yoursite.com/2017/08/18/USACO/5/USACO5.3.2/USACO5-3-2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="window你刚刚接手一项窗体界面工程。窗体界面还算简单，而且幸运的是，你不必显示实际的窗体。有 5 种基本操作：  创建一个新窗体 将窗体置顶 将窗体置底 删除一个窗体 输出窗体可见部分的百分比（就是，不被其它窗体覆盖的部分）。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-18T05:19:18.582Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="USACO5.3.2">
+<meta name="twitter:description" content="window你刚刚接手一项窗体界面工程。窗体界面还算简单，而且幸运的是，你不必显示实际的窗体。有 5 种基本操作：  创建一个新窗体 将窗体置顶 将窗体置底 删除一个窗体 输出窗体可见部分的百分比（就是，不被其它窗体覆盖的部分）。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/18/USACO/5/USACO5.3.2/USACO5-3-2/"/>
+
+
+
+
+
+  <title>USACO5.3.2 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/USACO/5/USACO5.3.2/USACO5-3-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">USACO5.3.2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-18T11:53:03+08:00">
+                2017-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="window"><a href="#window" class="headerlink" title="window"></a>window</h1><p>你刚刚接手一项窗体界面工程。窗体界面还算简单，而且幸运的是，你不必显示实际的窗体。有 5 种基本操作：</p>
+<ol>
+<li>创建一个新窗体</li>
+<li>将窗体置顶</li>
+<li>将窗体置底</li>
+<li>删除一个窗体</li>
+<li>输出窗体可见部分的百分比（就是，不被其它窗体覆盖的部分）。</li>
+</ol>
+<a id="more"></a>
+<h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><p>USACO5.3.2-Window</p>
+<h1 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h1><p>这题采用模拟大法</p>
+<p>如何模拟</p>
+<p>我们可以用一个链表存储QAQ。</p>
+<p>保存底窗体，顶窗体。</p>
+<p>同时保存前面的那个窗体，后面的那个窗体。</p>
+<p>支持这些操作。</p>
+<p>1、Remove</p>
+<p>删除其中一个窗体</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">	<span class="keyword">if</span> (x == <span class="number">-1</span>) <span class="keyword">return</span>;</div><div class="line">	<span class="keyword">if</span> (x != tail) pre[nxt[x]] = pre[x];</div><div class="line">	<span class="keyword">if</span> (x != head) nxt[pre[x]] = nxt[x];</div><div class="line">	<span class="keyword">if</span> (x == tail) tail = pre[x];</div><div class="line">	<span class="keyword">if</span> (x == head) head = nxt[x];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2、Addhead</p>
+<p>在头加上一个窗体（用于置底操作）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Addhead</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">	pre[x] = <span class="number">-1</span>;</div><div class="line">	nxt[x] = head;</div><div class="line">	<span class="keyword">if</span> (head!=<span class="number">-1</span>) pre[head] = x;</div><div class="line">	head = x;</div><div class="line">	<span class="keyword">if</span> (tail==<span class="number">-1</span>) tail = x;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3、Addtail</p>
+<p>在尾部加上一个窗体（用于置顶操作）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Addtail</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">	nxt[x] = <span class="number">-1</span>;</div><div class="line">	pre[x] = tail;</div><div class="line">	<span class="keyword">if</span> (tail!=<span class="number">-1</span>) nxt[tail] = x;</div><div class="line">	tail = x;</div><div class="line">	<span class="keyword">if</span> (head==<span class="number">-1</span>) head = x;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>★顺着next指针寻找，利用漂浮法，矩阵切割，从而得到可以见到的面积。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> u,<span class="keyword">int</span> d,<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">	<span class="keyword">while</span> ((n != <span class="number">-1</span>) &amp;&amp; ((l &gt;= R[n]) || (r &lt;= L[n]) || (u &gt;= D[n]) || (d &lt;= U[n]))) n = nxt[n];</div><div class="line">	<span class="keyword">if</span> (n == <span class="number">-1</span>) <span class="keyword">return</span> (r-l) * (d-u);</div><div class="line">	<span class="keyword">int</span> rec = <span class="number">0</span>;</div><div class="line">	<span class="keyword">if</span> (l &lt; L[n])&#123;</div><div class="line">		rec += dfs(l,L[n],u,d,nxt[n]);</div><div class="line">		l = L[n];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (r &gt; R[n])&#123;</div><div class="line">		rec += dfs(R[n],r,u,d,nxt[n]);</div><div class="line">		r = R[n];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (u &lt; U[n])&#123;</div><div class="line">		rec += dfs(l,r,u,U[n],nxt[n]);</div><div class="line">		u = U[n];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (d &gt; D[n])&#123;</div><div class="line">		rec += dfs(l,r,D[n],d,nxt[n]);</div><div class="line">		d = D[n];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> rec;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>下面是代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">ID:cqz15311</span></div><div class="line"><span class="comment">LANG:C++</span></div><div class="line"><span class="comment">PROG:window</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt; </span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> head,tail;</div><div class="line"><span class="keyword">int</span> nxt[<span class="number">255</span>],pre[<span class="number">255</span>];</div><div class="line"><span class="keyword">int</span> L[<span class="number">255</span>],R[<span class="number">255</span>],U[<span class="number">255</span>],D[<span class="number">255</span>];</div><div class="line"><span class="keyword">char</span> str[<span class="number">105</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Addhead</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">	pre[x] = <span class="number">-1</span>;</div><div class="line">	nxt[x] = head;</div><div class="line">	<span class="keyword">if</span> (head!=<span class="number">-1</span>) pre[head] = x;</div><div class="line">	head = x;</div><div class="line">	<span class="keyword">if</span> (tail==<span class="number">-1</span>) tail = x;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Addtail</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">	nxt[x] = <span class="number">-1</span>;</div><div class="line">	pre[x] = tail;</div><div class="line">	<span class="keyword">if</span> (tail!=<span class="number">-1</span>) nxt[tail] = x;</div><div class="line">	tail = x;</div><div class="line">	<span class="keyword">if</span> (head==<span class="number">-1</span>) head = x;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">	<span class="keyword">if</span> (x == <span class="number">-1</span>) <span class="keyword">return</span>;</div><div class="line">	<span class="keyword">if</span> (x != tail) pre[nxt[x]] = pre[x];</div><div class="line">	<span class="keyword">if</span> (x != head) nxt[pre[x]] = nxt[x];</div><div class="line">	<span class="keyword">if</span> (x == tail) tail = pre[x];</div><div class="line">	<span class="keyword">if</span> (x == head) head = nxt[x];</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> u,<span class="keyword">int</span> d,<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">	<span class="keyword">while</span> ((n != <span class="number">-1</span>) &amp;&amp; ((l &gt;= R[n]) || (r &lt;= L[n]) || (u &gt;= D[n]) || (d &lt;= U[n]))) n = nxt[n];</div><div class="line">	<span class="keyword">if</span> (n == <span class="number">-1</span>) <span class="keyword">return</span> (r-l) * (d-u);</div><div class="line">	<span class="keyword">int</span> rec = <span class="number">0</span>;</div><div class="line">	<span class="keyword">if</span> (l &lt; L[n])&#123;</div><div class="line">		rec += dfs(l,L[n],u,d,nxt[n]);</div><div class="line">		l = L[n];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (r &gt; R[n])&#123;</div><div class="line">		rec += dfs(R[n],r,u,d,nxt[n]);</div><div class="line">		r = R[n];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (u &lt; U[n])&#123;</div><div class="line">		rec += dfs(l,r,u,U[n],nxt[n]);</div><div class="line">		u = U[n];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (d &gt; D[n])&#123;</div><div class="line">		rec += dfs(l,r,D[n],d,nxt[n]);</div><div class="line">		d = D[n];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> rec;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve_w</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> n = str[<span class="number">2</span>];</div><div class="line">	<span class="built_in">sscanf</span>(str+<span class="number">4</span>,<span class="string">"%d,%d,%d,%d"</span>,&amp;L[n],&amp;D[n],&amp;R[n],&amp;U[n]);</div><div class="line">	<span class="keyword">if</span> (R[n]&lt;L[n]) swap(L[n],R[n]);</div><div class="line">	<span class="keyword">if</span> (D[n]&lt;U[n]) swap(U[n],D[n]);</div><div class="line">	Addtail(n);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve_t</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> n = str[<span class="number">2</span>];</div><div class="line">	remove(n);</div><div class="line">	Addtail(n);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve_b</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> n = str[<span class="number">2</span>];</div><div class="line">	remove(n);</div><div class="line">	Addhead(n);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve_d</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> n = str[<span class="number">2</span>];</div><div class="line">	remove(n);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve_s</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> n = str[<span class="number">2</span>];</div><div class="line">	<span class="keyword">int</span> res = dfs(L[n],R[n],U[n],D[n],nxt[n]);</div><div class="line">	<span class="keyword">int</span> total = (R[n] - L[n]) * (D[n] - U[n]);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%.3lf\n"</span>,res / (<span class="keyword">double</span>)total * <span class="number">100</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">memset</span>(nxt,<span class="number">-1</span>,<span class="keyword">sizeof</span>(nxt));</div><div class="line">	<span class="built_in">memset</span>(pre,<span class="number">-1</span>,<span class="keyword">sizeof</span>(pre));</div><div class="line">	head = tail = <span class="number">-1</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	freopen(<span class="string">"window.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</div><div class="line">	freopen(<span class="string">"window.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</div><div class="line">	init();</div><div class="line">	<span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str))&#123;</div><div class="line">		<span class="keyword">if</span> (str[<span class="number">0</span>] == <span class="string">'w'</span>) solve_w();</div><div class="line">		<span class="keyword">if</span> (str[<span class="number">0</span>] == <span class="string">'t'</span>) <span class="keyword">solve_t</span>();</div><div class="line">		<span class="keyword">if</span> (str[<span class="number">0</span>] == <span class="string">'b'</span>) solve_b();</div><div class="line">		<span class="keyword">if</span> (str[<span class="number">0</span>] == <span class="string">'d'</span>) solve_d();</div><div class="line">		<span class="keyword">if</span> (str[<span class="number">0</span>] == <span class="string">'s'</span>) solve_s();</div><div class="line">	&#125; </div><div class="line">	fclose(<span class="built_in">stdin</span>);</div><div class="line">	fclose(<span class="built_in">stdout</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">Executing...</span></div><div class="line"><span class="comment">   Test 1: TEST OK [0.014 secs, 4184 KB]</span></div><div class="line"><span class="comment">   Test 2: TEST OK [0.014 secs, 4184 KB]</span></div><div class="line"><span class="comment">   Test 3: TEST OK [0.014 secs, 4184 KB]</span></div><div class="line"><span class="comment">   Test 4: TEST OK [0.014 secs, 4184 KB]</span></div><div class="line"><span class="comment">   Test 5: TEST OK [0.014 secs, 4184 KB]</span></div><div class="line"><span class="comment">   Test 6: TEST OK [0.014 secs, 4184 KB]</span></div><div class="line"><span class="comment">   Test 7: TEST OK [0.014 secs, 4184 KB]</span></div><div class="line"><span class="comment">   Test 8: TEST OK [0.014 secs, 4184 KB]</span></div><div class="line"><span class="comment">   Test 9: TEST OK [0.000 secs, 4184 KB]</span></div><div class="line"><span class="comment">   Test 10: TEST OK [0.014 secs, 4184 KB]</span></div><div class="line"><span class="comment">   Test 11: TEST OK [0.014 secs, 4184 KB]</span></div><div class="line"><span class="comment">All tests OK.</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/USACO/" rel="tag"># USACO</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/18/USACO/5/USACO5.3.4/USACO5-3-4/" rel="next" title="USACO5.3.4">
+                <i class="fa fa-chevron-left"></i> USACO5.3.4
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/18/USACO/5/USACO5.4.1/USACO5-4-1/" rel="prev" title="USACO5.4.1">
+                USACO5.4.1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="EMOAIRX" />
+          <p class="site-author-name" itemprop="name">EMOAIRX</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/zhouzhendong/" title="ZZD___Orz" target="_blank">ZZD___Orz</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/chunlvxiong/" title="CLJ___Orz" target="_blank">CLJ___Orz</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#window"><span class="nav-number">1.</span> <span class="nav-text">window</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原题"><span class="nav-number">2.</span> <span class="nav-text">原题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#做法"><span class="nav-number">3.</span> <span class="nav-text">做法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EMOAIRX</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="USACO," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="题意给定一个图，问一条从起点到终点，再从终点到起点，除了起点和终点外，不能经过重复节点的路劲，这条路劲最长有多长。（节点&amp;lt;=100) 而且，是东西方向的，所以不存在类似1–&amp;gt;3–&amp;gt;2–&amp;gt;4的，只有1–&amp;gt;2–&amp;gt;3–&amp;gt;4的。 原题USACO5.4.1-Canada Tour Canada Tour You have won a contest sponsore">
+<meta name="keywords" content="USACO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="USACO5.4.1">
+<meta property="og:url" content="http://yoursite.com/2017/08/18/USACO/5/USACO5.4.1/USACO5-4-1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="题意给定一个图，问一条从起点到终点，再从终点到起点，除了起点和终点外，不能经过重复节点的路劲，这条路劲最长有多长。（节点&amp;lt;=100) 而且，是东西方向的，所以不存在类似1–&amp;gt;3–&amp;gt;2–&amp;gt;4的，只有1–&amp;gt;2–&amp;gt;3–&amp;gt;4的。 原题USACO5.4.1-Canada Tour Canada Tour You have won a contest sponsore">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-18T06:06:44.216Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="USACO5.4.1">
+<meta name="twitter:description" content="题意给定一个图，问一条从起点到终点，再从终点到起点，除了起点和终点外，不能经过重复节点的路劲，这条路劲最长有多长。（节点&amp;lt;=100) 而且，是东西方向的，所以不存在类似1–&amp;gt;3–&amp;gt;2–&amp;gt;4的，只有1–&amp;gt;2–&amp;gt;3–&amp;gt;4的。 原题USACO5.4.1-Canada Tour Canada Tour You have won a contest sponsore">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/18/USACO/5/USACO5.4.1/USACO5-4-1/"/>
+
+
+
+
+
+  <title>USACO5.4.1 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/USACO/5/USACO5.4.1/USACO5-4-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">USACO5.4.1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-18T14:06:20+08:00">
+                2017-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>给定一个图，问一条从起点到终点，再从终点到起点，除了起点和终点外，不能经过重复节点的路劲，这条路劲最长有多长。（节点&lt;=100)</p>
+<p>而且，是东西方向的，所以不存在类似1–&gt;3–&gt;2–&gt;4的，只有1–&gt;2–&gt;3–&gt;4的。</p>
+<h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><p>USACO5.4.1-<strong>Canada Tour</strong></p>
+<p><strong>Canada Tour</strong></p>
+<p>You have won a contest sponsored by an airline. The prize is a ticket to travel around Canada, beginning in the most western point served by this airline, then traveling only from west to east until you reach the most eastern point served, and then coming back only from east to west until you reach the starting city. No city may be visited more than once, except for the starting city, which must be visited exactly twice (at the beginning and the end of the trip). You are not allowed to use any other airline or any other means of transportation.</p>
+<p>Given a list of cities served by the airline and a list of direct flights between pairs of cities, find an itinerary which visits as many cities as possible and satisfies the above conditions beginning with the first city and visiting the last city on the list and returning to the first city.</p>
+<h3 id="PROGRAM-NAME-tour"><a href="#PROGRAM-NAME-tour" class="headerlink" title="PROGRAM NAME: tour"></a>PROGRAM NAME: tour</h3><h3 id="INPUT-FORMAT"><a href="#INPUT-FORMAT" class="headerlink" title="INPUT FORMAT"></a>INPUT FORMAT</h3><table>
+<thead>
+<tr>
+<th>Line 1:</th>
+<th>The number N of cities served by the airline and the number V of direct flights that will be listed. N will be a positive integer not larger than 100. V is any positive integer.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lines 2..N+1:</td>
+<td>Each line contains a name of a city served by the airline. The names are ordered from west to east in the input file. There are no two cities in the same meridian. The name of each city is a string of, at most, 15 digits and/or characters of the Latin alphabet; there are no spaces in the name of a city.</td>
+</tr>
+<tr>
+<td>Lines N+2..N+2+V-1:</td>
+<td>Each line contains two names of cities (taken from the supplied list), separated by a single blank space. This pair is connected by a direct, two-way airline flight.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="SAMPLE-INPUT-file-tour-in"><a href="#SAMPLE-INPUT-file-tour-in" class="headerlink" title="SAMPLE INPUT (file tour.in)"></a>SAMPLE INPUT (file tour.in)</h3><p>8 9<br>Vancouver<br>Yellowknife<br>Edmonton<br>Calgary<br>Winnipeg<br>Toronto<br>Montreal<br>Halifax<br>Vancouver Edmonton<br>Vancouver Calgary<br>Calgary Winnipeg<br>Winnipeg Toronto<br>Toronto Halifax<br>Montreal Halifax<br>Edmonton Montreal<br>Edmonton Yellowknife<br>Edmonton Calgary</p>
+<h3 id="OUTPUT-FORMAT"><a href="#OUTPUT-FORMAT" class="headerlink" title="OUTPUT FORMAT"></a>OUTPUT FORMAT</h3><table>
+<thead>
+<tr>
+<th>Line 1:</th>
+<th>The number M of different cities visited in the optimal itinerary. Output 1 if no itinerary is possible.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="SAMPLE-OUTPUT-file-tour-out"><a href="#SAMPLE-OUTPUT-file-tour-out" class="headerlink" title="SAMPLE OUTPUT (file tour.out)"></a>SAMPLE OUTPUT (file tour.out)</h3><p>7</p>
+<p>Namely: Vancouver, Edmonton, Montreal, Halifax, Toronto, Winnipeg, Calgary, and Vancouver (but that’s not a different city). </p>
+<h1 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h1><p>这是一个无向图——至于字符串可以用Map来解决。</p>
+<p>那么不能经过重复节点的，要到终点的2条路。</p>
+<p>考虑用$f[i,j]$表示2条路劲，其中一条到了i，第二条到了j最多经过的城市</p>
+<p>考虑对于一个城市k<br>$$<br>f[i,j] = max(f[i,k] + 1，f[k,j]+1);<br>$$<br>如果j到k右边，那么左边的是可行的，如果k到j有边，那么k到j是有边的</p>
+<p>这样是不会重复的。</p>
+<p>可以用归纳法解决，如果f[i,k]或者f[k,j]没有重复，那么加上只有一个城市到了j，所以也是不会有重复的。</p>
+<p>把f函数改改</p>
+<p>可以得到这些：</p>
+<p>​    1、$f[i,j] = f[j,i]$</p>
+<p>因此只要考虑把第二个k改变即可。</p>
+<p>$f[i,j] = max(f[i,k] + 1)$</p>
+<p><strong>百度到的做法Orz</strong></p>
+<p>相当于（除了1和n）每个点内部有容量为1，费用为1的边，外部是容量为1费用为0的边。跑最大费用最大流$Orz$</p>
+<p>好了，不管下面的做法。</p>
+<p>给出DP代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">ID:cqz15311</span></div><div class="line"><span class="comment">LANG:C++</span></div><div class="line"><span class="comment">PROG:tour</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt; </span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="built_in">string</span> a,b;</div><div class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt; Name; </div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3fffffff</span>;</div><div class="line"><span class="keyword">bool</span> g[<span class="number">105</span>][<span class="number">105</span>];</div><div class="line"><span class="keyword">int</span> f[<span class="number">105</span>][<span class="number">105</span>],n,m,ans;</div><div class="line"><span class="keyword">char</span> s[<span class="number">105</span>],t[<span class="number">105</span>];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	freopen(<span class="string">"tour.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</div><div class="line">	freopen(<span class="string">"tour.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</div><div class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="built_in">cin</span> &gt;&gt; s;</div><div class="line">		Name[s] = i;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">memset</span>(g,<span class="literal">false</span>,<span class="keyword">sizeof</span>(g));</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</div><div class="line">		<span class="built_in">cin</span> &gt;&gt; s &gt;&gt; t;</div><div class="line">		g[Name[s]][Name[t]] = <span class="literal">true</span>;</div><div class="line">		g[Name[t]][Name[s]] = <span class="literal">true</span>;</div><div class="line">	&#125;</div><div class="line">	f[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;=n;j++)&#123;</div><div class="line">			f[i][j] = -inf;</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;j;k++)</div><div class="line">				<span class="keyword">if</span> (g[k][j] &amp;&amp; f[i][k]&gt;<span class="number">0</span> &amp;&amp; f[i][k]&gt;f[i][j])</div><div class="line">					f[i][j] = f[i][k];</div><div class="line">			f[j][i] = ++f[i][j];</div><div class="line"><span class="comment">//			printf("%d %d:%d\n",i,j,f[i][j]);</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	ans = <span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		<span class="keyword">if</span> (g[i][n] &amp;&amp; f[i][n] &gt; ans) ans = f[i][n];</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">	fclose(<span class="built_in">stdin</span>);</div><div class="line">	fclose(<span class="built_in">stdout</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">Executing...</span></div><div class="line"><span class="comment">   Test 1: TEST OK [0.000 secs, 4236 KB]</span></div><div class="line"><span class="comment">   Test 2: TEST OK [0.000 secs, 4236 KB]</span></div><div class="line"><span class="comment">   Test 3: TEST OK [0.000 secs, 4236 KB]</span></div><div class="line"><span class="comment">   Test 4: TEST OK [0.000 secs, 4236 KB]</span></div><div class="line"><span class="comment">   Test 5: TEST OK [0.000 secs, 4236 KB]</span></div><div class="line"><span class="comment">   Test 6: TEST OK [0.000 secs, 4236 KB]</span></div><div class="line"><span class="comment">   Test 7: TEST OK [0.000 secs, 4236 KB]</span></div><div class="line"><span class="comment">   Test 8: TEST OK [0.000 secs, 4236 KB]</span></div><div class="line"><span class="comment">   Test 9: TEST OK [0.000 secs, 4236 KB]</span></div><div class="line"><span class="comment">   Test 10: TEST OK [0.000 secs, 4236 KB]</span></div><div class="line"><span class="comment">   Test 11: TEST OK [0.000 secs, 4236 KB]</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">All tests OK.</span></div><div class="line"><span class="comment">YOUR PROGRAM ('tour') WORKED FIRST TIME!  That's fantastic</span></div><div class="line"><span class="comment">-- and a rare thing.  Please accept these special automated</span></div><div class="line"><span class="comment">congratulations.</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/USACO/" rel="tag"># USACO</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/18/USACO/5/USACO5.3.2/USACO5-3-2/" rel="next" title="USACO5.3.2">
+                <i class="fa fa-chevron-left"></i> USACO5.3.2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/18/USACO/5/USACO5.4.2/USACO5-4-2/" rel="prev" title="USACO5.4.2">
+                USACO5.4.2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="EMOAIRX" />
+          <p class="site-author-name" itemprop="name">EMOAIRX</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/zhouzhendong/" title="ZZD___Orz" target="_blank">ZZD___Orz</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/chunlvxiong/" title="CLJ___Orz" target="_blank">CLJ___Orz</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原题"><span class="nav-number">2.</span> <span class="nav-text">原题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PROGRAM-NAME-tour"><span class="nav-number">2.0.1.</span> <span class="nav-text">PROGRAM NAME: tour</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#INPUT-FORMAT"><span class="nav-number">2.0.2.</span> <span class="nav-text">INPUT FORMAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SAMPLE-INPUT-file-tour-in"><span class="nav-number">2.0.3.</span> <span class="nav-text">SAMPLE INPUT (file tour.in)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OUTPUT-FORMAT"><span class="nav-number">2.0.4.</span> <span class="nav-text">OUTPUT FORMAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SAMPLE-OUTPUT-file-tour-out"><span class="nav-number">2.0.5.</span> <span class="nav-text">SAMPLE OUTPUT (file tour.out)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#做法"><span class="nav-number">3.</span> <span class="nav-text">做法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EMOAIRX</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

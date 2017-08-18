@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="网络流,USACO," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Pollutant Control题意：给定一张图，每条边有流量，求一个图的最小割，并且求出字典序最小一组最小割（在满足的情况下，边越少越好）。">
+<meta name="keywords" content="网络流,USACO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="USACO4.4.2">
+<meta property="og:url" content="http://yoursite.com/2017/08/11/USACO/4/USACO4.4.2-milk6/milk6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Pollutant Control题意：给定一张图，每条边有流量，求一个图的最小割，并且求出字典序最小一组最小割（在满足的情况下，边越少越好）。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-18T03:27:20.350Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="USACO4.4.2">
+<meta name="twitter:description" content="Pollutant Control题意：给定一张图，每条边有流量，求一个图的最小割，并且求出字典序最小一组最小割（在满足的情况下，边越少越好）。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/11/USACO/4/USACO4.4.2-milk6/milk6/"/>
+
+
+
+
+
+  <title>USACO4.4.2 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/11/USACO/4/USACO4.4.2-milk6/milk6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">USACO4.4.2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-11T20:44:20+08:00">
+                2017-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Pollutant-Control"><a href="#Pollutant-Control" class="headerlink" title="Pollutant Control"></a>Pollutant Control</h1><p>题意：给定一张图，每条边有流量，求一个图的最小割，并且求出字典序最小一组最小割（在满足的情况下，边越少越好）。</p>
+<a id="more"></a>
+<p>下面给出原题：</p>
+<p>USACO4.4.2</p>
+<p><strong>Pollutant Control</strong></p>
+<p><strong>Hal Burch</strong></p>
+<p>It’s your first day in Quality Control at Merry Milk Makers, and already there’s been a catastrophe: a shipment of bad milk has been sent out. Unfortunately, you didn’t discover this until the milk was already into your delivery system on its way to stores. You know which grocer that milk was destined for, but there may be multiple ways for the milk to get to that store.</p>
+<p>The delivery system is made up of a several warehouses, with trucks running from warehouse to warehouse moving milk. While the milk will be found quickly, it is important that it does not make it to the grocer, so you must shut down enough trucks to ensure that it is impossible for the milk to get to the grocer in question. Every route costs a certain amount to shut down. Find the minimum amount that must be spent to ensure the milk does not reach its destination, along with a set of trucks to shut down that achieves this goal at that cost.</p>
+<p>PROGRAM NAME: milk6</p>
+<p>INPUT FORMAT</p>
+<p>  Line 1:         Two space separated integers, N and M. N (2 &lt;= N &lt;= 32) is the number of warehouses that Merry Milk Makers has, and M (0 &lt;= M &lt;= 1000) is the number of trucks routes run. Warehouse 1 is actually the productional facility, while warehouse N is the grocer to which which the bad milk was destined.<br>  Line 2..M+1:    Truck routes: three space-separated integers, Si, Ei, and Ci. Si and Ei (1 &lt;= Si,Ei &lt;= N) correspond to the pickup warehouse and dropoff warehouse for the truck route. Ci (0 &lt;= Ci &lt;= 2,000,000) is the cost of shutting down the truck route.</p>
+<p>SAMPLE INPUT (file milk6.in)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="number">4</span> <span class="number">5</span></div><div class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">100</span></div><div class="line"><span class="number">3</span> <span class="number">2</span> <span class="number">50</span></div><div class="line"><span class="number">2</span> <span class="number">4</span> <span class="number">60</span></div><div class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">40</span></div><div class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">80</span></div></pre></td></tr></table></figure>
+<p>OUTPUT FORMAT</p>
+<p>The first line of the output should be two integers, C and T. C is the minimum amount which must be spent in order to ensure the our milk never reaches its destination. T is the minimum number of truck routes that you plan to shut down in order to achive this goal. The next T lines sould contain a sorted list of the indexes of the truck routes that you suggest shutting down. If there are multiple sets of truck routes that achieve the goal at minimum cost, choose one that shuts down the minimum number of routes. If there are still multiple sets, choose the one whose initial routes have the smallest index.</p>
+<p>SAMPLE OUTPUT (file milk6.out)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">60</span> <span class="number">1</span></div><div class="line"><span class="number">3</span></div></pre></td></tr></table></figure>
+<!-- more -->
+<p>分析和做法：</p>
+<p>这题只需要最大流就可以：注意到边不超过1000个，我们可以把每条边的边权改成原来的边权*1001再加上1，那么跑一编最小割，可以得到用的边最少的。因为在边权相同的情况下，1选的越少越好。</p>
+<p>那么答案就是最小割 / 1001。</p>
+<p>那么如何求出字典序最小的一组最小割呢？</p>
+<p>显然，因为要字典序最小，我们不能用普通的BFS之类的。</p>
+<p>考虑枚举每一条边，如果删去这条边后整个图的最小割变小了，而且变小的正好等于这条边的边权，说明这条边是最小割的一部分，然后真的把这条边从原来的网络中删去。</p>
+<p>这里有一些注意点：</p>
+<p>1、后面都是每行输出一个答案，不是一行里面</p>
+<p>2、要开long long，不然会爆</p>
+<p>3、答案的maxv和maxe不要搞错。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">ID:cqz15311</span></div><div class="line"><span class="comment">LANG:C++</span></div><div class="line"><span class="comment">PROG:milk6 </span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</div><div class="line"><span class="keyword">const</span> LL oo = <span class="number">1L</span>L&lt;&lt;<span class="number">50</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxv = <span class="number">35</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxe = <span class="number">2005</span>;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span></div><div class="line">	<span class="keyword">int</span> from,to,nxt;</div><div class="line">	LL cap,flow;</div><div class="line">&#125;;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">G</span>&#123;</span></div><div class="line">	<span class="keyword">int</span> nume;</div><div class="line">	<span class="keyword">int</span> first[maxv],cur[maxv],path[maxv],num[maxv+<span class="number">2</span>],n;</div><div class="line">	<span class="keyword">int</span> dist[maxv];</div><div class="line">	Edge edge[maxe * <span class="number">2</span>];</div><div class="line">	LL Max_flow;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">		<span class="keyword">this</span> -&gt; n = n;</div><div class="line">		nume = <span class="number">0</span>;</div><div class="line">		<span class="built_in">memset</span>(first,<span class="number">-1</span>,<span class="keyword">sizeof</span>(first));</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c)</span></span>&#123;</div><div class="line">		edge[nume] . from = a;</div><div class="line">		edge[nume] . to   = b;</div><div class="line">		edge[nume] . cap  = c;</div><div class="line">		edge[nume] . flow = <span class="number">0</span>;</div><div class="line">		edge[nume] . nxt  = first[a];</div><div class="line">		first[a] = nume++;</div><div class="line">		edge[nume] . from = b;</div><div class="line">		edge[nume] . to   = a;</div><div class="line">		edge[nume] . cap  = <span class="number">0</span>;</div><div class="line">		edge[nume] . flow = <span class="number">0</span>;</div><div class="line">		edge[nume] . nxt  = first[b];</div><div class="line">		first[b] = nume++;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Reset</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nume;i++) edge[i] . flow = <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="function">LL <span class="title">sap</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span></span>&#123;</div><div class="line">		Reset();</div><div class="line">		Max_flow = <span class="number">0</span>;</div><div class="line">		<span class="built_in">memset</span>(num,<span class="number">0</span>,<span class="keyword">sizeof</span>(num));</div><div class="line">		num[<span class="number">0</span>] = n;</div><div class="line">		<span class="built_in">memset</span>(dist,<span class="number">0</span>,<span class="keyword">sizeof</span>(dist));</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) cur[i] = first[i];</div><div class="line">		<span class="keyword">int</span> u = s;</div><div class="line">		<span class="keyword">while</span> (dist[s] &lt; n)&#123;</div><div class="line"><span class="comment">//			printf("%d\n",u);</span></div><div class="line">			<span class="keyword">if</span> (u == t)&#123;</div><div class="line">				LL Min_flow = oo,break_point;</div><div class="line">				<span class="comment">//Augment</span></div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> v=t;v!=s;v=edge[path[v]].from)&#123;</div><div class="line">					<span class="keyword">if</span> (edge[path[v]] . cap - edge[path[v]] . flow &lt; Min_flow)&#123;</div><div class="line">						Min_flow = edge[path[v]] . cap - edge[path[v]] . flow;</div><div class="line">						break_point = edge[path[v]] . from;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">				Max_flow += Min_flow;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> v=t;v!=s;v=edge[path[v]].from)&#123;</div><div class="line">					edge[path[v]] . flow += Min_flow;</div><div class="line">					edge[path[v]^<span class="number">1</span>] .flow -= Min_flow;</div><div class="line">				&#125;</div><div class="line">				u = break_point;</div><div class="line">			&#125; <span class="keyword">else</span>&#123;</div><div class="line">				<span class="keyword">bool</span> found = <span class="literal">false</span>;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> &amp;e = cur[u];e!=<span class="number">-1</span>;e=edge[e].nxt)&#123;</div><div class="line">					<span class="keyword">if</span> ((edge[e].cap &gt; edge[e].flow) &amp;&amp; (dist[edge[e].to] + <span class="number">1</span> == dist[u]))&#123;</div><div class="line">						path[edge[e].to] = e;</div><div class="line">						u = edge[e].to;</div><div class="line">						found = <span class="literal">true</span>;</div><div class="line">						<span class="keyword">break</span>;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span> (!found)&#123;</div><div class="line">					<span class="keyword">int</span> tmp = n+<span class="number">1</span>;</div><div class="line">					<span class="keyword">for</span> (<span class="keyword">int</span> e=first[u];e!=<span class="number">-1</span>;e=edge[e].nxt)&#123;</div><div class="line">						<span class="keyword">if</span> (edge[e].cap &gt; edge[e].flow)&#123;</div><div class="line">							tmp = min(tmp,dist[edge[e].to] + <span class="number">1</span>);</div><div class="line">						&#125;</div><div class="line">					&#125;</div><div class="line">					<span class="keyword">if</span> (--num[dist[u]] == <span class="number">0</span>) <span class="keyword">return</span> Max_flow;</div><div class="line">					dist[u] = tmp;</div><div class="line">					num[tmp]++;</div><div class="line">					cur[u] = first[u];</div><div class="line">					<span class="keyword">if</span> (u != s) u = edge[path[u]] . from;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> Max_flow;</div><div class="line">	&#125;</div><div class="line">&#125;G;</div><div class="line"><span class="keyword">int</span> ans[maxe+<span class="number">1</span>];</div><div class="line"><span class="keyword">int</span> a[maxe],b[maxe];</div><div class="line">LL c[maxe];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	freopen(<span class="string">"milk6.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</div><div class="line">	freopen(<span class="string">"milk6.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</div><div class="line">	<span class="keyword">int</span> n,m;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</div><div class="line">	G.init(n);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d%lld"</span>,&amp;a[i],&amp;b[i],&amp;c[i]);</div><div class="line">		c[i] = c[i] * <span class="number">1001</span> + <span class="number">1</span>;</div><div class="line">		G.add_edge(a[i],b[i],c[i]);</div><div class="line">	&#125;</div><div class="line">	LL Max_flow = G.sap(<span class="number">1</span>,n);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%lld "</span>,Max_flow / <span class="number">1001</span>);</div><div class="line">	<span class="built_in">memset</span>(ans,<span class="number">0</span>,<span class="keyword">sizeof</span>(ans));</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</div><div class="line">		G.edge[i*<span class="number">2</span>] . cap = <span class="number">0</span>;</div><div class="line">		LL tmp = G.sap(<span class="number">1</span>,n);</div><div class="line">		<span class="keyword">if</span> (Max_flow - tmp == c[i])&#123;</div><div class="line">			ans[++ans[<span class="number">0</span>]] = i+<span class="number">1</span>;</div><div class="line">			Max_flow -= c[i];</div><div class="line">		&#125; <span class="keyword">else</span></div><div class="line">			G.edge[i*<span class="number">2</span>] . cap = c[i];</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans[<span class="number">0</span>]);</div><div class="line">	<span class="keyword">if</span> (ans[<span class="number">0</span>] != <span class="number">0</span>)&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans[<span class="number">1</span>]);</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=ans[<span class="number">0</span>];i++)&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans[i]);</div><div class="line">		&#125;</div><div class="line">	&#125; </div><div class="line">	fclose(<span class="built_in">stdin</span>);</div><div class="line">	fclose(<span class="built_in">stdout</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">Executing...</span></div><div class="line"><span class="comment">   Test 1: TEST OK [0.000 secs, 4328 KB]</span></div><div class="line"><span class="comment">   Test 2: TEST OK [0.000 secs, 4328 KB]</span></div><div class="line"><span class="comment">   Test 3: TEST OK [0.000 secs, 4328 KB]</span></div><div class="line"><span class="comment">   Test 4: TEST OK [0.000 secs, 4328 KB]</span></div><div class="line"><span class="comment">   Test 5: TEST OK [0.056 secs, 4328 KB]</span></div><div class="line"><span class="comment">   Test 6: TEST OK [0.000 secs, 4328 KB]</span></div><div class="line"><span class="comment">   Test 7: TEST OK [0.000 secs, 4328 KB]</span></div><div class="line"><span class="comment">   Test 8: TEST OK [0.000 secs, 4328 KB]</span></div><div class="line"><span class="comment">   Test 9: TEST OK [0.014 secs, 4328 KB]</span></div><div class="line"><span class="comment">   Test 10: TEST OK [0.154 secs, 4328 KB]</span></div><div class="line"><span class="comment">   Test 11: TEST OK [0.000 secs, 4328 KB]</span></div><div class="line"><span class="comment">   Test 12: TEST OK [0.000 secs, 4328 KB]</span></div><div class="line"><span class="comment">All tests OK.</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络流/" rel="tag"># 网络流</a>
+          
+            <a href="/tags/USACO/" rel="tag"># USACO</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/11/网络流24题/第4题/4/" rel="next" title="网络流练习4">
+                <i class="fa fa-chevron-left"></i> 网络流练习4
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/11/USACO/4/USACO4.4.1-shuttle/shuttle/" rel="prev" title="USACO4.4.1">
+                USACO4.4.1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="EMOAIRX" />
+          <p class="site-author-name" itemprop="name">EMOAIRX</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/zhouzhendong/" title="ZZD___Orz" target="_blank">ZZD___Orz</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/chunlvxiong/" title="CLJ___Orz" target="_blank">CLJ___Orz</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pollutant-Control"><span class="nav-number">1.</span> <span class="nav-text">Pollutant Control</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EMOAIRX</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
