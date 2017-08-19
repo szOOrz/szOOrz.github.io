@@ -17,7 +17,7 @@
 <meta property="og:description" content="一道题目一道题目写太乱了， 感觉无法忍受 打算学大佬的写法。 不贴代码Orz">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://codeforces.com/predownloaded/30/e5/30e539b0cc8f5d37f524dd78cdc549a4fa5c7a93.png">
-<meta property="og:updated_time" content="2017-08-19T08:41:30.550Z">
+<meta property="og:updated_time" content="2017-08-19T13:20:51.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="codeforces">
 <meta name="twitter:description" content="一道题目一道题目写太乱了， 感觉无法忍受 打算学大佬的写法。 不贴代码Orz">
@@ -254,8 +254,25 @@
 <p>不会QAQ</p>
 <blockquote>
 <p><strong>CF663C:</strong>有一个n个点，m条边的无向图，一开始，每条边的颜色都是给定的，然后玩家选择一个顶点，把相邻的边的颜色反转一下，问使得所有边颜色相同最少反转几下，输出那些反转的顶点，不可以输出-1.$(1 ≤ n, m ≤ 100 000)$</p>
-<p><strong>CF663D:</strong>有一个n*m的表格，包含0或1.每一次可以选择一行，或一列翻转(0&lt;-&gt;1)。求一些操作后，1的个数的最小值。$n&lt;=20, m&lt;=100000 $</p>
 </blockquote>
+<p><strong>并查集</strong>(6A)</p>
+<p>​    不失一般性，考虑把所有边的颜色变成红色，那么可以把整个图分成不同的联通块，每个联通块分别处理。如果有一条边是蓝色的，说明这条边的左右两端的状态是不同的，如果是红色的，说明状态是相同的。对于一个联通块，显然只有2类。那么我们只需要在2类中取较小的一类即可。</p>
+<p>​    考虑用2个并查集，分别维护相同类和不同类。</p>
+<blockquote>
+<p><strong>CF663D:</strong></p>
+</blockquote>
+<p>不会QAQ</p>
+<blockquote>
+<p><strong>CF663E:</strong>有一个n*m的表格，包含0或1.每一次可以选择一行，或一列翻转(0&lt;-&gt;1)。求一些操作后，1的个数的最小值。$n&lt;=20, m&lt;=100000 $</p>
+</blockquote>
+<p><strong>FWT优化</strong>(4A)</p>
+<p>​    很容易想到一个暴力，是枚举行变化$O(2^n)$，然后贪心验证$O(n*m)$，然后利用位运算，可以通过预处理先得到$v_i$表示$i$，或者$i$的翻转包含的最少的1的个数($i$是一状压二进制)，$v_i = min(|i|,n-|i|)$，那么设某一列状压之后是$A_i$，当前枚举到行变化是$s$，那么如果用$Ans[s]$表示在s状态能够获得的最大$Ans$，用$cnt[i]$表示所有列中$i$出现了几次可以得到，</p>
+<p>$$\large Ans[s] =\sum<em>{i=0}^{2^n-1} v</em>{s⊕i} * cnt_i$$ ————然后，上面这个式子是可以通过FWT优化的，因为这个等价于存在两个向量$cnt$和$v$，然后要求它们的亦或卷积得到的另一个向量。</p>
+<p>$$\large Ans[s] = \sum_{j⊕k =i}cnt_j*v_k$$</p>
+<p>因此，跑一个</p>
+<p>$$FWT(A) = (FWT(A0)+FWT(A1),FWT(A0)-FWT(A1))$$</p>
+<p>$$IFWT(A)=IFWT((A0+A1) \div2,(A0-A1)\div2)$$</p>
+<p>最后来一个统计就有结果了——虽然我也不知道怎么构造，我也不知道怎么证明。</p>
 
       
 
@@ -359,6 +376,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/08/19/想想/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          想想
+        
+      </div>
+    </a>
   
   
     <a href="/2017/08/18/USACO/5/USACO5.4/USACO5-4/" id="article-nav-older" class="article-nav-link-wrap">
@@ -531,11 +557,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+                <a href="javascript:void(0)" class="js-tag color3">差分</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">差分</a>
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
             
             <div class="clearfix"></div>

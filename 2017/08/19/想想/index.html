@@ -6,23 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>codeforces601B | Hexo</title>
+  <title>想想 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题意B题：给定n个hi，然后定义 ·if n &amp;lt; 2,  ·if n ≥ 2,  over all 1 ≤ i &amp;lt; j ≤ n 给出区间L,R，问区间L,R的所有子段的L函数之和。">
-<meta name="keywords" content="codeforces,单调栈">
-<meta property="og:type" content="article">
-<meta property="og:title" content="codeforces601B">
-<meta property="og:url" content="http://yoursite.com/2017/08/15/Codeforces/601/601B/codeforces601B/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="想想">
+<meta property="og:url" content="http://yoursite.com/2017/08/19/想想/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="题意B题：给定n个hi，然后定义 ·if n &amp;lt; 2,  ·if n ≥ 2,  over all 1 ≤ i &amp;lt; j ≤ n 给出区间L,R，问区间L,R的所有子段的L函数之和。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://codeforces.com/predownloaded/a3/7d/a37dc46ef6a265bb8f01595c2118a82b456b068a.png">
-<meta property="og:image" content="http://codeforces.com/predownloaded/cf/32/cf32e97135c9c6e4e441357b5c63e0b5a8d93ffe.png">
-<meta property="og:updated_time" content="2017-08-15T10:00:13.768Z">
+<meta property="og:updated_time" content="2017-08-19T11:48:55.325Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="codeforces601B">
-<meta name="twitter:description" content="题意B题：给定n个hi，然后定义 ·if n &amp;lt; 2,  ·if n ≥ 2,  over all 1 ≤ i &amp;lt; j ≤ n 给出区间L,R，问区间L,R的所有子段的L函数之和。">
-<meta name="twitter:image" content="http://codeforces.com/predownloaded/a3/7d/a37dc46ef6a265bb8f01595c2118a82b456b068a.png">
+<meta name="twitter:title" content="想想">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -138,41 +131,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Codeforces/601/601B/codeforces601B" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-想想" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      codeforces601B
+      想想
     </h1>
   
 
         
-        <a href="/2017/08/15/Codeforces/601/601B/codeforces601B/" class="archive-article-date">
-  	<time datetime="2017-08-15T09:49:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-15</time>
+        <a href="/2017/08/19/想想/" class="archive-article-date">
+  	<time datetime="2017-08-19T11:48:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>B题：给定n个hi，然后定义</p>
-<p>·if <em>n</em> &lt; 2, <img src="http://codeforces.com/predownloaded/a3/7d/a37dc46ef6a265bb8f01595c2118a82b456b068a.png" alt="img"></p>
-<p>·if <em>n</em> ≥ 2, <img src="http://codeforces.com/predownloaded/cf/32/cf32e97135c9c6e4e441357b5c63e0b5a8d93ffe.png" alt="img"> over all 1 ≤ <em>i</em> &lt; <em>j</em> ≤ <em>n</em></p>
-<p>给出区间L,R，问区间L,R的所有子段的L函数之和。</p>
-<a id="more"></a>
-<h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><p><a href="http://codeforces.com/contest/601/problem/B" target="_blank" rel="external">http://codeforces.com/contest/601/problem/B</a></p>
-<h1 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h1><p>参考网络。</p>
-<p>把i看成横坐标，h[i]看作纵坐标，那么L(h)其实就是一个区间中的某两点之间的斜率绝对值，从而可以证明L(h)一定是坐标相邻的点的斜率的绝对值</p>
-<p>$L(h) = abs(h[i+1] - h[i]) ——1&lt;=i&lt; n$</p>
-<p>设$D[i] = h[i] - h[i-1].$</p>
-<p>那么答案就是各个f[i]的贡献和</p>
-<p>这个可以通过单调栈做出来</p>
-<p>通过单调栈，可以得到这个位置向左严格最大到哪边，向右不严格最大到哪边——主要是为了让每个区间都加入计数。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">105000</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> d[maxn],h[maxn],Lmax[maxn],Rmax[maxn];</div><div class="line"><span class="keyword">int</span> n,q;</div><div class="line"><span class="keyword">int</span> top,Stack[maxn];</div><div class="line"><span class="function">LL <span class="title">solve</span><span class="params">(<span class="keyword">int</span> L,<span class="keyword">int</span> R)</span></span>&#123;</div><div class="line">	top = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=L;i&lt;=R;i++)&#123;</div><div class="line">		<span class="comment">//维护一个递减的单调栈</span></div><div class="line">		<span class="keyword">while</span> ((top &gt; <span class="number">0</span>) &amp;&amp; (d[Stack[top]] &lt;= d[i]))&#123;</div><div class="line">			Rmax[Stack[top]] = i<span class="number">-1</span>;</div><div class="line">			top--;</div><div class="line">		&#125;</div><div class="line">		Stack[++top] = i;</div><div class="line">	&#125; </div><div class="line">	<span class="keyword">while</span> (top &gt; <span class="number">0</span>)&#123;</div><div class="line">		Rmax[Stack[top]] = R;</div><div class="line">		top--;</div><div class="line">	&#125;</div><div class="line">	top = <span class="number">0</span>;</div><div class="line">	</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=R;i&gt;=L;i--)&#123;</div><div class="line">		<span class="comment">//维护一个递减的单调栈</span></div><div class="line">		<span class="keyword">while</span> ((top &gt; <span class="number">0</span>) &amp;&amp; (d[Stack[top]] &lt; d[i]))&#123;</div><div class="line">			Lmax[Stack[top]] = i+<span class="number">1</span>;</div><div class="line">			top--;</div><div class="line">		&#125;</div><div class="line">		Stack[++top] = i;</div><div class="line">	&#125; </div><div class="line">	<span class="keyword">while</span> (top &gt; <span class="number">0</span>)&#123;</div><div class="line">		Lmax[Stack[top]] = L;</div><div class="line">		top--;</div><div class="line">	&#125;</div><div class="line">	LL Ans = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=L;i&lt;=R;i++)&#123;</div><div class="line">		Ans = Ans + (LL)(Rmax[i]-i + <span class="number">1</span>) * (i - Lmax[i] + <span class="number">1</span>) * d[i];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> Ans;</div><div class="line">&#125;</div><div class="line">	</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;q);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;h[i]);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++) d[i] = <span class="built_in">abs</span>(h[i] - h[i<span class="number">-1</span>]);</div><div class="line">	<span class="keyword">while</span> (q--)&#123;</div><div class="line">		<span class="keyword">int</span> L,R;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;L,&amp;R);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>,solve(L+<span class="number">1</span>,R));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+        
       
 
       
@@ -201,21 +180,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">codeforces</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">单调栈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -266,7 +230,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/15/Codeforces/601/601B/codeforces601B/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/19/想想/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,18 +244,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/17/Codeforces/618/618E/codeforces618E/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          codeforces618E
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/15/Codeforces/590/CF590D/codeforces590D/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">codeforces590D</div>
+    <a href="/2017/08/19/Codeforces/codeforces/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">codeforces</div>
       <i class="icon-circle-right"></i>
     </a>
   
