@@ -17,7 +17,9 @@
 <meta property="og:description" content="一道题目一道题目写太乱了， 感觉无法忍受 打算学大佬的写法。 不贴代码Orz">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://codeforces.com/predownloaded/30/e5/30e539b0cc8f5d37f524dd78cdc549a4fa5c7a93.png">
-<meta property="og:updated_time" content="2017-08-19T13:20:51.347Z">
+<meta property="og:image" content="http://codeforces.com/predownloaded/a3/7d/a37dc46ef6a265bb8f01595c2118a82b456b068a.png">
+<meta property="og:image" content="http://codeforces.com/predownloaded/cf/32/cf32e97135c9c6e4e441357b5c63e0b5a8d93ffe.png">
+<meta property="og:updated_time" content="2017-08-19T14:07:06.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="codeforces">
 <meta name="twitter:description" content="一道题目一道题目写太乱了， 感觉无法忍受 打算学大佬的写法。 不贴代码Orz">
@@ -162,7 +164,90 @@
 <p>打算学大佬的写法。</p>
 <p>不贴代码Orz</p>
 <a id="more"></a>
-<h5 id="Wunder-Fund-Round-2016-Div-1-Div-2-combined"><a href="#Wunder-Fund-Round-2016-Div-1-Div-2-combined" class="headerlink" title="Wunder Fund Round 2016 (Div. 1 + Div. 2 combined)"></a><a href="http://codeforces.com/contest/618" target="_blank" rel="external">Wunder Fund Round 2016 (Div. 1 + Div. 2 combined)</a></h5><blockquote>
+<h5 id="Codeforces-Round-327-Div-1"><a href="#Codeforces-Round-327-Div-1" class="headerlink" title="Codeforces Round #327 (Div. 1)"></a><a href="http://codeforces.com/contest/590" target="_blank" rel="external">Codeforces Round #327 (Div. 1)</a></h5><blockquote>
+<p><strong>CF590A</strong>:给你一个只有0和1组成的序列A，每次可以对序列A进行操作，每次操作是把A的每一个元素变成上一个序列的它，它左边，它右边3个数的中位数，其中1和n不变。问几次操作后会变成稳定——不会再改变，然后稳定时候的状态是怎么样的。</p>
+</blockquote>
+<p><strong>划分</strong></p>
+<p>​    对于中间的元素，只有一种情况会使得其改变：010或者101——其中它在中间。考虑可以把整个序列划分成一些稳定的两端构成的序列    如，把1010101010111010101划分成10101010101|1|1010101这3部分，然后每一部分最终都会变成4种形态:11110000或者00001111或者11111111或者00000000这种。    既然这样，就可以处理，然后答案对操作数取一个Max即可。线性O(n)扫描。</p>
+<blockquote>
+<p><strong>CF590B:</strong>您要从(x1,y1)到(x2,y2)，一开始风速为(vx,vy)，t秒后(wx,wy)，您的速度不超过Vmax，求最少到终点的时间，保证风速小于您的速度，风速和您的速度都是向量</p>
+</blockquote>
+<p><strong>二分答案</strong></p>
+<p>​    二分答案，然后假设人不动，判断是否可行。</p>
+<blockquote>
+<p><strong>CF590C:</strong>给定一个N*M的矩阵，这个矩阵里面有’1’,’2’,’3’,’.’,’#’,你可以把’.’改成桥，使得所有1,2,3四联通，问最少把多少个’.’改变，其中‘#’不能改变，如果不能输出-1。——其中’1’,’2’,’3’本身是连续的</p>
+</blockquote>
+<p><strong>BFS</strong></p>
+<p>​    注意到，桥一定会在一个点交汇——这个点可能在某个国家里面，也可能在’.’位置。我们可以考虑枚举这个交汇点的位置，然后把3个国家到这个点的Dis全部加起来，取Min就是结果为什么是对的呢？这个不会有重复吗？会的。不过必然有一个点没有，那就是交汇点。我们可以预处理出某一个国家到一个点路上最少经过的’.’的个数——我用循环入队一直T，后来改成优先队列做的——事实上还有更好的方法。然后枚举每一个点，当然，如果这个点是’.’会被计算3次，要减去。</p>
+<blockquote>
+<p><strong>CF590D:</strong>n个数，求最多相邻两两交换S次，使前K个数的和最小</p>
+</blockquote>
+<p><strong>DP</strong></p>
+<p>​    注意到，N*(N-1)/2&lt;=S的时候，S的大小已经没有什么用途了考虑用dp[i,j,k]表示处理到前i个数字，其中已经交换了j次的，前k个已经确定的最小数字之和考虑把第i个交换到第k个位置——或者不交换。不交换的话$dp[i,j,k] = dp[i-1,j,k]$交换的话$dp[i,j,k] = dp[i-1,j - (i-k) , k-1] + a[i]$用滚动数组优化一下答案就是$dp[N,X,K] (X&lt;=S)$</p>
+<h5 id="Codeforces-Round-330-Div-1"><a href="#Codeforces-Round-330-Div-1" class="headerlink" title="Codeforces Round #330 (Div. 1)"></a><a href="http://codeforces.com/contest/594" target="_blank" rel="external">Codeforces Round #330 (Div. 1)</a></h5><blockquote>
+<p><strong>CF594A:</strong>数轴上有N个点，N是偶数。有两个人，依次取走一个点，直到最后剩下2个点，其中第一个人（先取要最后剩下的点的距离最大），第二个人要使得距离最小，问距离最小是多少。</p>
+</blockquote>
+<p><strong>博弈</strong></p>
+<p>​    如果您作为第二个人，您一定会去取两端的。如果存在答案区间L,R。显然，第二个人一定会取L,R以外的。</p>
+<p>​    相反，第一个人会取L,R以内的，因为L,R以外的第二个人会去取。所以答案就是在其中找一段区间，使得内部有(N-2)/2个点，然后区间最小。</p>
+<blockquote>
+<p><strong>CF594C</strong>平面上，给你n个点，然后你可以删除k个点然后让你用一个两边平行于坐标轴的矩形，去围住这n-k个点，问这个矩形的面积，最小可以是多少$(K&lt;=10)$</p>
+</blockquote>
+<p>​    <strong>暴力</strong>，考虑到只会删除上下左右4个方向的点，先暴力得到上下删除哪些点，然后再暴力得到左右删了哪些点，用一个标记数组维护。</p>
+<blockquote>
+<p><strong>CF594D:</strong>给你n个数(n&lt;=200000)，每个数&lt;=1e6，给出Q个询问，每个询问给出l,r,问<img src="http://codeforces.com/predownloaded/30/e5/30e539b0cc8f5d37f524dd78cdc549a4fa5c7a93.png" alt="img">的值是多少。</p>
+</blockquote>
+<p>​    回顾一下欧拉函数的求法    $$\large cp[n] =n* \prod_p^{p是n的质因数}(p-1) / p$$</p>
+<p>​    同样的，扩展到区间    $$\large cp[Π(A[L]-A[R])] = \prod_{i=L}^{R}(A[i]) * \prod_p^{p是这些乘积的质因数}(p-1)/p$$</p>
+<p>​    这题没有修改操作，一切都是询问，可以考虑离线处理。我们把所有询问按照右端点排序。那么如何处理(L~R)这一段的乘积的欧拉函数呢？事实上，L~R中间的数的乘积我们可以通过前缀$O(1)$得出来，我们需要的就是L~R这一段所有数包含的质因数(p)的(p-1) / p，当然，在Mod意义下是逆元。这里，我们先假设每个数出现不同的质因数。计$Xi = (p1-1) / (p1) * (p2-1) / p2$……，其中p1,p2是ai的质因数同样的，我们可以保存前缀，算得$X1$~$Xr$的乘积，然后再算得到$X1$~$X_(l-1) $的乘积，然后可以O1求解。然而，我们要知道，每个数可能拥有同样的质因数。显然，由于我们已经按照右端点排序</p>
+<p>​    我们可以把所有可能的质因子保存在最右边出现质因子的地方。用一棵树状数组维护前缀Xi的乘积。对于新加入的一个数$Ai$，考虑得到它的所有质因数，如果这些质因数还没有出现过，那么把(p-1)/p弄上去，否则，不但要把(p-1)/p弄到这个节点上，还要把p / (p-1)弄到前面出现p的节点上，以消除p的重复影响。</p>
+<h5 id="Codeforces-Round-333-Div-1"><a href="#Codeforces-Round-333-Div-1" class="headerlink" title="Codeforces Round #333 (Div. 1)"></a><a href="http://codeforces.com/contest/601" target="_blank" rel="external">Codeforces Round #333 (Div. 1)</a></h5><blockquote>
+<p><strong>CF601A</strong>有个地方有些城镇，城镇与城镇间如果有铁路相连，就不会有公路相连，没有铁路连接的城镇就会有公路相连。给你n个城镇数目，m铁路线，问同时从1出发，分别坐火车和坐汽车到达n点，两者都到达的时候最少的用时。其中火车和汽车不能同时到达中间点。</p>
+</blockquote>
+<p>​    跑2次最短路即可。</p>
+<blockquote>
+<p><strong>CF601B</strong>给定n个hi，然后定义·if <em>n</em> &lt; 2, <img src="http://codeforces.com/predownloaded/a3/7d/a37dc46ef6a265bb8f01595c2118a82b456b068a.png" alt="img">·if <em>n</em> ≥ 2, <img src="http://codeforces.com/predownloaded/cf/32/cf32e97135c9c6e4e441357b5c63e0b5a8d93ffe.png" alt="img"> over all 1 ≤ <em>i</em> &lt; <em>j</em> ≤ <em>n</em></p>
+<p>给出区间L,R，问区间L,R的所有子段的L函数之和。</p>
+</blockquote>
+<p><strong>脑洞，单调栈</strong></p>
+<p>​    把$i$看成横坐标，$h[i]$看作纵坐标，那么$L(h)$其实就是一个区间中的某两点之间的斜率绝对值，从而可以证明$L(h)$一定是坐标相邻的点的斜率的绝对值$L(h) = abs(h[i+1] - h[i]) ——1&lt;=i&lt; n$设$D[i] = h[i] - h[i-1].$那么答案就是各个$f[i]$的贡献和，这个可以通过单调栈做出来。通过单调栈，可以得到这个位置向左严格最大到哪边，向右不严格最大到哪边——主要是为了让每个区间都加入计数。</p>
+<blockquote>
+<p><strong>CF601C</strong>有$n$场比赛，每一场比赛都有$m$人参与。每场比赛的得分都是这个人的排名（没有相等的）总分是$n$场比赛的分数之和。总排名定义为：总分严格小于他的人数$+1$。已知小K在$n$场比赛中的排名。所有人的水平相同，求小K的期望总排名。</p>
+</blockquote>
+<p><strong>DP</strong></p>
+<p>​    考虑到直接计算排名比较麻烦，设$f[i,j]$表示$i$场比赛之后，总分为$j$的期望人数，那么可以得到一个转移方程：$\large f[i,j] = \sum\frac{f[i-1][j-k]}{m-1}(i&lt;=k&lt;=m,k≠a[i])$，通过这个式子观察之后我们可以发现，可以前缀和优化转移，于是采用差分方法实现。</p>
+<h5 id="Codeforces-Round-334-Div-1"><a href="#Codeforces-Round-334-Div-1" class="headerlink" title="Codeforces Round #334 (Div. 1)"></a><a href="http://codeforces.com/contest/603" target="_blank" rel="external">Codeforces Round #334 (Div. 1)</a></h5><blockquote>
+<p><strong>CF603A</strong>有一个长度为n的1,0组成的串，可以将其中连续一段翻转，使得剩下的1010交替出现的子序列最长。</p>
+</blockquote>
+<p><strong>DP</strong>(1A)</p>
+<p>​    考虑用$f[i]$,$g[i]$,$h[i]$分别表示还没有翻转，正在翻转，翻转完了的$ans$，最后取一个$max$即可。</p>
+<blockquote>
+<p><strong>CF603C</strong>，有n堆石子，如果某一个石子是偶数，可以选择得到k堆石子数/2个，奇偶都可以得到石子数-1个石子。没法操作者败</p>
+</blockquote>
+<p><strong>博弈</strong>(3A)</p>
+<p>​    考虑SG函数打表找规律，当i为奇数的时候，$SG[i] = mex SG[i-1]$，当i为偶数的时候,能执行第二种操作，所以$SG[i] = mex(SG[i-1],SG[i/2] xor SG[i/2]……共k个)$，由此可以得到，答案之和$k$的奇偶有关，当$k$是奇数的时候，$SG[i] = mexSG[i-1],0$，所以往后一定是01交替出现，当$k$是偶数的时候，SG当$i$是奇数的时候为0，否则只需要$SG[i/2]$递归调用，取$mex$即可，注意到，不会超过$log$次调用。</p>
+<h5 id="Codeforces-Round-335-Div-1"><a href="#Codeforces-Round-335-Div-1" class="headerlink" title="Codeforces Round #335 (Div. 1)"></a><a href="http://codeforces.com/contest/605" target="_blank" rel="external">Codeforces Round #335 (Div. 1)</a></h5><blockquote>
+<p><strong>CF605A</strong>给定$n$的一个排列，每次可以把一个数放到开头或末尾，求变为升序的最少步骤</p>
+</blockquote>
+<p><strong>DP</strong>(1A)<br>​    考虑就是寻找到一个每位都递增1的最长上升子序列，然后这些不动，其它改变。用DP求即可。</p>
+<blockquote>
+<p><strong>CF605B</strong>有一个$n$个点，$m$条边的图，然后$m$条边中有$n−1$条边构成了最小生成树，然后边权与是否作为$MST$的边告诉你，要构造出这个图。</p>
+</blockquote>
+<p><strong>构造</strong>(2A)</p>
+<p>​    逐个添加，如果应该作为最小生成树的，考虑可以把1和这个节点连接，如果不应该作为最小生成树的，考虑把剩下可以用的边连接，如果无法连接，就是无解。当加入一个新节点，可以用的边加入这个点到前面非1的位置的。新节点只有当最小生成树的边加入时才增加。</p>
+<blockquote>
+<p><strong>CF605C</strong>有$n$项工作，第ii项工作每天可以带来$ai$的经验，$bi$的钱。问最少几天可以得到$p$的经验和$q$的钱。工作天数可以是小数，每次只能进行一种工作。</p>
+</blockquote>
+<p><strong>二分答案，凸包</strong>(10A)——注意LL</p>
+<p>​    考虑把(ai,bi)看作平面上的一个点，注意到，一个点可行，当且仅当这个点是平面的凸包上的点——否则一定有2个点比这个点优。进一步，一定是凸包一个点，或者相邻两个点组合得到的。</p>
+<p>​    考虑二分答案，然后用类似解二元一次方程的方法，把凸包相邻2个点，或者凸包上的一个点组合得到的算出来，输出解即可。</p>
+<blockquote>
+<p><strong>CF605D</strong>玩家有两个属性$x,y$，有$n$个魔法。对于第$i$个魔法，用$(ai,bi,ci,di)$描述。当$ai&lt;=x,bi&lt;=y$时，玩家能使用这个魔法。之后玩家的属性$x=ci,y=di$。求施展第n个魔法最少需要多少次。输出方案，答案不唯一。</p>
+</blockquote>
+<p><strong>BFS，树状数组，set</strong>(2A)</p>
+<p>​    相当于一个二维平面，因为是最小步数，很容易想到$BFS$，但是$BFS$的扩展节点只能扩展这个的左下方的，为了快速扩展（线段树套线段树显然可行）——用一个更容易实现的，考虑树状数组（离散化后的x坐标）套$set$，来快速维护下一个应该扩展的点，那么就是在左下角寻找一个满足条件的，（用树状数组），然后用$set$的lower_ bound快速寻找，然后扩展。时间复杂度$O(n <em> log(n) </em> log(n) )$</p>
+<p><a href="http://codeforces.com/contest/618" target="_blank" rel="external">Wunder Fund Round 2016 (Div. 1 + Div. 2 combined)</a></p>
+<blockquote>
 <p><strong>CF618E</strong>原来有一个N个段的长度为1的段，然后有m个操作，操作1是给定第X段，然后把第X段延长，变成多少Y，然后操作2是把某一个段按照原先的左端点旋转α°，每次操作完了询问原先最右边的端。</p>
 <p>$n,m&lt;=300 000$</p>
 </blockquote>
@@ -184,39 +269,6 @@
 <p><strong>set维护BFS</strong></p>
 <p>​    考虑将1除去之后，得到剩下的联通块，其中有一个联通块没有向1的边，说明impossible，否则，如果联通块的数量大于等于k，说明无解。——因为联通块里面是可以随意连的。那么如何求联通块呢，考虑BFS。但是普通的BFS的复杂度会到$O(N^2)$，而这题的N比较大，是撑不住的，注意到，选取点有很大的冗余——因为每个点最多只会被访问1次，那么如何选点的？考虑用一个set维护还没有被访问过的点，访问一个点，将这个点从set中删去。对于某个点开始，寻找set中的元素，如果可以访问，那么访问，同时删去。</p>
 <p>​    注意到，这个时间复杂度只有$O((n+m)log n)$。</p>
-<h5 id="Codeforces-Round-330-Div-1"><a href="#Codeforces-Round-330-Div-1" class="headerlink" title="Codeforces Round #330 (Div. 1)"></a><a href="http://codeforces.com/contest/594" target="_blank" rel="external">Codeforces Round #330 (Div. 1)</a></h5><blockquote>
-<p><strong>CF594A:</strong>数轴上有N个点，N是偶数。有两个人，依次取走一个点，直到最后剩下2个点，其中第一个人（先取要最后剩下的点的距离最大），第二个人要使得距离最小，问距离最小是多少。</p>
-</blockquote>
-<p><strong>博弈</strong></p>
-<p>​    如果您作为第二个人，您一定会去取两端的。如果存在答案区间L,R。显然，第二个人一定会取L,R以外的。</p>
-<p>​    相反，第一个人会取L,R以内的，因为L,R以外的第二个人会去取。所以答案就是在其中找一段区间，使得内部有(N-2)/2个点，然后区间最小。</p>
-<blockquote>
-<p><strong>CF594C:</strong>给你n个数(n&lt;=200000)，每个数&lt;=1e6，给出Q个询问，每个询问给出l,r,问<img src="http://codeforces.com/predownloaded/30/e5/30e539b0cc8f5d37f524dd78cdc549a4fa5c7a93.png" alt="img">的值是多少。</p>
-</blockquote>
-<p>​    回顾一下欧拉函数的求法    $$\large cp[n] =n* \prod_p^{p是n的质因数}(p-1) / p$$</p>
-<p>​    同样的，扩展到区间    $$\large cp[Π(A[L]-A[R])] = \prod_{i=L}^{R}(A[i]) * \prod_p^{p是这些乘积的质因数}(p-1)/p$$</p>
-<p>​    这题没有修改操作，一切都是询问，可以考虑离线处理。我们把所有询问按照右端点排序。那么如何处理(L~R)这一段的乘积的欧拉函数呢？事实上，L~R中间的数的乘积我们可以通过前缀$O(1)$得出来，我们需要的就是L~R这一段所有数包含的质因数(p)的(p-1) / p，当然，在Mod意义下是逆元。这里，我们先假设每个数出现不同的质因数。计$Xi = (p1-1) / (p1) * (p2-1) / p2$……，其中p1,p2是ai的质因数同样的，我们可以保存前缀，算得$X1$~$Xr$的乘积，然后再算得到$X1$~$X_(l-1) $的乘积，然后可以O1求解。然而，我们要知道，每个数可能拥有同样的质因数。显然，由于我们已经按照右端点排序</p>
-<p>​    我们可以把所有可能的质因子保存在最右边出现质因子的地方。用一棵树状数组维护前缀Xi的乘积。对于新加入的一个数$Ai$，考虑得到它的所有质因数，如果这些质因数还没有出现过，那么把(p-1)/p弄上去，否则，不但要把(p-1)/p弄到这个节点上，还要把p / (p-1)弄到前面出现p的节点上，以消除p的重复影响。</p>
-<h5 id="Codeforces-Round-327-Div-1"><a href="#Codeforces-Round-327-Div-1" class="headerlink" title="Codeforces Round #327 (Div. 1)"></a><a href="http://codeforces.com/contest/590" target="_blank" rel="external">Codeforces Round #327 (Div. 1)</a></h5><blockquote>
-<p><strong>CF590A</strong>:给你一个只有0和1组成的序列A，每次可以对序列A进行操作，每次操作是把A的每一个元素变成上一个序列的它，它左边，它右边3个数的中位数，其中1和n不变。问几次操作后会变成稳定——不会再改变，然后稳定时候的状态是怎么样的。</p>
-</blockquote>
-<p><strong>划分</strong></p>
-<p>​    对于中间的元素，只有一种情况会使得其改变：010或者101——其中它在中间。考虑可以把整个序列划分成一些稳定的两端构成的序列    如，把1010101010111010101划分成10101010101|1|1010101这3部分，然后每一部分最终都会变成4种形态:11110000或者00001111或者11111111或者00000000这种。    既然这样，就可以处理，然后答案对操作数取一个Max即可。线性O(n)扫描。</p>
-<blockquote>
-<p><strong>CF590B:</strong>您要从(x1,y1)到(x2,y2)，一开始风速为(vx,vy)，t秒后(wx,wy)，您的速度不超过Vmax，求最少到终点的时间，保证风速小于您的速度，风速和您的速度都是向量</p>
-</blockquote>
-<p><strong>二分答案</strong></p>
-<p>​    二分答案，然后假设人不动，判断是否可行。</p>
-<blockquote>
-<p><strong>CF590C:</strong>给定一个N*M的矩阵，这个矩阵里面有’1’,’2’,’3’,’.’,’#’,你可以把’.’改成桥，使得所有1,2,3四联通，问最少把多少个’.’改变，其中‘#’不能改变，如果不能输出-1。——其中’1’,’2’,’3’本身是连续的</p>
-</blockquote>
-<p><strong>BFS</strong></p>
-<p>​    注意到，桥一定会在一个点交汇——这个点可能在某个国家里面，也可能在’.’位置。我们可以考虑枚举这个交汇点的位置，然后把3个国家到这个点的Dis全部加起来，取Min就是结果为什么是对的呢？这个不会有重复吗？会的。不过必然有一个点没有，那就是交汇点。我们可以预处理出某一个国家到一个点路上最少经过的’.’的个数——我用循环入队一直T，后来改成优先队列做的——事实上还有更好的方法。然后枚举每一个点，当然，如果这个点是’.’会被计算3次，要减去。</p>
-<blockquote>
-<p><strong>CF590D:</strong>n个数，求最多相邻两两交换S次，使前K个数的和最小</p>
-</blockquote>
-<p><strong>DP</strong></p>
-<p>​    注意到，N*(N-1)/2&lt;=S的时候，S的大小已经没有什么用途了考虑用dp[i,j,k]表示处理到前i个数字，其中已经交换了j次的，前k个已经确定的最小数字之和考虑把第i个交换到第k个位置——或者不交换。不交换的话$dp[i,j,k] = dp[i-1,j,k]$交换的话$dp[i,j,k] = dp[i-1,j - (i-k) , k-1] + a[i]$用滚动数组优化一下答案就是$dp[N,X,K] (X&lt;=S)$</p>
 <h5 id="VK-Cup-2016-Round-1"><a href="#VK-Cup-2016-Round-1" class="headerlink" title="VK Cup 2016 - Round 1"></a><a href="http://codeforces.com/contest/639" target="_blank" rel="external">VK Cup 2016 - Round 1</a></h5><blockquote>
 <p><strong>CF639B：</strong>构造一棵树，使得树有n个节点，直径是D，树高是H，不存在输出-1</p>
 </blockquote>
