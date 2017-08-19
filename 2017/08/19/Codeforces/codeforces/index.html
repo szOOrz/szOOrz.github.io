@@ -17,7 +17,7 @@
 <meta property="og:description" content="一道题目一道题目写太乱了， 感觉无法忍受 打算学大佬的写法。 不贴代码Orz">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://codeforces.com/predownloaded/30/e5/30e539b0cc8f5d37f524dd78cdc549a4fa5c7a93.png">
-<meta property="og:updated_time" content="2017-08-19T06:07:24.511Z">
+<meta property="og:updated_time" content="2017-08-19T08:24:06.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="codeforces">
 <meta name="twitter:description" content="一道题目一道题目写太乱了， 感觉无法忍受 打算学大佬的写法。 不贴代码Orz">
@@ -167,78 +167,38 @@
 <p>$n,m&lt;=300 000$</p>
 </blockquote>
 <p><strong>线段树</strong></p>
-<p>可以用线段树维护两个点之间的相对位移</p>
-<p>这里有一些公式</p>
-<p>假设对图片上任意点(x,y)，绕一个坐标点(rx0,ry0)逆时针旋转a角度后的新的坐标设为(x0, y0)：</p>
+<p>可以用线段树维护两个点之间的相对位移这里有一些公式：假设任意点(x,y)，绕一个坐标点(rx0,ry0)逆时针旋转a角度后的新的坐标设为(x0, y0)：</p>
 <p>$x0= (x - rx0) \times cos(a) - (y - ry0)\times sin(a) + rx0 ;$</p>
 <p>$y0= (x - rx0)\times sin(a) + (y - ry0)\times cos(a) + ry0 ;$</p>
-<p>显然，延长操作只是单点修改。</p>
-<p>——保存位移之后只要同比例缩放就行了</p>
-<p>那么旋转呢？这是一个区间修改。</p>
-<p>对于后面全部整段，都是需要绕着某个点进行旋转的。</p>
-<p>其实，角度是可以叠加的</p>
-<p>大家可以自己画图，然后用延长用四点共圆证明……</p>
-<p><strong>角度竟然是可以叠加的！</strong></p>
-<p>然后就好做多了……QAQ。——本来还想着用矩阵结合律。。。</p>
-<p>下面是旋转——就是把第nod的绕着val旋转。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">calc</span><span class="params">(<span class="keyword">int</span> nod,LD val)</span></span>&#123;</div><div class="line">	LD tmp1,tmp2;</div><div class="line">	tmp1 = tree[nod].x;</div><div class="line">	tmp2 = tree[nod].y;</div><div class="line">	tree[nod].x = tmp1 * <span class="built_in">cos</span>(val) - tmp2 * <span class="built_in">sin</span>(val);</div><div class="line">	tree[nod].y = tmp1 * <span class="built_in">sin</span>(val) + tmp2 * <span class="built_in">cos</span>(val);</div><div class="line">	tree[nod].lazy += val;	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>显然，延长操作只是单点修改。——保存位移之后只要同比例缩放就行了.那么旋转呢？这是一个区间修改。对于后面全部整段，都是需要绕着某个点进行旋转的。其实，角度是可以叠加的:___大家可以自己画图，然后用延长用四点共圆证明……角度竟然是可以叠加的! 然后就好做多了……QAQ。——本来还想着用矩阵结合律。。。</p>
 <h5 id="Codeforces-Round-345-Div-1"><a href="#Codeforces-Round-345-Div-1" class="headerlink" title="Codeforces Round #345 (Div. 1)"></a><a href="http://codeforces.com/contest/650" target="_blank" rel="external">Codeforces Round #345 (Div. 1)</a></h5><blockquote>
 <p><strong>CF650D</strong>给定一个长度为n的数列，和m个询问，每个询问给出Ai,Bi表示把第Ai个数改成Bi之后，这个数列的最长上升子序列（严格大于,询问相互独立）</p>
 </blockquote>
 <p><strong>线段树</strong></p>
-<p>​    具体做法分成2部分。</p>
-<p>​    一方面，我们要求得改过之后经过改过的点的LIS。</p>
-<p>​    这个比较好实现，离散化之后排个序离线用两棵线段树正反两次扫描维护。</p>
-<p>​    另一方面，我们要求得不经过这个点的LIS</p>
-<p>​    我们再把这个分为两部分</p>
-<p>​    如果原来的LIS（至少有一条）不包括那个点，那么答案就是原来的LIS。</p>
-<p>​    如果所有的LIS都包括那个点，那么答案就是原来的LIS-1。</p>
+<p>​    具体做法分成2部分。一方面，我们要求得改过之后经过改过的点的LIS。这个比较好实现，离散化之后排个序离线用两棵线段树正反两次扫描维护。另一方面，我们要求得不经过这个点的LIS我们再把这个分为两部分。如果原来的LIS（至少有一条）不包括那个点，那么答案就是原来的LIS。如果所有的LIS都包括那个点，那么答案就是原来的LIS-1。</p>
 <p>​    一个点如何可能是LIS中的一个呢？</p>
-<p>​    注意到，当他的前缀LIS加上后缀LIS等于总的LIS+1的时候。</p>
-<p>​    那么我们只需要统计，这个点是不是唯一的这个位置。</p>
-<p>​    怎么样算唯一呢？就是它的前缀LIS（或者后缀）长度，除了它，没有别的点了。</p>
-<p>​    因此，我们只需要满足2个条件，这个点就是原来的LIS-1了。</p>
-<p>​    $1、L(LIS)_i+R(LIS)_i=Lis+1$</p>
-<p>​    $2、there.is.only.one.L(LIS)_i$</p>
+<p>​    注意到，当他的前缀LIS加上后缀LIS等于总的LIS+1的时候。那么我们只需要统计，这个点是不是唯一的这个位置。怎么样算唯一呢？就是它的前缀LIS（或者后缀）长度，除了它，没有别的点了。因此，我们只需要满足2个条件，这个点就是原来的LIS-1了。</p>
+<p>​    $1、L(LIS)_i+R(LIS)_i=Lis+1$        $2、there.is.only.one.L(LIS)_i$</p>
 <p>​    还是通过正反两次扫描实现。</p>
 <h5 id="IndiaHacks-2016-Online-Edition"><a href="#IndiaHacks-2016-Online-Edition" class="headerlink" title="IndiaHacks 2016 - Online Edition "></a><a href="http://codeforces.com/contest/653" target="_blank" rel="external">IndiaHacks 2016 - Online Edition </a></h5><blockquote>
 <p><strong>CF653E:</strong>n个点，m条不能相连的边，点1的度为k（相连的边有且仅有k条）。问是否能构成一棵树。</p>
 </blockquote>
 <p><strong>set维护BFS</strong></p>
-<p>​    考虑将1除去之后，得到剩下的联通块，其中有一个联通块没有向1的边，说明impossible，否则，如果联通块的数量大于等于k，说明无解。——因为联通块里面是可以随意连的。</p>
-<p>​    那么如何求联通块呢，考虑BFS。</p>
-<p>​    但是普通的BFS的复杂度会到$O(N^2)$，而这题的N比较大，是撑不住的，注意到，选取点有很大的冗余——因为每个点最多只会被访问1次，那么如何选点的？</p>
-<p>​    考虑用一个set维护还没有被访问过的点，访问一个点，将这个点从set中删去。</p>
-<p>​    对于某个点开始，寻找set中的元素，如果可以访问，那么访问，同时删去。</p>
+<p>​    考虑将1除去之后，得到剩下的联通块，其中有一个联通块没有向1的边，说明impossible，否则，如果联通块的数量大于等于k，说明无解。——因为联通块里面是可以随意连的。那么如何求联通块呢，考虑BFS。但是普通的BFS的复杂度会到$O(N^2)$，而这题的N比较大，是撑不住的，注意到，选取点有很大的冗余——因为每个点最多只会被访问1次，那么如何选点的？考虑用一个set维护还没有被访问过的点，访问一个点，将这个点从set中删去。对于某个点开始，寻找set中的元素，如果可以访问，那么访问，同时删去。</p>
 <p>​    注意到，这个时间复杂度只有$O((n+m)log n)$。</p>
 <h5 id="Codeforces-Round-330-Div-1"><a href="#Codeforces-Round-330-Div-1" class="headerlink" title="Codeforces Round #330 (Div. 1)"></a><a href="http://codeforces.com/contest/594" target="_blank" rel="external">Codeforces Round #330 (Div. 1)</a></h5><blockquote>
 <p><strong>CF594A:</strong>数轴上有N个点，N是偶数。有两个人，依次取走一个点，直到最后剩下2个点，其中第一个人（先取要最后剩下的点的距离最大），第二个人要使得距离最小，问距离最小是多少。</p>
 </blockquote>
 <p><strong>博弈</strong></p>
-<p>​    如果您作为第二个人，您一定会去取两端的。</p>
-<p>​    如果存在答案区间L,R</p>
-<p>​    显然，第二个人一定会取L,R以外的。</p>
-<p>​    相反，第一个人会取L,R以内的，因为L,R以外的第二个人会去取。</p>
-<p>​    所以答案就是在其中找一段区间，使得内部有(N-2)/2个点，然后区间最小。</p>
+<p>​    如果您作为第二个人，您一定会去取两端的。如果存在答案区间L,R。显然，第二个人一定会取L,R以外的。</p>
+<p>​    相反，第一个人会取L,R以内的，因为L,R以外的第二个人会去取。所以答案就是在其中找一段区间，使得内部有(N-2)/2个点，然后区间最小。</p>
 <blockquote>
 <p><strong>CF594C:</strong>给你n个数(n&lt;=200000)，每个数&lt;=1e6，给出Q个询问，每个询问给出l,r,问<img src="http://codeforces.com/predownloaded/30/e5/30e539b0cc8f5d37f524dd78cdc549a4fa5c7a93.png" alt="img">的值是多少。</p>
 </blockquote>
-<p>​    回顾一下欧拉函数的求法</p>
-<p>​    $$\large cp[n] =n* \prod_p^{p是n的质因数}(p-1) / p$$</p>
-<p>​    同样的，扩展到区间</p>
-<p>​    $$\large cp[Π(A[L]-A[R])] = \prod_{i=L}^{R}(A[i]) * \prod_p^{p是这些乘积的质因数}(p-1)/p$$</p>
-<p>​    这题没有修改操作，一切都是询问，可以考虑离线处理。</p>
-<p>​    我们把所有询问按照右端点排序。</p>
-<p>​    那么如何处理(L~R)这一段的乘积的欧拉函数呢？</p>
-<p>​    事实上，L~R中间的数的乘积我们可以通过前缀$O(1)$得出来，我们需要的就是L~R这一段所有数包含的质因数(p)的(p-1) / p，当然，在Mod意义下是逆元。</p>
-<p>​    这里，我们先假设每个数出现不同的质因数。</p>
-<p>​    计$Xi = (p1-1) / (p1) * (p2-1) / p2$……，其中p1,p2是ai的质因数</p>
-<p>​    同样的，我们可以保存前缀，算得$X1$~$Xr$的乘积，然后再算得到$X1$~$X_(l-1) $的乘积，然后可以O1求解。</p>
-<p>​    然而，我们要知道，每个数可能拥有同样的质因数。</p>
-<p>​    显然，由于我们已经按照右端点排序</p>
-<p>​    我们可以把所有可能的质因子保存在最右边出现质因子的地方。</p>
-<p>​    用一棵树状数组维护前缀Xi的乘积。</p>
-<p>​    对于新加入的一个数$Ai$，考虑得到它的所有质因数，如果这些质因数还没有出现过，那么把(p-1)/p弄上去，否则，不但要把(p-1)/p弄到这个节点上，还要把p / (p-1)弄到前面出现p的节点上，以消除p的重复影响。</p>
+<p>​    回顾一下欧拉函数的求法    $$\large cp[n] =n* \prod_p^{p是n的质因数}(p-1) / p$$</p>
+<p>​    同样的，扩展到区间    $$\large cp[Π(A[L]-A[R])] = \prod_{i=L}^{R}(A[i]) * \prod_p^{p是这些乘积的质因数}(p-1)/p$$</p>
+<p>​    这题没有修改操作，一切都是询问，可以考虑离线处理。我们把所有询问按照右端点排序。那么如何处理(L~R)这一段的乘积的欧拉函数呢？事实上，L~R中间的数的乘积我们可以通过前缀$O(1)$得出来，我们需要的就是L~R这一段所有数包含的质因数(p)的(p-1) / p，当然，在Mod意义下是逆元。这里，我们先假设每个数出现不同的质因数。计$Xi = (p1-1) / (p1) * (p2-1) / p2$……，其中p1,p2是ai的质因数同样的，我们可以保存前缀，算得$X1$~$Xr$的乘积，然后再算得到$X1$~$X_(l-1) $的乘积，然后可以O1求解。然而，我们要知道，每个数可能拥有同样的质因数。显然，由于我们已经按照右端点排序</p>
+<p>​    我们可以把所有可能的质因子保存在最右边出现质因子的地方。用一棵树状数组维护前缀Xi的乘积。对于新加入的一个数$Ai$，考虑得到它的所有质因数，如果这些质因数还没有出现过，那么把(p-1)/p弄上去，否则，不但要把(p-1)/p弄到这个节点上，还要把p / (p-1)弄到前面出现p的节点上，以消除p的重复影响。</p>
 <h5 id="Codeforces-Round-327-Div-1"><a href="#Codeforces-Round-327-Div-1" class="headerlink" title="Codeforces Round #327 (Div. 1)"></a><a href="http://codeforces.com/contest/590" target="_blank" rel="external">Codeforces Round #327 (Div. 1)</a></h5><blockquote>
 <p><strong>CF590A</strong>:给你一个只有0和1组成的序列A，每次可以对序列A进行操作，每次操作是把A的每一个元素变成上一个序列的它，它左边，它右边3个数的中位数，其中1和n不变。问几次操作后会变成稳定——不会再改变，然后稳定时候的状态是怎么样的。</p>
 </blockquote>
@@ -283,6 +243,19 @@
 <p>​    注意的是，当sum&gt;2*k的时候，已经没有必要继续统计了。</p>
 <blockquote>
 <p><strong>CF639D：</strong>有n个人，每个人都有自己的贡献ti（任意整数）可以花费b，使得某个人的贡献+5,花费c，使得某个人的贡献+1.求至少使得k个人的贡献相等，最少需要的花费。$k&lt;=n&lt;=200000,$$1&lt;=b,c&lt;=1000$ $|t_i|&lt;=1e9$</p>
+</blockquote>
+<p><strong>优先队列维护前k小的数的和</strong></p>
+<p>​    考虑首先对于输入的数排序。同时如果$b=min(b,c\times 5)$，那么得到所有可能最后的相同的那个数（一定不会超过某个数+0,1,2,3,4,5这个范围），然后考虑枚举所有的Ans，下一步的操作是要在所有数中寻找满足条件的最小花费的k个数。<br>可以把花费看作一些数，先变成对应的mod 5=r的数，然后再一直加上b。考虑到我们已经排序了，所以这个右指针（哪些是包含的）是会单调递增的。<br>设x mod 5 = r;考虑预处理出每一个数到mod 5 = r的数值为t[i,r]，那么最后的最小花费必然是选出一些i，使得$min(∑(t[i,r] - a[i]) \times c + ∑(x - t[i,r]) / 5 \times b)$，考虑到x[i]和t[i,r]的余数是一样的，可以化简为</p>
+<p>$$\large k \times （x / 5 \times b）   +   \sum _{i}^{t[i,r]&lt;=x}(t[i,r] \times c - a[i] \times c - t[i,r] / 5 \times b)$$</p>
+<p>考虑维护5个堆，得到这5个堆中元素和，压入一个元素，加上这个sum，如果元素个数超过k，将大的弹出来，减去这个sum。</p>
+<h5 id="Codeforces-Round-347-Div-1"><a href="#Codeforces-Round-347-Div-1" class="headerlink" title="Codeforces Round #347 (Div. 1)"></a><a href="http://codeforces.com/contest/663" target="_blank" rel="external">Codeforces Round #347 (Div. 1)</a></h5><blockquote>
+<p><strong>CF663A:</strong>给定一些类似?+?-?=n表达式，然后知道最后一个数字为n（给定），然后在前面填（1~n)的数，问可不可能有满足条件的等式，可能输出Possible并给出一组解。</p>
+</blockquote>
+<p><strong>脑洞</strong>(2A)</p>
+<p>​    考虑对于使得表达式最小的式子，加是+1，减是-n，再考虑使得表达式最大的式子，加是+n，减是-1，那么如果n在两者之间，这个式子一定可以通过一定的改变得到，否则就是不行。</p>
+<p>​    为了实现简单，只要统计加法有多少，减法有多少就可以得到了。构造主要可以这样实现，对于每一个位置，找到一个最小的使得后面依旧可以填的(这个值不会很大)。这样好实现很多。然后n去掉这个值，继续处理。虽然可以二分，但是麻烦。注意如果你是改变n的，记得保存一个n的镜像。</p>
+<blockquote>
+<p><strong>CF663B:</strong>给出了一个数字的后缀，要求最终这个数字大于等于1989，并且在最小的情况下，这个数字之前没有被占用过。求最终拼凑的数字。</p>
 </blockquote>
 
       
