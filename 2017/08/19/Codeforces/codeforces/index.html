@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>codeforces | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一道题目一道题目写太乱了， 感觉无法忍受 打算学大佬的写法。 不贴代码Orz">
+  <meta name="description" content="乱作一波题。 感觉无法忍受 不贴代码Orz">
 <meta name="keywords" content="codeforces">
 <meta property="og:type" content="article">
 <meta property="og:title" content="codeforces">
 <meta property="og:url" content="http://yoursite.com/2017/08/19/Codeforces/codeforces/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一道题目一道题目写太乱了， 感觉无法忍受 打算学大佬的写法。 不贴代码Orz">
+<meta property="og:description" content="乱作一波题。 感觉无法忍受 不贴代码Orz">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://codeforces.com/predownloaded/30/e5/30e539b0cc8f5d37f524dd78cdc549a4fa5c7a93.png">
 <meta property="og:image" content="http://codeforces.com/predownloaded/a3/7d/a37dc46ef6a265bb8f01595c2118a82b456b068a.png">
 <meta property="og:image" content="http://codeforces.com/predownloaded/cf/32/cf32e97135c9c6e4e441357b5c63e0b5a8d93ffe.png">
-<meta property="og:updated_time" content="2017-08-19T14:07:06.979Z">
+<meta property="og:updated_time" content="2017-08-20T02:00:14.985Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="codeforces">
-<meta name="twitter:description" content="一道题目一道题目写太乱了， 感觉无法忍受 打算学大佬的写法。 不贴代码Orz">
+<meta name="twitter:description" content="乱作一波题。 感觉无法忍受 不贴代码Orz">
 <meta name="twitter:image" content="http://codeforces.com/predownloaded/30/e5/30e539b0cc8f5d37f524dd78cdc549a4fa5c7a93.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -159,9 +159,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一道题目一道题目写太乱了，</p>
+        <p>乱作一波题。</p>
 <p>感觉无法忍受</p>
-<p>打算学大佬的写法。</p>
 <p>不贴代码Orz</p>
 <a id="more"></a>
 <h5 id="Codeforces-Round-327-Div-1"><a href="#Codeforces-Round-327-Div-1" class="headerlink" title="Codeforces Round #327 (Div. 1)"></a><a href="http://codeforces.com/contest/590" target="_blank" rel="external">Codeforces Round #327 (Div. 1)</a></h5><blockquote>
@@ -294,8 +293,26 @@
 <p>​    考虑首先对于输入的数排序。同时如果$b=min(b,c\times 5)$，那么得到所有可能最后的相同的那个数（一定不会超过某个数+0,1,2,3,4,5这个范围），然后考虑枚举所有的Ans，下一步的操作是要在所有数中寻找满足条件的最小花费的k个数。<br>可以把花费看作一些数，先变成对应的mod 5=r的数，然后再一直加上b。考虑到我们已经排序了，所以这个右指针（哪些是包含的）是会单调递增的。<br>设x mod 5 = r;考虑预处理出每一个数到mod 5 = r的数值为t[i,r]，那么最后的最小花费必然是选出一些i，使得$min(∑(t[i,r] - a[i]) \times c + ∑(x - t[i,r]) / 5 \times b)$，考虑到x[i]和t[i,r]的余数是一样的，可以化简为</p>
 <p>$$\large k \times （x / 5 \times b）   +   \sum _{i}^{t[i,r]&lt;=x}(t[i,r] \times c - a[i] \times c - t[i,r] / 5 \times b)$$</p>
 <p>考虑维护5个堆，得到这5个堆中元素和，压入一个元素，加上这个sum，如果元素个数超过k，将大的弹出来，减去这个sum。</p>
+<h5 id="VK-Cup-2016-Round-2"><a href="#VK-Cup-2016-Round-2" class="headerlink" title="VK Cup 2016 - Round 2"></a><a href="http://codeforces.com/contest/641" target="_blank" rel="external">VK Cup 2016 - Round 2</a></h5><blockquote>
+<p><strong>CF641B</strong>原来有一个N*M的矩阵，要求满足一些操作(q个）：循环左移，循环上移，在给定位置加数，给你最后的矩阵，问最初的矩阵是？？</p>
+</blockquote>
+<p><strong>模拟</strong>(1A)</p>
+<p>​    考虑把操作倒着执行，当然，左移变成右移，上变成下，然后就可以了。</p>
+<blockquote>
+<p><strong>CF641C</strong>给定n个数，1, 2, 3, 4, 5, 6,…, n。有两种操作，第一个操作是所有数向右边移动x个位置，第二个操作奇数和偶数的位置互换。$n &lt;= 1,000,000$  $q &lt;= 2,000,000$</p>
+</blockquote>
+<p><strong>模拟</strong></p>
+<p>​    考虑到，比如说有序列12345678，那么不管怎么操作，1357，2468的相对位置是不变的（循环一下），所以我们只需要知道1和2的位置，就能确定所有的位置。而1和2的位置可以通过模拟出来。</p>
+<blockquote>
+<p><strong>CF641D</strong>:有两个不同的骰子，点数为$1~n$。得到每个点数的概率可能不同（总和一定是$1$）。掷出这两个骰子，得到点数$a$，$b$。取$max(a,b)$, $min(a,b)$。给出$max(a,b)=c$的概率分布，和min(a,b)=c的概率分布。还原两个骰子点数的概率分布。所有概率之和为$1$。$n&lt;=100,000$</p>
+</blockquote>
+<p>​    注意到，我们可以列出这样2个方程：<br>​    $sumy <em> x[p] + sumx </em> y[p] + x[p] <em> y[p] = Pmax$<br>​    $x[p] + y[p] = Pmax + Pmin$<br>​    然后解这两个方程<br>​    $y[p] = Pmax + Pmin - x[p]$<br>​    $sumy </em> x[p] + sumx <em> (Pmax + Pmin - x[p]) + x[p] </em> (Pmax + Pmin - x[p]) = Pmax$</p>
+<p>​    $p[x]^2  + (Pmax + Pmin + sumy - sumx) <em> x[p]  + ((Pmax + Pmin )</em>sumx - Pmax) = 0$<br>​    注意，当b^2-4ac几乎等于0的时候(可能小于0），那么不妨让b^2-4ac等于0</p>
+<blockquote>
+<p><strong>CF641E:</strong>有三个操作:$1​$ $x​$ $y​$，在第$x​$秒插入一个$y​$；$2​$ $x​$ $y​$，在第$x​$秒移走一个$y​$ ；$3​$ $x​$ $y​$, 问第$x​$秒有多少个$y​$ $(1 ≤ n ≤ 100 000) ​$</p>
+</blockquote>
 <h5 id="Codeforces-Round-347-Div-1"><a href="#Codeforces-Round-347-Div-1" class="headerlink" title="Codeforces Round #347 (Div. 1)"></a><a href="http://codeforces.com/contest/663" target="_blank" rel="external">Codeforces Round #347 (Div. 1)</a></h5><blockquote>
-<p><strong>CF663A:</strong>给定一些类似?+?-?=n表达式，然后知道最后一个数字为n（给定），然后在前面填（1~n)的数，问可不可能有满足条件的等式，可能输出Possible并给出一组解。</p>
+<p><strong>CF663B:</strong>给定一些类似$?+?-?=n$表达式，然后知道最后一个数字为n（给定），然后在前面填（1~n)的数，问可不可能有满足条件的等式，可能输出Possible并给出一组解。给定n个数，1, 2, 3, 4, 5, 6,…, n。有两种操作，第一个操作是所有数向右边移动x个位置，第二个操作奇数和偶数的位置互换。$n &lt;= 1,000,000$  $q &lt;= 2,000,000$</p>
 </blockquote>
 <p><strong>脑洞</strong>(2A)</p>
 <p>​    考虑对于使得表达式最小的式子，加是+1，减是-n，再考虑使得表达式最大的式子，加是+n，减是-1，那么如果n在两者之间，这个式子一定可以通过一定的改变得到，否则就是不行。</p>
