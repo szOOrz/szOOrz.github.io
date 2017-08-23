@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 搜索 | Hexo</title>
+  <title>atcoder | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/搜索/index.html">
+  <meta name="description" content="AtCoder Regular Contest 081 arc081C(2提交)  贪心 ​    考虑找出可以两两配对的棒子，取最大的贪心即可  arc081D(1提交)  递推先把最左边的特殊考虑，然后分成4份：    $*^{|– }{|–}$，那么右边的乘2；$^{|| }{||}$，那么右边的乘2；$^{—- }{– –}$，那么右边的乘3；$^{–| }{–|}$，那么右边的乘1 &amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="atcoder">
+<meta property="og:url" content="http://yoursite.com/2017/08/20/Atcoder/atcoder/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="AtCoder Regular Contest 081 arc081C(2提交)  贪心 ​    考虑找出可以两两配对的棒子，取最大的贪心即可  arc081D(1提交)  递推先把最左边的特殊考虑，然后分成4份：    $*^{|– }{|–}$，那么右边的乘2；$^{|| }{||}$，那么右边的乘2；$^{—- }{– –}$，那么右边的乘3；$^{–| }{–|}$，那么右边的乘1 &amp;g">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-20T14:04:20.617Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="atcoder">
+<meta name="twitter:description" content="AtCoder Regular Contest 081 arc081C(2提交)  贪心 ​    考虑找出可以两两配对的棒子，取最大的贪心即可  arc081D(1提交)  递推先把最左边的特殊考虑，然后分成4份：    $*^{|– }{|–}$，那么右边的乘2；$^{|| }{||}$，那么右边的乘2；$^{—- }{– –}$，那么右边的乘3；$^{–| }{–|}$，那么右边的乘1 &amp;g">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -128,64 +132,172 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Atcoder/atcoder" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/14/USACO/5/USACO5.2.1/snail/" class="archive-article-date">
-  	<time datetime="2017-08-14T09:20:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/14/USACO/5/USACO5.2.1/snail/">USACO5.2.1</a>
+    <h1 class="article-title" itemprop="name">
+      atcoder
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">USACO</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">搜索</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/2017/08/20/Atcoder/atcoder/" class="archive-article-date">
+  	<time datetime="2017-08-20T13:53:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="AtCoder-Regular-Contest-081"><a href="#AtCoder-Regular-Contest-081" class="headerlink" title="AtCoder Regular Contest 081"></a><a href="https://arc081.contest.atcoder.jp/" target="_blank" rel="external">AtCoder Regular Contest 081</a></h5><blockquote>
+<p><strong>arc081C</strong>(2提交)</p>
+</blockquote>
+<p><strong>贪心</strong></p>
+<p>​    考虑找出可以两两配对的棒子，取最大的贪心即可</p>
+<blockquote>
+<p><strong>arc081D</strong>(1提交)</p>
+</blockquote>
+<p><strong>递推</strong>先把最左边的特殊考虑，然后分成4份：    $*^{|– }<em>{|–}$，那么右边的乘2；$^{|| }</em>{||}$，那么右边的乘2；$^{—- }<em>{– –}$，那么右边的乘3；$^{–| }</em>{–|}$，那么右边的乘1</p>
+<p>&gt;</p>
 
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>长按1001秒<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/20/Atcoder/atcoder/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/08/22/Codeforces/数论相关/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CF数论乱作
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/08/19/想想/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">想想</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -208,9 +320,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

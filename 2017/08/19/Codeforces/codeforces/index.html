@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://codeforces.com/predownloaded/30/e5/30e539b0cc8f5d37f524dd78cdc549a4fa5c7a93.png">
 <meta property="og:image" content="http://codeforces.com/predownloaded/a3/7d/a37dc46ef6a265bb8f01595c2118a82b456b068a.png">
 <meta property="og:image" content="http://codeforces.com/predownloaded/cf/32/cf32e97135c9c6e4e441357b5c63e0b5a8d93ffe.png">
-<meta property="og:updated_time" content="2017-08-20T02:00:14.985Z">
+<meta property="og:updated_time" content="2017-08-23T08:00:57.829Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="codeforces">
 <meta name="twitter:description" content="乱作一波题。 感觉无法忍受 不贴代码Orz">
@@ -48,7 +48,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #0d3d9d"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -64,8 +64,6 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
-	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -76,6 +74,10 @@
             
     			
     			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">Orz</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">相关联系事项</a>
     			
             
 		</nav>
@@ -91,7 +93,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #0d3d9d"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -108,8 +110,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -122,9 +122,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -163,6 +161,31 @@
 <p>感觉无法忍受</p>
 <p>不贴代码Orz</p>
 <a id="more"></a>
+<h5 id="Codeforces-Round-308-Div-2-——虚拟比赛"><a href="#Codeforces-Round-308-Div-2-——虚拟比赛" class="headerlink" title="Codeforces Round #308 (Div. 2)——虚拟比赛"></a><a href="http://codeforces.com/contest/552" target="_blank" rel="external">Codeforces Round #308 (Div. 2)</a>——虚拟比赛</h5><blockquote>
+<p><strong>CF552A</strong>给出一些矩阵，问这些矩阵覆盖的面积之和（不是并，重叠算多次）</p>
+</blockquote>
+<p><strong>模拟</strong>(1A)</p>
+<p>​    考虑直接把每个矩形的面积算出来，做一个和即可。</p>
+<blockquote>
+<p><strong>CF662B</strong>给你一个数字N，问$1$到$N$这些数字数码的长度之和是多少，1234的长度是4.</p>
+</blockquote>
+<p><strong>模拟</strong>(1A)</p>
+<p>​    分别考虑是否包含一位数，是否包含2位数……如果包含，直接求解，否则相当于剩余的有多少个x位数求解。</p>
+<blockquote>
+<p><strong>CF552C</strong>给你一个W和M，问是否用一些W^0,W^1,W^2……放在天平的两侧，构成M</p>
+</blockquote>
+<p><strong>进制转换</strong>(2A)</p>
+<p>​    从后到前处理每一位,如果某一位是0，不用动;如果某一位是1,那么表示右边要有这样一个砝码；如果某一位是m-1，说明左边要有这样一个砝码，但是加了左边的砝码之后，事实上相当于m加了这个值；其它情况都是无解。</p>
+<blockquote>
+<p><strong>CF552D</strong>给你一些点，问能构成多少个三角形。$N&lt;=2000$</p>
+</blockquote>
+<p><strong>计算几何</strong>(1A)</p>
+<p>​    虽然$N&lt;=2000$，但是不知道为什么$O(N^3)$暴力+计算几何判断能过。</p>
+<blockquote>
+<p><strong>CF552E</strong>给你一些由1~9的数字，以及数字之间的’+’,’*’构成的表达式，在其中加入一个括号，使得表达式的值最大。</p>
+</blockquote>
+<p><strong>思维，暴力</strong>(1A)</p>
+<p>​    考虑到所有数都是大于等于1的，所以括号在乘法的两旁一定比在加法的两边要赚。考虑枚举所有括号，再暴力判断即可。</p>
 <h5 id="Codeforces-Round-327-Div-1"><a href="#Codeforces-Round-327-Div-1" class="headerlink" title="Codeforces Round #327 (Div. 1)"></a><a href="http://codeforces.com/contest/590" target="_blank" rel="external">Codeforces Round #327 (Div. 1)</a></h5><blockquote>
 <p><strong>CF590A</strong>:给你一个只有0和1组成的序列A，每次可以对序列A进行操作，每次操作是把A的每一个元素变成上一个序列的它，它左边，它右边3个数的中位数，其中1和n不变。问几次操作后会变成稳定——不会再改变，然后稳定时候的状态是怎么样的。</p>
 </blockquote>
@@ -196,8 +219,8 @@
 <blockquote>
 <p><strong>CF594D:</strong>给你n个数(n&lt;=200000)，每个数&lt;=1e6，给出Q个询问，每个询问给出l,r,问<img src="http://codeforces.com/predownloaded/30/e5/30e539b0cc8f5d37f524dd78cdc549a4fa5c7a93.png" alt="img">的值是多少。</p>
 </blockquote>
-<p>​    回顾一下欧拉函数的求法    $$\large cp[n] =n* \prod_p^{p是n的质因数}(p-1) / p$$</p>
-<p>​    同样的，扩展到区间    $$\large cp[Π(A[L]-A[R])] = \prod_{i=L}^{R}(A[i]) * \prod_p^{p是这些乘积的质因数}(p-1)/p$$</p>
+<p>​    回顾一下欧拉函数的求法    $$\large \varphi[n] =n* \prod_p^{p是n的质因数}(p-1) / p$$</p>
+<p>​    同样的，扩展到区间    $$\large \varphi[Π(A[L]-A[R])] = \prod_{i=L}^{R}(A[i]) * \prod_p^{p是这些乘积的质因数}(p-1)/p$$</p>
 <p>​    这题没有修改操作，一切都是询问，可以考虑离线处理。我们把所有询问按照右端点排序。那么如何处理(L~R)这一段的乘积的欧拉函数呢？事实上，L~R中间的数的乘积我们可以通过前缀$O(1)$得出来，我们需要的就是L~R这一段所有数包含的质因数(p)的(p-1) / p，当然，在Mod意义下是逆元。这里，我们先假设每个数出现不同的质因数。计$Xi = (p1-1) / (p1) * (p2-1) / p2$……，其中p1,p2是ai的质因数同样的，我们可以保存前缀，算得$X1$~$Xr$的乘积，然后再算得到$X1$~$X_(l-1) $的乘积，然后可以O1求解。然而，我们要知道，每个数可能拥有同样的质因数。显然，由于我们已经按照右端点排序</p>
 <p>​    我们可以把所有可能的质因子保存在最右边出现质因子的地方。用一棵树状数组维护前缀Xi的乘积。对于新加入的一个数$Ai$，考虑得到它的所有质因数，如果这些质因数还没有出现过，那么把(p-1)/p弄上去，否则，不但要把(p-1)/p弄到这个节点上，还要把p / (p-1)弄到前面出现p的节点上，以消除p的重复影响。</p>
 <h5 id="Codeforces-Round-333-Div-1"><a href="#Codeforces-Round-333-Div-1" class="headerlink" title="Codeforces Round #333 (Div. 1)"></a><a href="http://codeforces.com/contest/601" target="_blank" rel="external">Codeforces Round #333 (Div. 1)</a></h5><blockquote>
@@ -245,7 +268,97 @@
 </blockquote>
 <p><strong>BFS，树状数组，set</strong>(2A)</p>
 <p>​    相当于一个二维平面，因为是最小步数，很容易想到$BFS$，但是$BFS$的扩展节点只能扩展这个的左下方的，为了快速扩展（线段树套线段树显然可行）——用一个更容易实现的，考虑树状数组（离散化后的x坐标）套$set$，来快速维护下一个应该扩展的点，那么就是在左下角寻找一个满足条件的，（用树状数组），然后用$set$的lower_ bound快速寻找，然后扩展。时间复杂度$O(n <em> log(n) </em> log(n) )$</p>
-<p><a href="http://codeforces.com/contest/618" target="_blank" rel="external">Wunder Fund Round 2016 (Div. 1 + Div. 2 combined)</a></p>
+<h5 id="Codeforces-Round-336-Div-1"><a href="#Codeforces-Round-336-Div-1" class="headerlink" title="Codeforces Round #336 (Div. 1)"></a><a href="http://codeforces.com/contest/607" target="_blank" rel="external">Codeforces Round #336 (Div. 1)</a></h5><blockquote>
+<p><strong>CF607A</strong>点有位置和能量，ii个点被选择，那么在ii左边它这个能量的位置内的所有点都不能选择，如果现在从右到左依次选择点。现在可以在最右边放置一个点，能量和距离随意，问各种情况下最小摧毁的点的个数。$N&lt;=100000,ai&lt;=1000000$</p>
+</blockquote>
+<p><strong>DP</strong>(1A)</p>
+<p>​    坐标范围比较小，考虑用f[i]表示到i位置最多能放的点，简单转移一下即可。</p>
+<blockquote>
+<p><strong>CF607B</strong>长度为$n$的字符串，每次消去一段连续的回文串，剩下的两端重新拼接成一个新的串，问最少需要消去多少次。$n&lt;=500$</p>
+</blockquote>
+<p><strong>DP</strong>(1A)</p>
+<p>​    考虑用$dp[i,j]$表示从i到j，最多要消几次。如果$(i,j)$的长度大于2，并且$a[i]$ = $a[j]$，那么这两个可以等下并到里面去消，所以    $dp[i,j] = dp[i+1,j-1]$。或者从中间某个k，使得左右分别消，</p>
+<p>​                $dp[i,j] = min(dp[i,k]+dp[k+1,j])$</p>
+<blockquote>
+<p><strong>CF607C</strong>有两个独立的坑道，由$“NSWE”$表示。两个球在各自坑道的起点。之后对两个球做相同的操作，上下左右。保证两个小球保持一致的动作，其中一个撞墙的话不用管。问能不能保证两个小球都能从起点到达终点。到达终点后，还有可能因为操作而退出。</p>
+</blockquote>
+<p><strong>脑洞，哈希</strong>(1A)</p>
+<p>​    考虑依次让两个球分别到达终点，可以猜测一个结论，无法到达当且仅当第一个球达终点后，第二个球需要到达终点的步骤，恰好使得第一个球退出（证明有些困难）。于是可以改变第一个球轨道的方向，就变成字符串匹配的问题。从而用hash使得前一个串的后缀对称后得到后一个串的后缀，那么就无解。</p>
+<h5 id="Codeforces-Round-342-Div-2-——虚拟比赛"><a href="#Codeforces-Round-342-Div-2-——虚拟比赛" class="headerlink" title="Codeforces Round #342 (Div. 2)——虚拟比赛"></a><a href="http://codeforces.com/contest/625" target="_blank" rel="external">Codeforces Round #342 (Div. 2)</a>——虚拟比赛</h5><blockquote>
+<p><strong>CF625A</strong>你有n元，有2种包装的物品，一种是a元，一种是b元，但是花了b元能反c元，问最多能获得多少武平$(1&lt;=n&lt;=10^18)$</p>
+</blockquote>
+<p><strong>模拟，贪心</strong>(1A)</p>
+<p>​    考虑如果b-c比a要赚，那么先选择一个b，然后加上c……最后再去选a。模拟一下就行了。</p>
+<blockquote>
+<p><strong>CF625B</strong>在第一个串中最少把多少个字符修改为#，才能第一个串不包含第二个串。</p>
+</blockquote>
+<p><strong>贪心，KMP</strong>(3A)</p>
+<p>​    考虑一定是越后面修改越好的，所以贪心，同时跑的时候来一发KMP加速——其实也不需要。</p>
+<blockquote>
+<p><strong>CF625C</strong>让你用$1-n \times n$这些数填充$n\times n$矩阵，要求每行的数字严格递增、每个数字只能用一次且保证第k列的数字和最大。</p>
+</blockquote>
+<p><strong>贪心</strong>(1A)</p>
+<p>​    考虑把小的都放在左边，那么然后能往右边再往右边，贪心选数即可。</p>
+<h5 id="Educational-Codeforces-Round-1——虚拟比赛"><a href="#Educational-Codeforces-Round-1——虚拟比赛" class="headerlink" title="Educational Codeforces Round 1——虚拟比赛"></a><a href="http://codeforces.com/contest/598" target="_blank" rel="external">Educational Codeforces Round 1</a>——虚拟比赛</h5><blockquote>
+<p><strong>CF598A：</strong>求数字之和，但是要不算2的倍数</p>
+</blockquote>
+<p><strong>模拟</strong>(1A)</p>
+<p>​    等差数列求和公式，再减去2次倍数即可。$log$的复杂度</p>
+<blockquote>
+<p><strong>CF598B：</strong>给定一个字符串s，下标从1 - |s|。有m次操作，L R k - 表示讲[L, R]里面的字符右移k次，第R位右移一次到达第L位。问你经过m次变化后的字符串。</p>
+</blockquote>
+<p><strong>模拟</strong>(1A)</p>
+<p>​    考虑把k先对长度取模，然后用一个辅助数组直接暴力O(len)移动再代入。</p>
+<blockquote>
+<p><strong>CF598C：</strong>找到两个向量间夹角最小的那两个向量的位置;</p>
+</blockquote>
+<p><strong>精度</strong>(N A)</p>
+<p>​    要用atan2高精度做，用long double做，极角排序后求角度即可。</p>
+<blockquote>
+<p><strong>CF598D：</strong>给定一个$n \times m$的地图，有k次查询。每次查询，询问位置（x,y）的点连通块周围有多少个</p>
+</blockquote>
+<p><strong>flood fill</strong>(2A)</p>
+<p>​    先$N \times M$把所有位置的答案算出来，然后询问直接做</p>
+<blockquote>
+<p><strong>CF598E：</strong>一个n*m大的巧克力，你要吃k个单元的巧克力。每次切分都会有切的那条边长度平方的代价。问最小代价。</p>
+</blockquote>
+<p><strong>DP</strong>(4A)</p>
+<p>​    考虑直接用$dp[i,j,k]$表示状态为i,j,k的时候的答案，那么只需要暴力枚举分割线，以及左边多少，右边多少，取max。注意不要数组越界</p>
+<h5 id="Educational-Codeforces-Round-3——虚拟比赛，E题没写出来QAQ"><a href="#Educational-Codeforces-Round-3——虚拟比赛，E题没写出来QAQ" class="headerlink" title="Educational Codeforces Round 3——虚拟比赛，E题没写出来QAQ"></a><a href="http://codeforces.com/contest/609" target="_blank" rel="external">Educational Codeforces Round 3</a>——虚拟比赛，E题没写出来QAQ</h5><blockquote>
+<p><strong>CF609A:</strong>给你一个m大的总内存和n个USB快闪驱动器，问你至少需要多少个USB快闪驱动器才能装满或者超过总内存。</p>
+</blockquote>
+<p><strong>贪心</strong>(1A)</p>
+<p>​    排个序，然后贪心贪大的，看减多少次小于等于0即可。</p>
+<blockquote>
+<p><strong>CF609B:</strong>给你一堆书和他们的种类，然后要挑两本书，他们不能是相同的种类，求有多少种挑法</p>
+</blockquote>
+<p><strong>容斥</strong>(1A)</p>
+<p>​    考虑所有情况，减去2本数在一起的情况，注意到m&lt;=10，比较容易。</p>
+<blockquote>
+<p><strong>CF609C:</strong>给你n个元素的序列a[]，每次可以任选两个元素使得其中一个减1，另一个加1，付出代价为1。问你最小的代价使得序列最平衡。</p>
+</blockquote>
+<p><strong>贪心</strong>(1A)</p>
+<p>​    考虑直接贪心做，把最后得到的那个序列通过总和，余数等算出来，然后考虑把当前排序，贪心地得到两者之间的绝对值的sum，那么最后答案就是这个sum/2</p>
+<blockquote>
+<p><strong>CF609D:</strong>给定m个物品（编号从1-m）以及它们的种类和价格（美元和英镑），其中种类1意味着购买该物品需要美元，反之需要英镑。已知在n天里，每天都会有美元和英镑的兑换率a[i]和b[i]，意味着用a[i]个burle可以换取1美元，英镑的兑换同理。现在你手上只有s个burle，你需要在n天里购买k个物品，要求每个物品只能买一次，问你最早在第几天可以完成任务，并输出购买方案。</p>
+</blockquote>
+<p><strong>二分答案，贪心</strong>(1A)</p>
+<p>​    考虑每种货币都在最小的同一天进行购买——在最便宜的一天购买，这样是最赚的。</p>
+<p>​    那么我们首先二分答案，那么接下来的事情就是枚举多少个英镑去买，多少个美元去买。那么同时我们之前预处理出一个前缀Min，那么$O(1)$得到在这种情况下，要花费多少burle，如果够的，那么就返回true。</p>
+<p>​    注意要保存一下ID。因为答案要输出购买方案。</p>
+<blockquote>
+<p><strong>CF609E：</strong>给你一幅图，问对于每条边，包含这条边的最小生成树。</p>
+</blockquote>
+<p><strong>并查集按秩合并</strong>(5A)</p>
+<p>​    倍增写挂了，发现这个好写多了。</p>
+<p>​    考虑先求出原图的最小生成树——按秩合并（用$m log m$的那个算法)，考虑到边权是递增的，那么每次加入一条边，这条边连接的两个联通块，那么联通块两边的点一定会经过这条边——这是有保证的。而Max也能保证。</p>
+<p>​    而按秩合并，可以保证树高不会超过log，所以复杂度是$O(m log m)$级别的。</p>
+<p>​    如果不是原图的边，然后就相当于去掉路劲上最大边权的点，然后加上这条边的边权。</p>
+<h5 id="Wunder-Fund-Round-2016-Div-1-Div-2-combined"><a href="#Wunder-Fund-Round-2016-Div-1-Div-2-combined" class="headerlink" title="Wunder Fund Round 2016 (Div. 1 + Div. 2 combined)"></a><a href="http://codeforces.com/contest/618" target="_blank" rel="external">Wunder Fund Round 2016 (Div. 1 + Div. 2 combined)</a></h5><blockquote>
+<p><strong>CF618C</strong>给定n个点$(xi,yi)$，求一个三角形ABC，满足其它的点都在三角形的外面，输出任意一个三角形三个点的下标，n&lt;=100000。</p>
+</blockquote>
+<p><strong>构造，计算几何</strong></p>
+<p>​    考虑排序之后，最前面的3个点一定的是满足条件的，否则如果3点共线，只需要把第3个点继续往后找即可，</p>
 <blockquote>
 <p><strong>CF618E</strong>原来有一个N个段的长度为1的段，然后有m个操作，操作1是给定第X段，然后把第X段延长，变成多少Y，然后操作2是把某一个段按照原先的左端点旋转α°，每次操作完了询问原先最右边的端。</p>
 <p>$n,m&lt;=300 000$</p>
@@ -255,19 +368,6 @@
 <p>$x0= (x - rx0) \times cos(a) - (y - ry0)\times sin(a) + rx0 ;$</p>
 <p>$y0= (x - rx0)\times sin(a) + (y - ry0)\times cos(a) + ry0 ;$</p>
 <p>显然，延长操作只是单点修改。——保存位移之后只要同比例缩放就行了.那么旋转呢？这是一个区间修改。对于后面全部整段，都是需要绕着某个点进行旋转的。其实，角度是可以叠加的:___大家可以自己画图，然后用延长用四点共圆证明……角度竟然是可以叠加的! 然后就好做多了……QAQ。——本来还想着用矩阵结合律。。。</p>
-<h5 id="Codeforces-Round-345-Div-1"><a href="#Codeforces-Round-345-Div-1" class="headerlink" title="Codeforces Round #345 (Div. 1)"></a><a href="http://codeforces.com/contest/650" target="_blank" rel="external">Codeforces Round #345 (Div. 1)</a></h5><blockquote>
-<p><strong>CF650D</strong>给定一个长度为n的数列，和m个询问，每个询问给出Ai,Bi表示把第Ai个数改成Bi之后，这个数列的最长上升子序列（严格大于,询问相互独立）</p>
-</blockquote>
-<p><strong>线段树</strong></p>
-<p>​    具体做法分成2部分。一方面，我们要求得改过之后经过改过的点的LIS。这个比较好实现，离散化之后排个序离线用两棵线段树正反两次扫描维护。另一方面，我们要求得不经过这个点的LIS我们再把这个分为两部分。如果原来的LIS（至少有一条）不包括那个点，那么答案就是原来的LIS。如果所有的LIS都包括那个点，那么答案就是原来的LIS-1。一个点如何可能是LIS中的一个呢？注意到，当他的前缀LIS加上后缀LIS等于总的LIS+1的时候。那么我们只需要统计，这个点是不是唯一的这个位置。怎么样算唯一呢？就是它的前缀LIS（或者后缀）长度，除了它，没有别的点了。因此，我们只需要满足2个条件，这个点就是原来的LIS-1了。</p>
-<p>​    $1、L(LIS)_i+R(LIS)_i=Lis+1$        $2、there.is.only.one.L(LIS)_i$</p>
-<p>​    还是通过正反两次扫描实现。</p>
-<h5 id="IndiaHacks-2016-Online-Edition"><a href="#IndiaHacks-2016-Online-Edition" class="headerlink" title="IndiaHacks 2016 - Online Edition "></a><a href="http://codeforces.com/contest/653" target="_blank" rel="external">IndiaHacks 2016 - Online Edition </a></h5><blockquote>
-<p><strong>CF653E:</strong>n个点，m条不能相连的边，点1的度为k（相连的边有且仅有k条）。问是否能构成一棵树。</p>
-</blockquote>
-<p><strong>set维护BFS</strong></p>
-<p>​    考虑将1除去之后，得到剩下的联通块，其中有一个联通块没有向1的边，说明impossible，否则，如果联通块的数量大于等于k，说明无解。——因为联通块里面是可以随意连的。那么如何求联通块呢，考虑BFS。但是普通的BFS的复杂度会到$O(N^2)$，而这题的N比较大，是撑不住的，注意到，选取点有很大的冗余——因为每个点最多只会被访问1次，那么如何选点的？考虑用一个set维护还没有被访问过的点，访问一个点，将这个点从set中删去。对于某个点开始，寻找set中的元素，如果可以访问，那么访问，同时删去。</p>
-<p>​    注意到，这个时间复杂度只有$O((n+m)log n)$。</p>
 <h5 id="VK-Cup-2016-Round-1"><a href="#VK-Cup-2016-Round-1" class="headerlink" title="VK Cup 2016 - Round 1"></a><a href="http://codeforces.com/contest/639" target="_blank" rel="external">VK Cup 2016 - Round 1</a></h5><blockquote>
 <p><strong>CF639B：</strong>构造一棵树，使得树有n个节点，直径是D，树高是H，不存在输出-1</p>
 </blockquote>
@@ -306,11 +406,27 @@
 <blockquote>
 <p><strong>CF641D</strong>:有两个不同的骰子，点数为$1~n$。得到每个点数的概率可能不同（总和一定是$1$）。掷出这两个骰子，得到点数$a$，$b$。取$max(a,b)$, $min(a,b)$。给出$max(a,b)=c$的概率分布，和min(a,b)=c的概率分布。还原两个骰子点数的概率分布。所有概率之和为$1$。$n&lt;=100,000$</p>
 </blockquote>
+<p><strong>概率</strong>(1A)</p>
 <p>​    注意到，我们可以列出这样2个方程：<br>​    $sumy <em> x[p] + sumx </em> y[p] + x[p] <em> y[p] = Pmax$<br>​    $x[p] + y[p] = Pmax + Pmin$<br>​    然后解这两个方程<br>​    $y[p] = Pmax + Pmin - x[p]$<br>​    $sumy </em> x[p] + sumx <em> (Pmax + Pmin - x[p]) + x[p] </em> (Pmax + Pmin - x[p]) = Pmax$</p>
 <p>​    $p[x]^2  + (Pmax + Pmin + sumy - sumx) <em> x[p]  + ((Pmax + Pmin )</em>sumx - Pmax) = 0$<br>​    注意，当b^2-4ac几乎等于0的时候(可能小于0），那么不妨让b^2-4ac等于0</p>
 <blockquote>
-<p><strong>CF641E:</strong>有三个操作:$1​$ $x​$ $y​$，在第$x​$秒插入一个$y​$；$2​$ $x​$ $y​$，在第$x​$秒移走一个$y​$ ；$3​$ $x​$ $y​$, 问第$x​$秒有多少个$y​$ $(1 ≤ n ≤ 100 000) ​$</p>
+<p><strong>CF641E:</strong>有三个操作:$1$ $x$ $y$，在第$x$秒插入一个$y$；$2$ $x$ $y$，在第$x$秒移走一个$y$ ；$3$ $x$ $y$, 问第$x$秒有多少个$y$ $(1 ≤ n ≤ 100 000) $</p>
 </blockquote>
+<p><strong>树状数组，MAP</strong>(2A)</p>
+<p>​    $multiset$的$count$复杂度竟然不是$log$的……好吧，这题把时间离散化，然后用树状数组，每个节点保存一个$MAP$，复杂度是$log^2$的，然后就可以过了。</p>
+<h5 id="Codeforces-Round-345-Div-1"><a href="#Codeforces-Round-345-Div-1" class="headerlink" title="Codeforces Round #345 (Div. 1)"></a><a href="http://codeforces.com/contest/650" target="_blank" rel="external">Codeforces Round #345 (Div. 1)</a></h5><blockquote>
+<p><strong>CF650D</strong>给定一个长度为n的数列，和m个询问，每个询问给出Ai,Bi表示把第Ai个数改成Bi之后，这个数列的最长上升子序列（严格大于,询问相互独立）</p>
+</blockquote>
+<p><strong>线段树</strong></p>
+<p>​    具体做法分成2部分。一方面，我们要求得改过之后经过改过的点的LIS。这个比较好实现，离散化之后排个序离线用两棵线段树正反两次扫描维护。另一方面，我们要求得不经过这个点的LIS我们再把这个分为两部分。如果原来的LIS（至少有一条）不包括那个点，那么答案就是原来的LIS。如果所有的LIS都包括那个点，那么答案就是原来的LIS-1。一个点如何可能是LIS中的一个呢？注意到，当他的前缀LIS加上后缀LIS等于总的LIS+1的时候。那么我们只需要统计，这个点是不是唯一的这个位置。怎么样算唯一呢？就是它的前缀LIS（或者后缀）长度，除了它，没有别的点了。因此，我们只需要满足2个条件，这个点就是原来的LIS-1了。</p>
+<p>​    $1、L(LIS)_i+R(LIS)_i=Lis+1$        $2、there.is.only.one.L(LIS)_i$</p>
+<p>​    还是通过正反两次扫描实现。</p>
+<h5 id="IndiaHacks-2016-Online-Edition"><a href="#IndiaHacks-2016-Online-Edition" class="headerlink" title="IndiaHacks 2016 - Online Edition "></a><a href="http://codeforces.com/contest/653" target="_blank" rel="external">IndiaHacks 2016 - Online Edition </a></h5><blockquote>
+<p><strong>CF653E:</strong>n个点，m条不能相连的边，点1的度为k（相连的边有且仅有k条）。问是否能构成一棵树。</p>
+</blockquote>
+<p><strong>set维护BFS</strong></p>
+<p>​    考虑将1除去之后，得到剩下的联通块，其中有一个联通块没有向1的边，说明impossible，否则，如果联通块的数量大于等于k，说明无解。——因为联通块里面是可以随意连的。那么如何求联通块呢，考虑BFS。但是普通的BFS的复杂度会到$O(N^2)$，而这题的N比较大，是撑不住的，注意到，选取点有很大的冗余——因为每个点最多只会被访问1次，那么如何选点的？考虑用一个set维护还没有被访问过的点，访问一个点，将这个点从set中删去。对于某个点开始，寻找set中的元素，如果可以访问，那么访问，同时删去。</p>
+<p>​    注意到，这个时间复杂度只有$O((n+m)log n)$。</p>
 <h5 id="Codeforces-Round-347-Div-1"><a href="#Codeforces-Round-347-Div-1" class="headerlink" title="Codeforces Round #347 (Div. 1)"></a><a href="http://codeforces.com/contest/663" target="_blank" rel="external">Codeforces Round #347 (Div. 1)</a></h5><blockquote>
 <p><strong>CF663B:</strong>给定一些类似$?+?-?=n$表达式，然后知道最后一个数字为n（给定），然后在前面填（1~n)的数，问可不可能有满足条件的等式，可能输出Possible并给出一组解。给定n个数，1, 2, 3, 4, 5, 6,…, n。有两种操作，第一个操作是所有数向右边移动x个位置，第二个操作奇数和偶数的位置互换。$n &lt;= 1,000,000$  $q &lt;= 2,000,000$</p>
 </blockquote>
@@ -342,6 +458,32 @@
 <p>$$FWT(A) = (FWT(A0)+FWT(A1),FWT(A0)-FWT(A1))$$</p>
 <p>$$IFWT(A)=IFWT((A0+A1) \div2,(A0-A1)\div2)$$</p>
 <p>最后来一个统计就有结果了——虽然我也不知道怎么构造，我也不知道怎么证明。</p>
+<h5 id="Codeforces-Round-349-Div-1"><a href="#Codeforces-Round-349-Div-1" class="headerlink" title="Codeforces Round #349 (Div. 1)"></a><a href="http://codeforces.com/contest/666" target="_blank" rel="external">Codeforces Round #349 (Div. 1)</a></h5><blockquote>
+<p><strong>CF666A</strong>给一个字符串，然后你你需要切一个长度至少为5的前缀下来，然后剩下的都得切成是长度为2或者3的字符串你需要连续的切出来的字符串都不一样，问你能够切出多少不同的块</p>
+</blockquote>
+<p><strong>DP</strong>(1A)</p>
+<p>​    DP，考虑后面相邻的即可。</p>
+<blockquote>
+<p><strong>CF666B</strong>给定一个有向图，请您选择4个不同的节点，使得从第一个点出发，经过第2，3个点，最后到达第4个点。最短路之和最大。n&lt;=3000, m&lt;=5000。按照顺序输出选择的节点。</p>
+<p><strong>CF666C</strong></p>
+</blockquote>
+<p><strong>DP</strong>(抄题解1A)</p>
+<p>​    首先需要看出方案数<strong>只和模式串的长度有关</strong>，和具体的字符无关。</p>
+<p>​    由于模式串的长度和规模为$10^5$，则不同长度模式串最多有$\sqrt {2*10^5}$种，因而如果如果我们若能在线性时间内推出某长度下的结果，复杂就会变成$O(n\sqrt n)$。</p>
+<p>​    具体记数的过程比较复杂，需要考虑枚举模式串为第一次匹配的情况。</p>
+<p>​    若$S$为主串，模式串为$P$，$a_i$为$|S|=i$时的方案数。</p>
+<p>​    $ai = 0$——$i&lt;|P|$</p>
+<p>​    $ai=26\times a_{i−1} + C(n−1,i−1)\times25^{i−|P|}$—–$i⩾|P|$</p>
+<p>​    $26a_{i−1}$包含了第一次匹配在$S1⋯Si−1$出现的情况，最后一个位置放啥都行。</p>
+<p>​    $C(n−1,i−1)\times25^{i−|P|}$ 是在$S_i$才出现第一次匹配的情况。$S<em>1⋯S</em>{i−1}$能匹配$P<em>1⋯P</em>{|P|−1}$且$Si=P|P|$。最后一位确定，然后在$S<em>1⋯S</em>{i−1}$选择$P<em>i⋯P</em>{|P|−1}$的匹配，即$C(n−1,i−1)$，剩余的位置每个位置都含有$25$种可能，因为不能是它之后第一个确定的位置的字符。</p>
+<h5 id="VK-Cup-2016-Round-3"><a href="#VK-Cup-2016-Round-3" class="headerlink" title="VK Cup 2016 - Round 3"></a><a href="http://codeforces.com/contest/643" target="_blank" rel="external">VK Cup 2016 - Round 3</a></h5><blockquote>
+<p><strong>CF643B</strong>给定$N$,$K$和$a$,$b$,$c$,$d$，问是否存在这样两条路劲，使得这两条路劲经过所有城市，并且从a到b，和从c到d，长度为N，整个边数不超过K。$(4 ≤ n ≤ 1000, n - 1 ≤ k ≤ 2n - 2) $</p>
+</blockquote>
+<p><strong>构造</strong>（4A）</p>
+<p>​    考虑分类讨论，能公用的尽量公用，注意到n=4的时候，a,b,c,d互不相同是不行的</p>
+<blockquote>
+<p><strong>CF643C</strong>要把1～n分成k组，每组内的数必须连续，组与组不相交且每个数必须属于一个组，并且任意i有一个参数$ti$。 如果$[l,r]$为一组，那么从l走到l+1的概率是$tl$，从$l+1$走到$l+2$的概率是$\frac{tl+tl+1}{tl+1}$，依次类推，从$l$要么走到$l+1$，要么原地不动，那么组$[l,r]$的费用就是从$l$走到$r$的期望次数。现在要分成k组，让总费用最小，每个数仅能属于一个组。 </p>
+</blockquote>
 
       
 
@@ -519,7 +661,7 @@
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -563,17 +705,25 @@ MathJax.Hub.Queue(function() {
       
       
     
+      
+      
+      
+    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">Orz</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">Orz</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">相关联系事项</a></li>
       
         
     </ul>
@@ -598,7 +748,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -610,19 +760,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">单调栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">USACO</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hash</a>
+                <a href="javascript:void(0)" class="js-tag color5">计算几何</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">计算几何</a>
+                <a href="javascript:void(0)" class="js-tag color5">hash</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,6 +777,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
             
             <div class="clearfix"></div>
@@ -698,6 +848,12 @@ MathJax.Hub.Queue(function() {
     	</section>
     
 
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">QQ:15312329&lt;br&gt;&lt;br&gt;</div>
+  	  	
+    	</section>
     
   </div>
   

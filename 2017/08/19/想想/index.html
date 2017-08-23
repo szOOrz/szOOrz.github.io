@@ -40,7 +40,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #0d3d9d"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -56,8 +56,6 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
-	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -68,6 +66,10 @@
             
     			
     			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">Orz</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">相关联系事项</a>
     			
             
 		</nav>
@@ -83,7 +85,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #0d3d9d"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -100,8 +102,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -114,9 +114,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -244,6 +242,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/08/20/Atcoder/atcoder/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          atcoder
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/08/19/Codeforces/codeforces/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">codeforces</div>
@@ -308,7 +315,7 @@
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -352,17 +359,25 @@ MathJax.Hub.Queue(function() {
       
       
     
+      
+      
+      
+    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">Orz</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">Orz</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">相关联系事项</a></li>
       
         
     </ul>
@@ -387,7 +402,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -399,19 +414,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">单调栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">USACO</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hash</a>
+                <a href="javascript:void(0)" class="js-tag color5">计算几何</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">计算几何</a>
+                <a href="javascript:void(0)" class="js-tag color5">hash</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -420,6 +431,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
             
             <div class="clearfix"></div>
@@ -487,6 +502,12 @@ MathJax.Hub.Queue(function() {
     	</section>
     
 
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">QQ:15312329&lt;br&gt;&lt;br&gt;</div>
+  	  	
+    	</section>
     
   </div>
   
