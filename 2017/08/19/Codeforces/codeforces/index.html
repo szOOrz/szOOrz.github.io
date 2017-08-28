@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://codeforces.com/predownloaded/30/e5/30e539b0cc8f5d37f524dd78cdc549a4fa5c7a93.png">
 <meta property="og:image" content="http://codeforces.com/predownloaded/a3/7d/a37dc46ef6a265bb8f01595c2118a82b456b068a.png">
 <meta property="og:image" content="http://codeforces.com/predownloaded/cf/32/cf32e97135c9c6e4e441357b5c63e0b5a8d93ffe.png">
-<meta property="og:updated_time" content="2017-08-23T08:00:57.829Z">
+<meta property="og:updated_time" content="2017-08-24T16:33:25.837Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="codeforces">
 <meta name="twitter:description" content="乱作一波题。 感觉无法忍受 不贴代码Orz">
@@ -48,11 +48,11 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #0d3d9d"></div>
+<div class="overlay" style="background: #098070"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/img/preloader.gif" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">EMOAIRX</a></h1>
@@ -63,6 +63,8 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -77,13 +79,21 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">相关联系事项</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
+					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -93,14 +103,14 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #0d3d9d"></div>
+  	<div class="overlay js-overlay" style="background: #098070"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/img/preloader.gif" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">EMOAIRX</h1>
@@ -110,11 +120,21 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
+						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
 				</div>
 			</nav>
 
@@ -122,7 +142,9 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 100%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
+		        
+					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -161,7 +183,7 @@
 <p>感觉无法忍受</p>
 <p>不贴代码Orz</p>
 <a id="more"></a>
-<h5 id="Codeforces-Round-308-Div-2-——虚拟比赛"><a href="#Codeforces-Round-308-Div-2-——虚拟比赛" class="headerlink" title="Codeforces Round #308 (Div. 2)——虚拟比赛"></a><a href="http://codeforces.com/contest/552" target="_blank" rel="external">Codeforces Round #308 (Div. 2)</a>——虚拟比赛</h5><blockquote>
+<h5 id="Codeforces-Round-308-Div-2"><a href="#Codeforces-Round-308-Div-2" class="headerlink" title="Codeforces Round #308 (Div. 2)"></a><a href="http://codeforces.com/contest/552" target="_blank" rel="external">Codeforces Round #308 (Div. 2)</a></h5><blockquote>
 <p><strong>CF552A</strong>给出一些矩阵，问这些矩阵覆盖的面积之和（不是并，重叠算多次）</p>
 </blockquote>
 <p><strong>模拟</strong>(1A)</p>
@@ -284,76 +306,16 @@
 </blockquote>
 <p><strong>脑洞，哈希</strong>(1A)</p>
 <p>​    考虑依次让两个球分别到达终点，可以猜测一个结论，无法到达当且仅当第一个球达终点后，第二个球需要到达终点的步骤，恰好使得第一个球退出（证明有些困难）。于是可以改变第一个球轨道的方向，就变成字符串匹配的问题。从而用hash使得前一个串的后缀对称后得到后一个串的后缀，那么就无解。</p>
-<h5 id="Codeforces-Round-342-Div-2-——虚拟比赛"><a href="#Codeforces-Round-342-Div-2-——虚拟比赛" class="headerlink" title="Codeforces Round #342 (Div. 2)——虚拟比赛"></a><a href="http://codeforces.com/contest/625" target="_blank" rel="external">Codeforces Round #342 (Div. 2)</a>——虚拟比赛</h5><blockquote>
-<p><strong>CF625A</strong>你有n元，有2种包装的物品，一种是a元，一种是b元，但是花了b元能反c元，问最多能获得多少武平$(1&lt;=n&lt;=10^18)$</p>
+<h5 id="Good-Bye-2015"><a href="#Good-Bye-2015" class="headerlink" title="Good Bye 2015"></a><a href="http://codeforces.com/contest/611" target="_blank" rel="external">Good Bye 2015</a></h5><blockquote>
+<p><strong>CF611C:</strong>题意：有一个$n×m$的网格，‘#’不能摆。有$Q$个询问，每个询问$(r1,c1,r2,c2)$求出这个子矩形内可以有多少种方式放一个$1×2$的骨牌。$n,m&lt;=500,Q&lt;=100000$</p>
 </blockquote>
-<p><strong>模拟，贪心</strong>(1A)</p>
-<p>​    考虑如果b-c比a要赚，那么先选择一个b，然后加上c……最后再去选a。模拟一下就行了。</p>
+<p><strong>容斥</strong></p>
+<p>​    考虑得到$a[i,j]$，表示询问为$(1,1,i,j)$的答案。</p>
+<p>​    那么对于询问，可以拆分成总的减去两个，再加上一个小的。这样还不够，因为类似的一个里面一个外面的多余了，得$O(n)$扫一遍判断。</p>
 <blockquote>
-<p><strong>CF625B</strong>在第一个串中最少把多少个字符修改为#，才能第一个串不包含第二个串。</p>
+<p><strong>CF611D:</strong>把一个长为$n$的数字串拆成多个串，要求这些串的数值递增的，并且没有前缀0，问有多少种分法。$n&lt;=5000$</p>
 </blockquote>
-<p><strong>贪心，KMP</strong>(3A)</p>
-<p>​    考虑一定是越后面修改越好的，所以贪心，同时跑的时候来一发KMP加速——其实也不需要。</p>
-<blockquote>
-<p><strong>CF625C</strong>让你用$1-n \times n$这些数填充$n\times n$矩阵，要求每行的数字严格递增、每个数字只能用一次且保证第k列的数字和最大。</p>
-</blockquote>
-<p><strong>贪心</strong>(1A)</p>
-<p>​    考虑把小的都放在左边，那么然后能往右边再往右边，贪心选数即可。</p>
-<h5 id="Educational-Codeforces-Round-1——虚拟比赛"><a href="#Educational-Codeforces-Round-1——虚拟比赛" class="headerlink" title="Educational Codeforces Round 1——虚拟比赛"></a><a href="http://codeforces.com/contest/598" target="_blank" rel="external">Educational Codeforces Round 1</a>——虚拟比赛</h5><blockquote>
-<p><strong>CF598A：</strong>求数字之和，但是要不算2的倍数</p>
-</blockquote>
-<p><strong>模拟</strong>(1A)</p>
-<p>​    等差数列求和公式，再减去2次倍数即可。$log$的复杂度</p>
-<blockquote>
-<p><strong>CF598B：</strong>给定一个字符串s，下标从1 - |s|。有m次操作，L R k - 表示讲[L, R]里面的字符右移k次，第R位右移一次到达第L位。问你经过m次变化后的字符串。</p>
-</blockquote>
-<p><strong>模拟</strong>(1A)</p>
-<p>​    考虑把k先对长度取模，然后用一个辅助数组直接暴力O(len)移动再代入。</p>
-<blockquote>
-<p><strong>CF598C：</strong>找到两个向量间夹角最小的那两个向量的位置;</p>
-</blockquote>
-<p><strong>精度</strong>(N A)</p>
-<p>​    要用atan2高精度做，用long double做，极角排序后求角度即可。</p>
-<blockquote>
-<p><strong>CF598D：</strong>给定一个$n \times m$的地图，有k次查询。每次查询，询问位置（x,y）的点连通块周围有多少个</p>
-</blockquote>
-<p><strong>flood fill</strong>(2A)</p>
-<p>​    先$N \times M$把所有位置的答案算出来，然后询问直接做</p>
-<blockquote>
-<p><strong>CF598E：</strong>一个n*m大的巧克力，你要吃k个单元的巧克力。每次切分都会有切的那条边长度平方的代价。问最小代价。</p>
-</blockquote>
-<p><strong>DP</strong>(4A)</p>
-<p>​    考虑直接用$dp[i,j,k]$表示状态为i,j,k的时候的答案，那么只需要暴力枚举分割线，以及左边多少，右边多少，取max。注意不要数组越界</p>
-<h5 id="Educational-Codeforces-Round-3——虚拟比赛，E题没写出来QAQ"><a href="#Educational-Codeforces-Round-3——虚拟比赛，E题没写出来QAQ" class="headerlink" title="Educational Codeforces Round 3——虚拟比赛，E题没写出来QAQ"></a><a href="http://codeforces.com/contest/609" target="_blank" rel="external">Educational Codeforces Round 3</a>——虚拟比赛，E题没写出来QAQ</h5><blockquote>
-<p><strong>CF609A:</strong>给你一个m大的总内存和n个USB快闪驱动器，问你至少需要多少个USB快闪驱动器才能装满或者超过总内存。</p>
-</blockquote>
-<p><strong>贪心</strong>(1A)</p>
-<p>​    排个序，然后贪心贪大的，看减多少次小于等于0即可。</p>
-<blockquote>
-<p><strong>CF609B:</strong>给你一堆书和他们的种类，然后要挑两本书，他们不能是相同的种类，求有多少种挑法</p>
-</blockquote>
-<p><strong>容斥</strong>(1A)</p>
-<p>​    考虑所有情况，减去2本数在一起的情况，注意到m&lt;=10，比较容易。</p>
-<blockquote>
-<p><strong>CF609C:</strong>给你n个元素的序列a[]，每次可以任选两个元素使得其中一个减1，另一个加1，付出代价为1。问你最小的代价使得序列最平衡。</p>
-</blockquote>
-<p><strong>贪心</strong>(1A)</p>
-<p>​    考虑直接贪心做，把最后得到的那个序列通过总和，余数等算出来，然后考虑把当前排序，贪心地得到两者之间的绝对值的sum，那么最后答案就是这个sum/2</p>
-<blockquote>
-<p><strong>CF609D:</strong>给定m个物品（编号从1-m）以及它们的种类和价格（美元和英镑），其中种类1意味着购买该物品需要美元，反之需要英镑。已知在n天里，每天都会有美元和英镑的兑换率a[i]和b[i]，意味着用a[i]个burle可以换取1美元，英镑的兑换同理。现在你手上只有s个burle，你需要在n天里购买k个物品，要求每个物品只能买一次，问你最早在第几天可以完成任务，并输出购买方案。</p>
-</blockquote>
-<p><strong>二分答案，贪心</strong>(1A)</p>
-<p>​    考虑每种货币都在最小的同一天进行购买——在最便宜的一天购买，这样是最赚的。</p>
-<p>​    那么我们首先二分答案，那么接下来的事情就是枚举多少个英镑去买，多少个美元去买。那么同时我们之前预处理出一个前缀Min，那么$O(1)$得到在这种情况下，要花费多少burle，如果够的，那么就返回true。</p>
-<p>​    注意要保存一下ID。因为答案要输出购买方案。</p>
-<blockquote>
-<p><strong>CF609E：</strong>给你一幅图，问对于每条边，包含这条边的最小生成树。</p>
-</blockquote>
-<p><strong>并查集按秩合并</strong>(5A)</p>
-<p>​    倍增写挂了，发现这个好写多了。</p>
-<p>​    考虑先求出原图的最小生成树——按秩合并（用$m log m$的那个算法)，考虑到边权是递增的，那么每次加入一条边，这条边连接的两个联通块，那么联通块两边的点一定会经过这条边——这是有保证的。而Max也能保证。</p>
-<p>​    而按秩合并，可以保证树高不会超过log，所以复杂度是$O(m log m)$级别的。</p>
-<p>​    如果不是原图的边，然后就相当于去掉路劲上最大边权的点，然后加上这条边的边权。</p>
+<p><strong>DP，LCP。</strong>定义状态$f[i][j]$表示$[1,i]$中划分了最后$j$个的方案数。发现状态难以优化，考虑从加速转移入手。假设前一段划分的长度为$k$，注意到当$k&lt;=j−1$时，显然能够转移，即$f[i][j]=\sum ^{j−1}_{k=1}f[i−j][k]$，这一部分可以前缀和优化。还有可能是从$f[i−j][j]$转移到$f[i][j]$，就需要比较$[i−2j+1,i−j],[i−j+1,i]$的大小。由于长度相等，实际上就是在比较字典序。而比较字典序有一个常用的方法，可以求出以$i,j$开头的最长公共前缀，记为$lcp(i,j)$，这样预处理后就可以$O(1)$转移了。</p>
 <h5 id="Wunder-Fund-Round-2016-Div-1-Div-2-combined"><a href="#Wunder-Fund-Round-2016-Div-1-Div-2-combined" class="headerlink" title="Wunder Fund Round 2016 (Div. 1 + Div. 2 combined)"></a><a href="http://codeforces.com/contest/618" target="_blank" rel="external">Wunder Fund Round 2016 (Div. 1 + Div. 2 combined)</a></h5><blockquote>
 <p><strong>CF618C</strong>给定n个点$(xi,yi)$，求一个三角形ABC，满足其它的点都在三角形的外面，输出任意一个三角形三个点的下标，n&lt;=100000。</p>
 </blockquote>
@@ -368,6 +330,42 @@
 <p>$x0= (x - rx0) \times cos(a) - (y - ry0)\times sin(a) + rx0 ;$</p>
 <p>$y0= (x - rx0)\times sin(a) + (y - ry0)\times cos(a) + ry0 ;$</p>
 <p>显然，延长操作只是单点修改。——保存位移之后只要同比例缩放就行了.那么旋转呢？这是一个区间修改。对于后面全部整段，都是需要绕着某个点进行旋转的。其实，角度是可以叠加的:___大家可以自己画图，然后用延长用四点共圆证明……角度竟然是可以叠加的! 然后就好做多了……QAQ。——本来还想着用矩阵结合律。。。</p>
+<blockquote>
+<p><strong>CF618F:</strong>给定两个多重集$A,B$，每个数$∈[1,n]$。在$A$中选取一个含$Ka$个元素的非空子集。在$B$中也是如此（有$Kb$个元素）。要求使得两个子集之和相等。$n&lt;=100000$。</p>
+</blockquote>
+<p><strong>构造</strong></p>
+<p>​    注意，每个数是在1~n之间的。考虑把条件加强，如果只是寻找连续上面一段和下面连续一段，使得和相同。</p>
+<p>​    设$SA[i]$，$SB[i]$为A串的前缀和，B串的前缀和。不妨设$SA[n] &gt;= SB[n]$——否则可以交换，那么对于每个SA，我们找到在第二个序列中，找到满足SA[i] &gt;= SB[j]的最大的j。不难发现，$0&lt;=SA[i]-SB[j]&lt;=n-1$。而算上第0项，i总共有n+1种情况，所以一定能通过连续一段来构造。</p>
+<p>​    这样，我们可以通过上述策略去构造。</p>
+<h5 id="AIM-Tech-Round-Div-1"><a href="#AIM-Tech-Round-Div-1" class="headerlink" title="AIM Tech Round (Div. 1)"></a><a href="http://codeforces.com/contest/623" target="_blank" rel="external">AIM Tech Round (Div. 1)</a></h5><blockquote>
+<p><strong>CF623A:</strong>一个由$a,b,c$组成的字符串，可以这样生成一张图，当$s[i]$与$s[j]$不是一个$a$一个$c$时，$i$与$j$连一条边。给定生成的图，求是否存在字符串能生成这张图。$n&lt;=500$</p>
+</blockquote>
+<p>​    考虑把所有和其它所有点连边的赋值成b，然后剩余的，随便选一个赋值成a，将和他有连边剩余的赋值成c，然后验证答案是否矛盾。</p>
+<blockquote>
+<p><strong>CF623B:</strong>有一个数列，可以删除其中一段，删一个代价为$a$。也可以选择对其中一些数进行增加或者减少1，每次代价为$b$，问最后使得所有的$gcd$比1大，最小代价是多少。</p>
+</blockquote>
+<p><strong>DP</strong></p>
+<p>​    注意到，最后$a1$，或者$an$一定是剩余的——可能进行一些操作。所以答案的$gcd$一定是$a1-1,a1,a1+1,an-1,an,an+1$这些数的质因子中的某一个。考虑枚举出质因子后，用3个DP分别表示还删，删完了，还在删的状态。</p>
+<blockquote>
+<p><strong>CF623C:</strong>平面上有$n$个点$(xi,yi)$。每个点可以变成$(xi,0)$，或$(0,yi)$。所有的点变换之后，两点最大距离的平方的最小值是多少。n&lt;=100000</p>
+</blockquote>
+<p><strong>二分答案</strong></p>
+<p>​    </p>
+<h5 id="Codeforces-Round-342-Div-2"><a href="#Codeforces-Round-342-Div-2" class="headerlink" title="Codeforces Round #342 (Div. 2)"></a><a href="http://codeforces.com/contest/625" target="_blank" rel="external">Codeforces Round #342 (Div. 2)</a></h5><blockquote>
+<p><strong>CF625A</strong>你有n元，有2种包装的物品，一种是a元，一种是b元，但是花了b元能反c元，问最多能获得多少武平$(1&lt;=n&lt;=10^18)$</p>
+</blockquote>
+<p><strong>模拟，贪心</strong>(1A)</p>
+<p>​    考虑如果b-c比a要赚，那么先选择一个b，然后加上c……最后再去选a。模拟一下就行了。</p>
+<blockquote>
+<p><strong>CF625B</strong>在第一个串中最少把多少个字符修改为#，才能第一个串不包含第二个串。</p>
+</blockquote>
+<p><strong>贪心，KMP</strong>(3A)</p>
+<p>​    考虑一定是越后面修改越好的，所以贪心，同时跑的时候来一发KMP加速——其实也不需要。</p>
+<blockquote>
+<p><strong>CF625C</strong>让你用$1-n \times n​$这些数填充$n\times n​$矩阵，要求每行的数字严格递增、每个数字只能用一次且保证第k列的数字和最大。</p>
+</blockquote>
+<p><strong>贪心</strong>(1A)</p>
+<p>​    考虑把小的都放在左边，那么然后能往右边再往右边，贪心选数即可。</p>
 <h5 id="VK-Cup-2016-Round-1"><a href="#VK-Cup-2016-Round-1" class="headerlink" title="VK Cup 2016 - Round 1"></a><a href="http://codeforces.com/contest/639" target="_blank" rel="external">VK Cup 2016 - Round 1</a></h5><blockquote>
 <p><strong>CF639B：</strong>构造一棵树，使得树有n个节点，直径是D，树高是H，不存在输出-1</p>
 </blockquote>
@@ -497,7 +495,7 @@
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>长按1001秒<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
                     
@@ -661,7 +659,7 @@
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: true
+		showTags: false
 	}
 </script>
 
@@ -723,7 +721,7 @@ MathJax.Hub.Queue(function() {
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">相关联系事项</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -748,11 +746,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">图论</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tree</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">组合计数</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -777,10 +791,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
             
             <div class="clearfix"></div>
@@ -851,7 +861,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">QQ:15312329&lt;br&gt;&lt;br&gt;</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">QAQ&lt;br&gt;&lt;br&gt;蒟蒻&lt;br&gt;大蒟蒻</div>
   	  	
     	</section>
     
