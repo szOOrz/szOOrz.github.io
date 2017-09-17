@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="codeforces,数论," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="数论只会GCD……">
+<meta name="keywords" content="codeforces,数论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CF数论简单题">
+<meta property="og:url" content="http://yoursite.com/2017/08/22/Codeforces/题解：2017暑假/数论相关/index.html">
+<meta property="og:site_name" content="Emoairx">
+<meta property="og:description" content="数论只会GCD……">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-29T13:16:43.381Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CF数论简单题">
+<meta name="twitter:description" content="数论只会GCD……">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/22/Codeforces/题解：2017暑假/数论相关/"/>
+
+
+
+
+
+  <title>CF数论简单题 | Emoairx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Emoairx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/22/Codeforces/题解：2017暑假/数论相关/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Emoairx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CF数论简单题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-22T15:22:50+08:00">
+                2017-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>数论只会GCD……</p>
+<a id="more"></a>
+<h5 id="http-codeforces-com-problemset-problem-222-C"><a href="#http-codeforces-com-problemset-problem-222-C" class="headerlink" title="http://codeforces.com/problemset/problem/222/C"></a><a href="http://codeforces.com/problemset/problem/222/C" target="_blank" rel="external">http://codeforces.com/problemset/problem/222/C</a></h5><blockquote>
+<p>​    给出两个集合，第一个集合数的乘积是分子，第二个集合的数的乘积是分母，要求够造一个同样大小的集合，但是得到的分数是化简过的。</p>
+</blockquote>
+<p>​    考虑先用线性筛求出素数(1e7)，然后跑质因数分解，保存在数组中，取出gcd——然后对于a和b，贪心的除去gcd。</p>
+<h5 id="http-codeforces-com-problemset-problem-446-C"><a href="#http-codeforces-com-problemset-problem-446-C" class="headerlink" title="http://codeforces.com/problemset/problem/446/C"></a><a href="http://codeforces.com/problemset/problem/446/C" target="_blank" rel="external">http://codeforces.com/problemset/problem/446/C</a></h5><blockquote>
+<p>​    给定n个元素的数组a[].</p>
+<p>​    操作1, l, r。要求对于l&lt;=i&lt;=r,a[i]] += f[i-l+1]</p>
+<p>​    询问2, l, r。范围Σa[i] (l&lt;=i&lt;=r)</p>
+<p>​    $n,m&lt;=300000$</p>
+<p>​    其中$f[i]$为斐波那契数列，$f[1]=1,f[2]=1$</p>
+</blockquote>
+<p><strong>斐波那契数列</strong></p>
+<p>​    据说这是通项公式$\Large fib(i)=\frac{1}{\sqrt 5}((\frac{1+\sqrt 5}{2})^n+(\frac{1−\sqrt 5}{2}) ^n)$</p>
+<p>​    然后有一个神奇的事情是，$\sqrt 5$在Mod$1e9+7$意义下的逆元是有解的！</p>
+<p>​    $sqrt(5)=383008016$</p>
+<p>​    $sqrt(5)/5=276601605$<br>​    $(1+sqrt(5))/2=691504013$<br>​    $(1-sqrt(5))/2=308495997$<br>​    利用公式<br>​    注意本题$q-1$的逆元为$q$<br>​    所以，    $q\times (q^n-1)/(q-1)=q^2(q^n-1)=q^(n+2)-q^2$</p>
+<p>​    注意用线段树维护等比数列</p>
+<h5 id="http-codeforces-com-problemset-problem-711-E"><a href="#http-codeforces-com-problemset-problem-711-E" class="headerlink" title="http://codeforces.com/problemset/problem/711/E"></a><a href="http://codeforces.com/problemset/problem/711/E" target="_blank" rel="external">http://codeforces.com/problemset/problem/711/E</a></h5><blockquote>
+<p>​    给定N,K，已知一年有2^N天，选取K个人，两个人的生日是在同一天的的概率要求，$1&lt;=n,k&lt;=1e18$，答案作为分数，对$1e6+3$取模——在取模之前约分！</p>
+</blockquote>
+<p>​    考虑当$2^N&lt;K$的时候，显然是1,1。否则答案就是$(1- A_{2^n}^{k}) \div (2^{nk})$，考虑如何化简这个式子。</p>
+<p>​    首先，$A(2^n,k) = (2^n)∗(2^n−1)∗(2^n−2)∗ … ∗(2^n−k+1)$那么在把一个2^n约掉之后，考虑到他们的$gcd$一定也是2的幂次，显然分母所包含的2比分子包含的多所以只要看分子还有多少2即可。注意到，如果$k$是$2^m$的倍数，那么$2^n-k$也是$2^m$的倍数。所以只要看$(k-1)!$有多少个因子2即可。这个很好解决。</p>
+<p>​    那么分子其实不会超过1e6+3次运算，因为可能出现0。</p>
+<h5 id="http-codeforces-com-problemset-problem-121-C"><a href="#http-codeforces-com-problemset-problem-121-C" class="headerlink" title="http://codeforces.com/problemset/problem/121/C"></a><a href="http://codeforces.com/problemset/problem/121/C" target="_blank" rel="external">http://codeforces.com/problemset/problem/121/C</a></h5><blockquote>
+<p>​    对于一个数，如果它仅包含4或7，则称之为幸运数。求1~n的第K个置换，有多少幸运数位于的位置也是幸运数。$(n,k&lt;=1e9)$</p>
+</blockquote>
+<p>​    考虑到，$13!$已经超过1e9了，所以事实上前面好多位都是不会变的。那么只要暴力加上去，再暴力算出后面的就行了。</p>
+<h5 id="http-codeforces-com-problemset-problem-772-C"><a href="#http-codeforces-com-problemset-problem-772-C" class="headerlink" title="http://codeforces.com/problemset/problem/772/C"></a><a href="http://codeforces.com/problemset/problem/772/C" target="_blank" rel="external">http://codeforces.com/problemset/problem/772/C</a></h5><blockquote>
+<p>​    给定n个0~m-1内的数和m，构造一个尽可能长的所有元素都在0~m-1内的数列，并且使所有前缀积模m不相同且不在n个数中出现过。</p>
+</blockquote>
+<p>​    考虑到所有的$gcd$都是非递减的。那么考虑小的$gcd$一定能通过乘上某个数变成其倍数的$gcd$，因此，把不同的$gcd$的个数求出来，跑一个$DP$（类似$DAG$最长路），然后可以得到一系列的前缀和。再通过前缀和，解同余方程得到最后的$Ans$。</p>
+<p>​    为什么是非递减的？因为如果当前数a和$m​$的$gcd​$是x的话，那么对于1到m-1的任何一个数b，因为满足它们$gcd(a,m)=x​$，也就是要知道$gcd(a<em>b,m) = y​$,首先，因为a和m都有公因数x，所以$\large y=gcd(\frac{a</em>b}{x},\frac{m}{x}) * x​$,这时候已经可以发现$y&gt;=x​$了。</p>
+<p>​    考虑为什么一定有解？因为最终我们得到了前缀积。我们要做的是通过前缀积算出结果，设前面一个的前缀积是$a$，后面一个是$b$，那么目的是要找出满足$ax \equiv b \pmod {m}$，因为我们知道,$gcd(a,m)&lt;=gcd(b,m)$，所以设$gcd(a,m) = d$，$a=a/d$,$b=b/d$，那么现在还是找出$ax \equiv b(mod m/gcd(a,b))$，那么我们要知道a关于m的逆元即可。而此时a和m已经互质，逆元可以通过$ex_gcd$求出。</p>
+<h5 id="http-codeforces-com-contest-396-problem-B"><a href="#http-codeforces-com-contest-396-problem-B" class="headerlink" title="http://codeforces.com/contest/396/problem/B"></a><a href="http://codeforces.com/contest/396/problem/B" target="_blank" rel="external">http://codeforces.com/contest/396/problem/B</a></h5><blockquote>
+<p>定义函数v(n)为不大于n的最大素数。定义函数u(n)为大于n的最小素数。求Σ1/(v(i)*u(i))(2&lt;=i&lt;=n)。$T&lt;=500,n&lt;=1e9$</p>
+</blockquote>
+<p>​    裂项：这样假设有$n$，$v = v(n),  u = u(n)； $</p>
+<p>​    $1/(2<em>3) + 1/(3</em>5) <em> (5-3) + …… + 1/(v</em>u) * (n-v+1)  (注意最后不是u-v个）$</p>
+<p>​    $= 1/2 - 1/3 + 1/3 - 1/5 + …….. -1/v + 1/(v<em>u) </em>(n-v+1)$</p>
+<p>​    $= 1/2 - 1/v + 1/(v<em>u)</em>(n-v+1)$</p>
+<p>​    $p = u<em>v + 2</em>(n-v-u+1); q = 2<em>u</em>v;$</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/codeforces/" rel="tag"># codeforces</a>
+          
+            <a href="/tags/数论/" rel="tag"># 数论</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/20/Atcoder/atcoder/" rel="next" title="atcoder">
+                <i class="fa fa-chevron-left"></i> atcoder
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/24/Codeforces/题解：2017暑假/组合计数相关/" rel="prev" title="CF组合计数相关">
+                CF组合计数相关 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/image1.jpg"
+               alt="EMOAIRX" />
+          <p class="site-author-name" itemprop="name">EMOAIRX</p>
+           
+              <p class="site-description motion-element" itemprop="description">OI Lover</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              dalao
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://cyanie.github.io/" title="XZA" target="_blank">XZA</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.cnblogs.com/zhouzhendong/" title="ZZD" target="_blank">ZZD</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.cnblogs.com/chunlvxiong/" title="CLJ" target="_blank">CLJ</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#http-codeforces-com-problemset-problem-222-C"><span class="nav-number">1.</span> <span class="nav-text">http://codeforces.com/problemset/problem/222/C</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#http-codeforces-com-problemset-problem-446-C"><span class="nav-number">2.</span> <span class="nav-text">http://codeforces.com/problemset/problem/446/C</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#http-codeforces-com-problemset-problem-711-E"><span class="nav-number">3.</span> <span class="nav-text">http://codeforces.com/problemset/problem/711/E</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#http-codeforces-com-problemset-problem-121-C"><span class="nav-number">4.</span> <span class="nav-text">http://codeforces.com/problemset/problem/121/C</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#http-codeforces-com-problemset-problem-772-C"><span class="nav-number">5.</span> <span class="nav-text">http://codeforces.com/problemset/problem/772/C</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#http-codeforces-com-contest-396-problem-B"><span class="nav-number">6.</span> <span class="nav-text">http://codeforces.com/contest/396/problem/B</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EMOAIRX</span>
+
+  
+</div>
+
+
+  <div class="powered-by"><a class="theme-link" href="https://hexo.io">Hexo</a> — OI路漫漫😊</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">平静是真言  &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  <!-- ҳ������С���� -->
+  <!-- script type="text/javascript" src="/js/src/love.js"></script>-->
+
+</body>
+</html>

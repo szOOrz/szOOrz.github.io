@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="USACO," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Shuttle Puzzle题意：给定n，当n=3的时候，表示从WWW_BBB到BBB_WWW的最少操作步数。每次可以将某一个W或者B移动到空格位置，但是距离得小于等于2。 n&amp;lt;=12">
+<meta name="keywords" content="USACO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="USACO4.4.1">
+<meta property="og:url" content="http://yoursite.com/2017/08/11/USACO/training/Section4/4/USACO4.4.1-shuttle/shuttle/index.html">
+<meta property="og:site_name" content="Emoairx">
+<meta property="og:description" content="Shuttle Puzzle题意：给定n，当n=3的时候，表示从WWW_BBB到BBB_WWW的最少操作步数。每次可以将某一个W或者B移动到空格位置，但是距离得小于等于2。 n&amp;lt;=12">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-18T03:27:29.107Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="USACO4.4.1">
+<meta name="twitter:description" content="Shuttle Puzzle题意：给定n，当n=3的时候，表示从WWW_BBB到BBB_WWW的最少操作步数。每次可以将某一个W或者B移动到空格位置，但是距离得小于等于2。 n&amp;lt;=12">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/11/USACO/training/Section4/4/USACO4.4.1-shuttle/shuttle/"/>
+
+
+
+
+
+  <title>USACO4.4.1 | Emoairx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Emoairx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/11/USACO/training/Section4/4/USACO4.4.1-shuttle/shuttle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Emoairx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">USACO4.4.1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-11T21:04:04+08:00">
+                2017-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Shuttle-Puzzle"><a href="#Shuttle-Puzzle" class="headerlink" title="Shuttle Puzzle"></a>Shuttle Puzzle</h1><p>题意：给定n，当n=3的时候，表示从WWW_BBB到BBB_WWW的最少操作步数。每次可以将某一个W或者B移动到空格位置，但是距离得小于等于2。</p>
+<p>n&lt;=12</p>
+<a id="more"></a>
+<p>这题搜索似乎要超时。</p>
+<p>下面给出原题：</p>
+<p>USACO4.4.1</p>
+<p><strong>Shuttle Puzzle</strong><br><strong>Traditional</strong><br>The Shuttle Puzzle of size 3 consists of 3 white marbles, 3 black marbles, and a strip of wood with 7 holes. The marbles of the same color are placed in the holes at the opposite ends of the strip, leaving the center hole empty.</p>
+<p>INITIAL STATE: WWW_BBB<br>GOAL STATE: BBB_WWW<br>To solve the shuttle puzzle, use only two types of moves. Move 1 marble 1 space (into the empty hole) or jump 1 marble over 1 marble of the opposite color (into the empty hole). You may not back up, and you may not jump over 2 marbles.</p>
+<p>A Shuttle Puzzle of size N consists of N white marbles and N black marbles and 2N+1 holes.</p>
+<p>Here’s one solution for the problem of size 3 showing the initial, intermediate, and end states:</p>
+<p>WWW BBB<br>WW WBBB<br>WWBW BB<br>WWBWB B<br>WWB BWB<br>W BWBWB<br> WBWBWB<br>BW WBWB<br>BWBW WB<br>BWBWBW<br>BWBWB W<br>BWB BWW<br>B BWBWW<br>BB WBWW<br>BBBW WW<br>BBB WWW<br>Write a program that will solve the SHUTTLE PUZZLE for any size N (1 &lt;= N &lt;= 12) in the minimum number of moves and display the successive moves, 20 per line.</p>
+<p>PROGRAM NAME: shuttle</p>
+<p><strong>INPUT FORMAT</strong></p>
+<p>A single line with the integer N.<br><strong>SAMPLE INPUT (file shuttle.in)</strong></p>
+<p>3<br><strong>OUTPUT FORMAT</strong></p>
+<p>The list of moves expressed as space-separated integers, 20 per line (except possibly the last line). Number the marbles/holes from the left, starting with one.</p>
+<p>Output the solution that would appear first among the set of minimal solutions sorted numerically (first by the first number, using the second number for ties, and so on).</p>
+<p><strong>SAMPLE OUTPUT (file shuttle.out)</strong></p>
+<p>3 5 6 4 2 1 3 5 7 6 4 2 3 5 4</p>
+<p>一下仅表示-对于Nocow内容，我的理解-</p>
+<p>3<br>3 5 6 4 2 1 3 5 7 6 4 2 3 5 4<br>4<br>4 6 7 5 3 2 4 6 8 9 7 5 3 1 2 4 6 8 7 5 3 4 6 5<br>5<br>5 7 8 6 4 3 5 7 9 10 8 6 4 2 1 3 5 7 9 11 10 8 6 4 2 3 5 7 9 8 6 4 5 7 6<br>6<br>6 8 9 7 5 4 6 8 10 11 9 7 5 3 2 4 6 8 10 12 13 11 9 7 5 3 1 2 4 6 8 10 12 11 9 7 5 3 4 6 8 10 9 7 5 6 8 7</p>
+<p><strong>进行神奇的分析</strong></p>
+<p>把空格的位置也算上</p>
+<p>3：4|35|642|1357|642|35|4</p>
+<p>4：5|46|753|2468|97531|2468|753|46|5</p>
+<p>……聪明的你发现规律了吗？</p>
+<p>是的，这是一个对称的等差数列。</p>
+<p>要证明？？<a href="http://train.usaco.org/usacoanal2?a=lNUFVam4bZA&amp;S=shuttle" target="_blank" rel="external">http://train.usaco.org/usacoanal2?a=lNUFVam4bZA&amp;S=shuttle</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">ID:cqz15311</span></div><div class="line"><span class="comment">LANG:C++</span></div><div class="line"><span class="comment">PROG:shuttle</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt; </span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> n,now,len,cnt;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	freopen(<span class="string">"shuttle.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</div><div class="line">	freopen(<span class="string">"shuttle.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	now = n+<span class="number">1</span>;</div><div class="line">	cnt = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">2</span>*n+<span class="number">1</span>;i++)&#123;</div><div class="line">		<span class="keyword">if</span> (i &lt;= n+<span class="number">1</span>)&#123;</div><div class="line">			len = i;</div><div class="line">		&#125; <span class="keyword">else</span> </div><div class="line">			len = <span class="number">2</span> * (n+<span class="number">1</span>) - i;</div><div class="line">		<span class="keyword">if</span> (i &amp; <span class="number">1</span>)&#123;</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=len;j++)&#123;</div><div class="line">				<span class="keyword">if</span> (i!=<span class="number">1</span>)&#123;</div><div class="line">					cnt++;</div><div class="line">					<span class="built_in">printf</span>(<span class="string">"%d"</span>,now);</div><div class="line">					<span class="keyword">if</span> ((i == <span class="number">2</span>*n+<span class="number">1</span>) &amp;&amp; (j == len)) <span class="built_in">puts</span>(<span class="string">""</span>); <span class="keyword">else</span></div><div class="line">					<span class="keyword">if</span> (cnt % <span class="number">20</span> == <span class="number">0</span>) <span class="built_in">puts</span>(<span class="string">""</span>); <span class="keyword">else</span></div><div class="line">					<span class="built_in">putchar</span>(<span class="string">' '</span>);</div><div class="line">				&#125;</div><div class="line">				now = now - <span class="number">2</span>;</div><div class="line">			&#125;</div><div class="line">			now+=<span class="number">2</span>;</div><div class="line">			<span class="keyword">if</span> (i &lt;= n)now--; <span class="keyword">else</span> now++;</div><div class="line">		&#125; <span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=len;j++)&#123;</div><div class="line">					cnt++;</div><div class="line">					<span class="built_in">printf</span>(<span class="string">"%d"</span>,now);</div><div class="line">					<span class="keyword">if</span> (cnt % <span class="number">20</span> == <span class="number">0</span>) <span class="built_in">puts</span>(<span class="string">""</span>); <span class="keyword">else</span></div><div class="line">					<span class="built_in">putchar</span>(<span class="string">' '</span>);</div><div class="line">					now = now + <span class="number">2</span>;</div><div class="line">			&#125;</div><div class="line">			now-=<span class="number">2</span>;</div><div class="line">			<span class="keyword">if</span> (i &lt;= n)now++; <span class="keyword">else</span> now--;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//puts("");这个不能有！害得我没有1A </span></div><div class="line">	fclose(<span class="built_in">stdin</span>);</div><div class="line">	fclose(<span class="built_in">stdout</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">Executing...</span></div><div class="line"><span class="comment">   Test 1: TEST OK [0.000 secs, 4176 KB]</span></div><div class="line"><span class="comment">   Test 2: TEST OK [0.000 secs, 4176 KB]</span></div><div class="line"><span class="comment">   Test 3: TEST OK [0.000 secs, 4176 KB]</span></div><div class="line"><span class="comment">   Test 4: TEST OK [0.000 secs, 4176 KB]</span></div><div class="line"><span class="comment">   Test 5: TEST OK [0.000 secs, 4176 KB]</span></div><div class="line"><span class="comment">   Test 6: TEST OK [0.000 secs, 4176 KB]</span></div><div class="line"><span class="comment">   Test 7: TEST OK [0.000 secs, 4176 KB]</span></div><div class="line"><span class="comment">   Test 8: TEST OK [0.000 secs, 4176 KB]</span></div><div class="line"><span class="comment">   Test 9: TEST OK [0.000 secs, 4176 KB]</span></div><div class="line"><span class="comment">   Test 10: TEST OK [0.000 secs, 4176 KB]</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">All tests OK.</span></div><div class="line"><span class="comment">Your program ('shuttle') produced all correct answers!  This is your</span></div><div class="line"><span class="comment">submission #2 for this problem.  Congratulations!</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/USACO/" rel="tag"># USACO</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/11/USACO/training/Section4/4/USACO4.4.2-milk6/milk6/" rel="next" title="USACO4.4.2">
+                <i class="fa fa-chevron-left"></i> USACO4.4.2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/12/网络流24题/第5题/5/" rel="prev" title="圆桌问题">
+                圆桌问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/image1.jpg"
+               alt="EMOAIRX" />
+          <p class="site-author-name" itemprop="name">EMOAIRX</p>
+           
+              <p class="site-description motion-element" itemprop="description">OI Lover</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              dalao
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://cyanie.github.io/" title="XZA" target="_blank">XZA</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.cnblogs.com/zhouzhendong/" title="ZZD" target="_blank">ZZD</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.cnblogs.com/chunlvxiong/" title="CLJ" target="_blank">CLJ</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Shuttle-Puzzle"><span class="nav-number">1.</span> <span class="nav-text">Shuttle Puzzle</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EMOAIRX</span>
+
+  
+</div>
+
+
+  <div class="powered-by"><a class="theme-link" href="https://hexo.io">Hexo</a> — OI路漫漫😊</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">平静是真言  &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+
+  <!-- ҳ������С���� -->
+  <!-- script type="text/javascript" src="/js/src/love.js"></script>-->
+
+</body>
+</html>

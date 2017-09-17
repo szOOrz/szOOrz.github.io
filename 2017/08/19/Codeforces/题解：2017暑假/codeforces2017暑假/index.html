@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="codeforces," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="乱作一波题。 感觉无法忍受 不贴代码Orz">
+<meta name="keywords" content="codeforces">
+<meta property="og:type" content="article">
+<meta property="og:title" content="codeforces——2017暑假">
+<meta property="og:url" content="http://yoursite.com/2017/08/19/Codeforces/题解：2017暑假/codeforces2017暑假/index.html">
+<meta property="og:site_name" content="Emoairx">
+<meta property="og:description" content="乱作一波题。 感觉无法忍受 不贴代码Orz">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://codeforces.com/predownloaded/30/e5/30e539b0cc8f5d37f524dd78cdc549a4fa5c7a93.png">
+<meta property="og:image" content="http://codeforces.com/predownloaded/a3/7d/a37dc46ef6a265bb8f01595c2118a82b456b068a.png">
+<meta property="og:image" content="http://codeforces.com/predownloaded/cf/32/cf32e97135c9c6e4e441357b5c63e0b5a8d93ffe.png">
+<meta property="og:updated_time" content="2017-08-29T13:14:17.869Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="codeforces——2017暑假">
+<meta name="twitter:description" content="乱作一波题。 感觉无法忍受 不贴代码Orz">
+<meta name="twitter:image" content="http://codeforces.com/predownloaded/30/e5/30e539b0cc8f5d37f524dd78cdc549a4fa5c7a93.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/19/Codeforces/题解：2017暑假/codeforces2017暑假/"/>
+
+
+
+
+
+  <title>codeforces——2017暑假 | Emoairx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Emoairx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/19/Codeforces/题解：2017暑假/codeforces2017暑假/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Emoairx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">codeforces——2017暑假</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-19T13:10:03+08:00">
+                2017-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>乱作一波题。</p>
+<p>感觉无法忍受</p>
+<p>不贴代码Orz</p>
+<a id="more"></a>
+<h5 id="Codeforces-Round-308-Div-2"><a href="#Codeforces-Round-308-Div-2" class="headerlink" title="Codeforces Round #308 (Div. 2)"></a><a href="http://codeforces.com/contest/552" target="_blank" rel="external">Codeforces Round #308 (Div. 2)</a></h5><blockquote>
+<p><strong>CF552A</strong>给出一些矩阵，问这些矩阵覆盖的面积之和（不是并，重叠算多次）</p>
+</blockquote>
+<p><strong>模拟</strong>(1A)</p>
+<p>​    考虑直接把每个矩形的面积算出来，做一个和即可。</p>
+<blockquote>
+<p><strong>CF662B</strong>给你一个数字N，问$1$到$N$这些数字数码的长度之和是多少，1234的长度是4.</p>
+</blockquote>
+<p><strong>模拟</strong>(1A)</p>
+<p>​    分别考虑是否包含一位数，是否包含2位数……如果包含，直接求解，否则相当于剩余的有多少个x位数求解。</p>
+<blockquote>
+<p><strong>CF552C</strong>给你一个W和M，问是否用一些W^0,W^1,W^2……放在天平的两侧，构成M</p>
+</blockquote>
+<p><strong>进制转换</strong>(2A)</p>
+<p>​    从后到前处理每一位,如果某一位是0，不用动;如果某一位是1,那么表示右边要有这样一个砝码；如果某一位是m-1，说明左边要有这样一个砝码，但是加了左边的砝码之后，事实上相当于m加了这个值；其它情况都是无解。</p>
+<blockquote>
+<p><strong>CF552D</strong>给你一些点，问能构成多少个三角形。$N&lt;=2000$</p>
+</blockquote>
+<p><strong>计算几何</strong>(1A)</p>
+<p>​    虽然$N&lt;=2000$，但是不知道为什么$O(N^3)$暴力+计算几何判断能过。</p>
+<blockquote>
+<p><strong>CF552E</strong>给你一些由1~9的数字，以及数字之间的’+’,’*’构成的表达式，在其中加入一个括号，使得表达式的值最大。</p>
+</blockquote>
+<p><strong>思维，暴力</strong>(1A)</p>
+<p>​    考虑到所有数都是大于等于1的，所以括号在乘法的两旁一定比在加法的两边要赚。考虑枚举所有括号，再暴力判断即可。</p>
+<h5 id="Codeforces-Round-327-Div-1"><a href="#Codeforces-Round-327-Div-1" class="headerlink" title="Codeforces Round #327 (Div. 1)"></a><a href="http://codeforces.com/contest/590" target="_blank" rel="external">Codeforces Round #327 (Div. 1)</a></h5><blockquote>
+<p><strong>CF590A</strong>:给你一个只有0和1组成的序列A，每次可以对序列A进行操作，每次操作是把A的每一个元素变成上一个序列的它，它左边，它右边3个数的中位数，其中1和n不变。问几次操作后会变成稳定——不会再改变，然后稳定时候的状态是怎么样的。</p>
+</blockquote>
+<p><strong>划分</strong></p>
+<p>​    对于中间的元素，只有一种情况会使得其改变：010或者101——其中它在中间。考虑可以把整个序列划分成一些稳定的两端构成的序列    如，把1010101010111010101划分成10101010101|1|1010101这3部分，然后每一部分最终都会变成4种形态:11110000或者00001111或者11111111或者00000000这种。    既然这样，就可以处理，然后答案对操作数取一个Max即可。线性O(n)扫描。</p>
+<blockquote>
+<p><strong>CF590B:</strong>您要从(x1,y1)到(x2,y2)，一开始风速为(vx,vy)，t秒后(wx,wy)，您的速度不超过Vmax，求最少到终点的时间，保证风速小于您的速度，风速和您的速度都是向量</p>
+</blockquote>
+<p><strong>二分答案</strong></p>
+<p>​    二分答案，然后假设人不动，判断是否可行。</p>
+<blockquote>
+<p><strong>CF590C:</strong>给定一个N*M的矩阵，这个矩阵里面有’1’,’2’,’3’,’.’,’#’,你可以把’.’改成桥，使得所有1,2,3四联通，问最少把多少个’.’改变，其中‘#’不能改变，如果不能输出-1。——其中’1’,’2’,’3’本身是连续的</p>
+</blockquote>
+<p><strong>BFS</strong></p>
+<p>​    注意到，桥一定会在一个点交汇——这个点可能在某个国家里面，也可能在’.’位置。我们可以考虑枚举这个交汇点的位置，然后把3个国家到这个点的Dis全部加起来，取Min就是结果为什么是对的呢？这个不会有重复吗？会的。不过必然有一个点没有，那就是交汇点。我们可以预处理出某一个国家到一个点路上最少经过的’.’的个数——我用循环入队一直T，后来改成优先队列做的——事实上还有更好的方法。然后枚举每一个点，当然，如果这个点是’.’会被计算3次，要减去。</p>
+<blockquote>
+<p><strong>CF590D:</strong>n个数，求最多相邻两两交换S次，使前K个数的和最小</p>
+</blockquote>
+<p><strong>DP</strong></p>
+<p>​    注意到，N*(N-1)/2&lt;=S的时候，S的大小已经没有什么用途了考虑用dp[i,j,k]表示处理到前i个数字，其中已经交换了j次的，前k个已经确定的最小数字之和考虑把第i个交换到第k个位置——或者不交换。不交换的话$dp[i,j,k] = dp[i-1,j,k]$交换的话$dp[i,j,k] = dp[i-1,j - (i-k) , k-1] + a[i]$用滚动数组优化一下答案就是$dp[N,X,K] (X&lt;=S)$</p>
+<h5 id="Codeforces-Round-330-Div-1"><a href="#Codeforces-Round-330-Div-1" class="headerlink" title="Codeforces Round #330 (Div. 1)"></a><a href="http://codeforces.com/contest/594" target="_blank" rel="external">Codeforces Round #330 (Div. 1)</a></h5><blockquote>
+<p><strong>CF594A:</strong>数轴上有N个点，N是偶数。有两个人，依次取走一个点，直到最后剩下2个点，其中第一个人（先取要最后剩下的点的距离最大），第二个人要使得距离最小，问距离最小是多少。</p>
+</blockquote>
+<p><strong>博弈</strong></p>
+<p>​    如果您作为第二个人，您一定会去取两端的。如果存在答案区间L,R。显然，第二个人一定会取L,R以外的。</p>
+<p>​    相反，第一个人会取L,R以内的，因为L,R以外的第二个人会去取。所以答案就是在其中找一段区间，使得内部有(N-2)/2个点，然后区间最小。</p>
+<blockquote>
+<p><strong>CF594C</strong>平面上，给你n个点，然后你可以删除k个点然后让你用一个两边平行于坐标轴的矩形，去围住这n-k个点，问这个矩形的面积，最小可以是多少$(K&lt;=10)$</p>
+</blockquote>
+<p>​    <strong>暴力</strong>，考虑到只会删除上下左右4个方向的点，先暴力得到上下删除哪些点，然后再暴力得到左右删了哪些点，用一个标记数组维护。</p>
+<blockquote>
+<p><strong>CF594D:</strong>给你n个数(n&lt;=200000)，每个数&lt;=1e6，给出Q个询问，每个询问给出l,r,问<img src="http://codeforces.com/predownloaded/30/e5/30e539b0cc8f5d37f524dd78cdc549a4fa5c7a93.png" alt="img">的值是多少。</p>
+</blockquote>
+<p>​    回顾一下欧拉函数的求法    $$\large \varphi[n] =n* \prod_p^{p是n的质因数}(p-1) / p$$</p>
+<p>​    同样的，扩展到区间    $$\large \varphi[Π(A[L]-A[R])] = \prod_{i=L}^{R}(A[i]) * \prod_p^{p是这些乘积的质因数}(p-1)/p$$</p>
+<p>​    这题没有修改操作，一切都是询问，可以考虑离线处理。我们把所有询问按照右端点排序。那么如何处理(L~R)这一段的乘积的欧拉函数呢？事实上，L~R中间的数的乘积我们可以通过前缀$O(1)$得出来，我们需要的就是L~R这一段所有数包含的质因数(p)的(p-1) / p，当然，在Mod意义下是逆元。这里，我们先假设每个数出现不同的质因数。计$Xi = (p1-1) / (p1) * (p2-1) / p2$……，其中p1,p2是ai的质因数同样的，我们可以保存前缀，算得$X1$~$Xr$的乘积，然后再算得到$X1$~$X_(l-1) $的乘积，然后可以O1求解。然而，我们要知道，每个数可能拥有同样的质因数。显然，由于我们已经按照右端点排序</p>
+<p>​    我们可以把所有可能的质因子保存在最右边出现质因子的地方。用一棵树状数组维护前缀Xi的乘积。对于新加入的一个数$Ai$，考虑得到它的所有质因数，如果这些质因数还没有出现过，那么把(p-1)/p弄上去，否则，不但要把(p-1)/p弄到这个节点上，还要把p / (p-1)弄到前面出现p的节点上，以消除p的重复影响。</p>
+<h5 id="Codeforces-Round-333-Div-1"><a href="#Codeforces-Round-333-Div-1" class="headerlink" title="Codeforces Round #333 (Div. 1)"></a><a href="http://codeforces.com/contest/601" target="_blank" rel="external">Codeforces Round #333 (Div. 1)</a></h5><blockquote>
+<p><strong>CF601A</strong>有个地方有些城镇，城镇与城镇间如果有铁路相连，就不会有公路相连，没有铁路连接的城镇就会有公路相连。给你n个城镇数目，m铁路线，问同时从1出发，分别坐火车和坐汽车到达n点，两者都到达的时候最少的用时。其中火车和汽车不能同时到达中间点。</p>
+</blockquote>
+<p>​    跑2次最短路即可。</p>
+<blockquote>
+<p><strong>CF601B</strong>给定n个hi，然后定义·if <em>n</em> &lt; 2, <img src="http://codeforces.com/predownloaded/a3/7d/a37dc46ef6a265bb8f01595c2118a82b456b068a.png" alt="img">·if <em>n</em> ≥ 2, <img src="http://codeforces.com/predownloaded/cf/32/cf32e97135c9c6e4e441357b5c63e0b5a8d93ffe.png" alt="img"> over all 1 ≤ <em>i</em> &lt; <em>j</em> ≤ <em>n</em></p>
+<p>给出区间L,R，问区间L,R的所有子段的L函数之和。</p>
+</blockquote>
+<p><strong>脑洞，单调栈</strong></p>
+<p>​    把$i$看成横坐标，$h[i]$看作纵坐标，那么$L(h)$其实就是一个区间中的某两点之间的斜率绝对值，从而可以证明$L(h)$一定是坐标相邻的点的斜率的绝对值$L(h) = abs(h[i+1] - h[i]) ——1&lt;=i&lt; n$设$D[i] = h[i] - h[i-1].$那么答案就是各个$f[i]$的贡献和，这个可以通过单调栈做出来。通过单调栈，可以得到这个位置向左严格最大到哪边，向右不严格最大到哪边——主要是为了让每个区间都加入计数。</p>
+<blockquote>
+<p><strong>CF601C</strong>有$n$场比赛，每一场比赛都有$m$人参与。每场比赛的得分都是这个人的排名（没有相等的）总分是$n$场比赛的分数之和。总排名定义为：总分严格小于他的人数$+1$。已知小K在$n$场比赛中的排名。所有人的水平相同，求小K的期望总排名。</p>
+</blockquote>
+<p><strong>DP</strong></p>
+<p>​    考虑到直接计算排名比较麻烦，设$f[i,j]$表示$i$场比赛之后，总分为$j$的期望人数，那么可以得到一个转移方程：$\large f[i,j] = \sum\frac{f[i-1][j-k]}{m-1}(i&lt;=k&lt;=m,k≠a[i])$，通过这个式子观察之后我们可以发现，可以前缀和优化转移，于是采用差分方法实现。</p>
+<h5 id="Codeforces-Round-334-Div-1"><a href="#Codeforces-Round-334-Div-1" class="headerlink" title="Codeforces Round #334 (Div. 1)"></a><a href="http://codeforces.com/contest/603" target="_blank" rel="external">Codeforces Round #334 (Div. 1)</a></h5><blockquote>
+<p><strong>CF603A</strong>有一个长度为n的1,0组成的串，可以将其中连续一段翻转，使得剩下的1010交替出现的子序列最长。</p>
+</blockquote>
+<p><strong>DP</strong>(1A)</p>
+<p>​    考虑用$f[i]$,$g[i]$,$h[i]$分别表示还没有翻转，正在翻转，翻转完了的$ans$，最后取一个$max$即可。</p>
+<blockquote>
+<p><strong>CF603C</strong>，有n堆石子，如果某一个石子是偶数，可以选择得到k堆石子数/2个，奇偶都可以得到石子数-1个石子。没法操作者败</p>
+</blockquote>
+<p><strong>博弈</strong>(3A)</p>
+<p>​    考虑SG函数打表找规律，当i为奇数的时候，$SG[i] = mex SG[i-1]$，当i为偶数的时候,能执行第二种操作，所以$SG[i] = mex(SG[i-1],SG[i/2] xor SG[i/2]……共k个)$，由此可以得到，答案之和$k$的奇偶有关，当$k$是奇数的时候，$SG[i] = mexSG[i-1],0$，所以往后一定是01交替出现，当$k$是偶数的时候，SG当$i$是奇数的时候为0，否则只需要$SG[i/2]$递归调用，取$mex$即可，注意到，不会超过$log$次调用。</p>
+<h5 id="Codeforces-Round-335-Div-1"><a href="#Codeforces-Round-335-Div-1" class="headerlink" title="Codeforces Round #335 (Div. 1)"></a><a href="http://codeforces.com/contest/605" target="_blank" rel="external">Codeforces Round #335 (Div. 1)</a></h5><blockquote>
+<p><strong>CF605A</strong>给定$n$的一个排列，每次可以把一个数放到开头或末尾，求变为升序的最少步骤</p>
+</blockquote>
+<p><strong>DP</strong>(1A)<br>​    考虑就是寻找到一个每位都递增1的最长上升子序列，然后这些不动，其它改变。用DP求即可。</p>
+<blockquote>
+<p><strong>CF605B</strong>有一个$n$个点，$m$条边的图，然后$m$条边中有$n−1$条边构成了最小生成树，然后边权与是否作为$MST$的边告诉你，要构造出这个图。</p>
+</blockquote>
+<p><strong>构造</strong>(2A)</p>
+<p>​    逐个添加，如果应该作为最小生成树的，考虑可以把1和这个节点连接，如果不应该作为最小生成树的，考虑把剩下可以用的边连接，如果无法连接，就是无解。当加入一个新节点，可以用的边加入这个点到前面非1的位置的。新节点只有当最小生成树的边加入时才增加。</p>
+<blockquote>
+<p><strong>CF605C</strong>有$n$项工作，第ii项工作每天可以带来$ai$的经验，$bi$的钱。问最少几天可以得到$p$的经验和$q$的钱。工作天数可以是小数，每次只能进行一种工作。</p>
+</blockquote>
+<p><strong>二分答案，凸包</strong>(10A)——注意LL</p>
+<p>​    考虑把(ai,bi)看作平面上的一个点，注意到，一个点可行，当且仅当这个点是平面的凸包上的点——否则一定有2个点比这个点优。进一步，一定是凸包一个点，或者相邻两个点组合得到的。</p>
+<p>​    考虑二分答案，然后用类似解二元一次方程的方法，把凸包相邻2个点，或者凸包上的一个点组合得到的算出来，输出解即可。</p>
+<blockquote>
+<p><strong>CF605D</strong>玩家有两个属性$x,y$，有$n$个魔法。对于第$i$个魔法，用$(ai,bi,ci,di)$描述。当$ai&lt;=x,bi&lt;=y$时，玩家能使用这个魔法。之后玩家的属性$x=ci,y=di$。求施展第n个魔法最少需要多少次。输出方案，答案不唯一。</p>
+</blockquote>
+<p><strong>BFS，树状数组，set</strong>(2A)</p>
+<p>​    相当于一个二维平面，因为是最小步数，很容易想到$BFS$，但是$BFS$的扩展节点只能扩展这个的左下方的，为了快速扩展（线段树套线段树显然可行）——用一个更容易实现的，考虑树状数组（离散化后的x坐标）套$set$，来快速维护下一个应该扩展的点，那么就是在左下角寻找一个满足条件的，（用树状数组），然后用$set$的lower_ bound快速寻找，然后扩展。时间复杂度$O(n <em> log(n) </em> log(n) )$</p>
+<h5 id="Codeforces-Round-336-Div-1"><a href="#Codeforces-Round-336-Div-1" class="headerlink" title="Codeforces Round #336 (Div. 1)"></a><a href="http://codeforces.com/contest/607" target="_blank" rel="external">Codeforces Round #336 (Div. 1)</a></h5><blockquote>
+<p><strong>CF607A</strong>点有位置和能量，ii个点被选择，那么在ii左边它这个能量的位置内的所有点都不能选择，如果现在从右到左依次选择点。现在可以在最右边放置一个点，能量和距离随意，问各种情况下最小摧毁的点的个数。$N&lt;=100000,ai&lt;=1000000$</p>
+</blockquote>
+<p><strong>DP</strong>(1A)</p>
+<p>​    坐标范围比较小，考虑用f[i]表示到i位置最多能放的点，简单转移一下即可。</p>
+<blockquote>
+<p><strong>CF607B</strong>长度为$n$的字符串，每次消去一段连续的回文串，剩下的两端重新拼接成一个新的串，问最少需要消去多少次。$n&lt;=500$</p>
+</blockquote>
+<p><strong>DP</strong>(1A)</p>
+<p>​    考虑用$dp[i,j]$表示从i到j，最多要消几次。如果$(i,j)$的长度大于2，并且$a[i]$ = $a[j]$，那么这两个可以等下并到里面去消，所以    $dp[i,j] = dp[i+1,j-1]$。或者从中间某个k，使得左右分别消，</p>
+<p>​                $dp[i,j] = min(dp[i,k]+dp[k+1,j])$</p>
+<blockquote>
+<p><strong>CF607C</strong>有两个独立的坑道，由$“NSWE”$表示。两个球在各自坑道的起点。之后对两个球做相同的操作，上下左右。保证两个小球保持一致的动作，其中一个撞墙的话不用管。问能不能保证两个小球都能从起点到达终点。到达终点后，还有可能因为操作而退出。</p>
+</blockquote>
+<p><strong>脑洞，哈希</strong>(1A)</p>
+<p>​    考虑依次让两个球分别到达终点，可以猜测一个结论，无法到达当且仅当第一个球达终点后，第二个球需要到达终点的步骤，恰好使得第一个球退出（证明有些困难）。于是可以改变第一个球轨道的方向，就变成字符串匹配的问题。从而用hash使得前一个串的后缀对称后得到后一个串的后缀，那么就无解。</p>
+<h5 id="Good-Bye-2015"><a href="#Good-Bye-2015" class="headerlink" title="Good Bye 2015"></a><a href="http://codeforces.com/contest/611" target="_blank" rel="external">Good Bye 2015</a></h5><blockquote>
+<p><strong>CF611C:</strong>题意：有一个$n×m$的网格，‘#’不能摆。有$Q$个询问，每个询问$(r1,c1,r2,c2)$求出这个子矩形内可以有多少种方式放一个$1×2$的骨牌。$n,m&lt;=500,Q&lt;=100000$</p>
+</blockquote>
+<p><strong>容斥</strong></p>
+<p>​    考虑得到$a[i,j]$，表示询问为$(1,1,i,j)$的答案。</p>
+<p>​    那么对于询问，可以拆分成总的减去两个，再加上一个小的。这样还不够，因为类似的一个里面一个外面的多余了，得$O(n)$扫一遍判断。</p>
+<blockquote>
+<p><strong>CF611D:</strong>把一个长为$n$的数字串拆成多个串，要求这些串的数值递增的，并且没有前缀0，问有多少种分法。$n&lt;=5000$</p>
+</blockquote>
+<p><strong>DP，LCP。</strong>定义状态$f[i][j]$表示$[1,i]$中划分了最后$j$个的方案数。发现状态难以优化，考虑从加速转移入手。假设前一段划分的长度为$k$，注意到当$k&lt;=j−1$时，显然能够转移，即$f[i][j]=\sum ^{j−1}_{k=1}f[i−j][k]$，这一部分可以前缀和优化。还有可能是从$f[i−j][j]$转移到$f[i][j]$，就需要比较$[i−2j+1,i−j],[i−j+1,i]$的大小。由于长度相等，实际上就是在比较字典序。而比较字典序有一个常用的方法，可以求出以$i,j$开头的最长公共前缀，记为$lcp(i,j)$，这样预处理后就可以$O(1)$转移了。</p>
+<h5 id="Wunder-Fund-Round-2016-Div-1-Div-2-combined"><a href="#Wunder-Fund-Round-2016-Div-1-Div-2-combined" class="headerlink" title="Wunder Fund Round 2016 (Div. 1 + Div. 2 combined)"></a><a href="http://codeforces.com/contest/618" target="_blank" rel="external">Wunder Fund Round 2016 (Div. 1 + Div. 2 combined)</a></h5><blockquote>
+<p><strong>CF618C</strong>给定n个点$(xi,yi)$，求一个三角形ABC，满足其它的点都在三角形的外面，输出任意一个三角形三个点的下标，n&lt;=100000。</p>
+</blockquote>
+<p><strong>构造，计算几何</strong></p>
+<p>​    考虑排序之后，最前面的3个点一定的是满足条件的，否则如果3点共线，只需要把第3个点继续往后找即可，</p>
+<blockquote>
+<p><strong>CF618E</strong>原来有一个N个段的长度为1的段，然后有m个操作，操作1是给定第X段，然后把第X段延长，变成多少Y，然后操作2是把某一个段按照原先的左端点旋转α°，每次操作完了询问原先最右边的端。</p>
+<p>$n,m&lt;=300 000$</p>
+</blockquote>
+<p><strong>线段树</strong></p>
+<p>可以用线段树维护两个点之间的相对位移这里有一些公式：假设任意点(x,y)，绕一个坐标点(rx0,ry0)逆时针旋转a角度后的新的坐标设为(x0, y0)：</p>
+<p>$x0= (x - rx0) \times cos(a) - (y - ry0)\times sin(a) + rx0 ;$</p>
+<p>$y0= (x - rx0)\times sin(a) + (y - ry0)\times cos(a) + ry0 ;$</p>
+<p>显然，延长操作只是单点修改。——保存位移之后只要同比例缩放就行了.那么旋转呢？这是一个区间修改。对于后面全部整段，都是需要绕着某个点进行旋转的。其实，角度是可以叠加的:___大家可以自己画图，然后用延长用四点共圆证明……角度竟然是可以叠加的! 然后就好做多了……QAQ。——本来还想着用矩阵结合律。。。</p>
+<blockquote>
+<p><strong>CF618F:</strong>给定两个多重集$A,B$，每个数$∈[1,n]$。在$A$中选取一个含$Ka$个元素的非空子集。在$B$中也是如此（有$Kb$个元素）。要求使得两个子集之和相等。$n&lt;=100000$。</p>
+</blockquote>
+<p><strong>构造</strong></p>
+<p>​    注意，每个数是在1~n之间的。考虑把条件加强，如果只是寻找连续上面一段和下面连续一段，使得和相同。</p>
+<p>​    设$SA[i]$，$SB[i]$为A串的前缀和，B串的前缀和。不妨设$SA[n] &gt;= SB[n]$——否则可以交换，那么对于每个SA，我们找到在第二个序列中，找到满足SA[i] &gt;= SB[j]的最大的j。不难发现，$0&lt;=SA[i]-SB[j]&lt;=n-1$。而算上第0项，i总共有n+1种情况，所以一定能通过连续一段来构造。</p>
+<p>​    这样，我们可以通过上述策略去构造。</p>
+<h5 id="AIM-Tech-Round-Div-1"><a href="#AIM-Tech-Round-Div-1" class="headerlink" title="AIM Tech Round (Div. 1)"></a><a href="http://codeforces.com/contest/623" target="_blank" rel="external">AIM Tech Round (Div. 1)</a></h5><blockquote>
+<p><strong>CF623A:</strong>一个由$a,b,c$组成的字符串，可以这样生成一张图，当$s[i]$与$s[j]$不是一个$a$一个$c$时，$i$与$j$连一条边。给定生成的图，求是否存在字符串能生成这张图。$n&lt;=500$</p>
+</blockquote>
+<p>​    考虑把所有和其它所有点连边的赋值成b，然后剩余的，随便选一个赋值成a，将和他有连边剩余的赋值成c，然后验证答案是否矛盾。</p>
+<blockquote>
+<p><strong>CF623B:</strong>有一个数列，可以删除其中一段，删一个代价为$a$。也可以选择对其中一些数进行增加或者减少1，每次代价为$b$，问最后使得所有的$gcd$比1大，最小代价是多少。</p>
+</blockquote>
+<p><strong>DP</strong></p>
+<p>​    注意到，最后$a1$，或者$an$一定是剩余的——可能进行一些操作。所以答案的$gcd$一定是$a1-1,a1,a1+1,an-1,an,an+1$这些数的质因子中的某一个。考虑枚举出质因子后，用3个DP分别表示还删，删完了，还在删的状态。</p>
+<blockquote>
+<p><strong>CF623C:</strong>平面上有$n$个点$(xi,yi)$。每个点可以变成$(xi,0)$，或$(0,yi)$。所有的点变换之后，两点最大距离的平方的最小值是多少。n&lt;=100000</p>
+</blockquote>
+<p><strong>二分答案</strong></p>
+<p>​    </p>
+<h5 id="Codeforces-Round-342-Div-2"><a href="#Codeforces-Round-342-Div-2" class="headerlink" title="Codeforces Round #342 (Div. 2)"></a><a href="http://codeforces.com/contest/625" target="_blank" rel="external">Codeforces Round #342 (Div. 2)</a></h5><blockquote>
+<p><strong>CF625A</strong>你有n元，有2种包装的物品，一种是a元，一种是b元，但是花了b元能反c元，问最多能获得多少武平$(1&lt;=n&lt;=10^18)$</p>
+</blockquote>
+<p><strong>模拟，贪心</strong>(1A)</p>
+<p>​    考虑如果b-c比a要赚，那么先选择一个b，然后加上c……最后再去选a。模拟一下就行了。</p>
+<blockquote>
+<p><strong>CF625B</strong>在第一个串中最少把多少个字符修改为#，才能第一个串不包含第二个串。</p>
+</blockquote>
+<p><strong>贪心，KMP</strong>(3A)</p>
+<p>​    考虑一定是越后面修改越好的，所以贪心，同时跑的时候来一发KMP加速——其实也不需要。</p>
+<blockquote>
+<p><strong>CF625C</strong>让你用$1-n \times n​$这些数填充$n\times n​$矩阵，要求每行的数字严格递增、每个数字只能用一次且保证第k列的数字和最大。</p>
+</blockquote>
+<p><strong>贪心</strong>(1A)</p>
+<p>​    考虑把小的都放在左边，那么然后能往右边再往右边，贪心选数即可。</p>
+<h5 id="VK-Cup-2016-Round-1"><a href="#VK-Cup-2016-Round-1" class="headerlink" title="VK Cup 2016 - Round 1"></a><a href="http://codeforces.com/contest/639" target="_blank" rel="external">VK Cup 2016 - Round 1</a></h5><blockquote>
+<p><strong>CF639B：</strong>构造一棵树，使得树有n个节点，直径是D，树高是H，不存在输出-1</p>
+</blockquote>
+<p><strong>构造</strong></p>
+<p>显然，D&gt;2*H无解。否则，考虑先把直径画好。</p>
+<p>​    直径分为两部分，两部分分别画好，然后再把剩下的点弄到1号那里</p>
+<p>​    D=H要特殊处理。</p>
+<blockquote>
+<p><strong>CF639C：</strong>定义一个合法的n次多项式f(x)，满足最高项系数an!=0，所有系数ai都是整数，且绝对值不超过K。    现在给您一个合法的n次多项式P(x)，但P(2)!=0。您需要改变其中一个系数，仍然得到一个n次多项式Q(x)。满足Q(2)=0。求方案数。$n&lt;=200000$</p>
+</blockquote>
+<p><strong>多项式</strong></p>
+<p>​    考虑把系数转化成二进制，除了最高位。</p>
+<p>​    那么要使得可以消掉，必然是满足当前的系数左边没有1或者-1。</p>
+<p>​    那么考虑把系数转化成二进制后，倒着把系数推回来，得到右边一段的系数相当于是多少，记为sum</p>
+<p>​    sum的求值可以每次 <em> 2+当前元素得到。那么如果i左边的系数（小的系数）满足都是0，那么我们知道，当前这个Q的值显然就是$sum </em> 2^i$。所以只要把这一位的系数减去这个sum，就能保证整个$Q(2) = 0$。</p>
+<p>​    因此，我们只需要先正着扫一遍，得到最低的非0位的位置。</p>
+<p>​    然后倒着扫一遍，得到sum，并统计。</p>
+<p>​    注意的是，当sum&gt;2*k的时候，已经没有必要继续统计了。</p>
+<blockquote>
+<p><strong>CF639D：</strong>有n个人，每个人都有自己的贡献ti（任意整数）可以花费b，使得某个人的贡献+5,花费c，使得某个人的贡献+1.求至少使得k个人的贡献相等，最少需要的花费。$k&lt;=n&lt;=200000,$$1&lt;=b,c&lt;=1000$ $|t_i|&lt;=1e9$</p>
+</blockquote>
+<p><strong>优先队列维护前k小的数的和</strong></p>
+<p>​    考虑首先对于输入的数排序。同时如果$b=min(b,c\times 5)$，那么得到所有可能最后的相同的那个数（一定不会超过某个数+0,1,2,3,4,5这个范围），然后考虑枚举所有的Ans，下一步的操作是要在所有数中寻找满足条件的最小花费的k个数。<br>可以把花费看作一些数，先变成对应的mod 5=r的数，然后再一直加上b。考虑到我们已经排序了，所以这个右指针（哪些是包含的）是会单调递增的。<br>设x mod 5 = r;考虑预处理出每一个数到mod 5 = r的数值为t[i,r]，那么最后的最小花费必然是选出一些i，使得$min(∑(t[i,r] - a[i]) \times c + ∑(x - t[i,r]) / 5 \times b)$，考虑到x[i]和t[i,r]的余数是一样的，可以化简为</p>
+<p>$$\large k \times （x / 5 \times b）   +   \sum _{i}^{t[i,r]&lt;=x}(t[i,r] \times c - a[i] \times c - t[i,r] / 5 \times b)$$</p>
+<p>考虑维护5个堆，得到这5个堆中元素和，压入一个元素，加上这个sum，如果元素个数超过k，将大的弹出来，减去这个sum。</p>
+<h5 id="VK-Cup-2016-Round-2"><a href="#VK-Cup-2016-Round-2" class="headerlink" title="VK Cup 2016 - Round 2"></a><a href="http://codeforces.com/contest/641" target="_blank" rel="external">VK Cup 2016 - Round 2</a></h5><blockquote>
+<p><strong>CF641B</strong>原来有一个N*M的矩阵，要求满足一些操作(q个）：循环左移，循环上移，在给定位置加数，给你最后的矩阵，问最初的矩阵是？？</p>
+</blockquote>
+<p><strong>模拟</strong>(1A)</p>
+<p>​    考虑把操作倒着执行，当然，左移变成右移，上变成下，然后就可以了。</p>
+<blockquote>
+<p><strong>CF641C</strong>给定n个数，1, 2, 3, 4, 5, 6,…, n。有两种操作，第一个操作是所有数向右边移动x个位置，第二个操作奇数和偶数的位置互换。$n &lt;= 1,000,000$  $q &lt;= 2,000,000$</p>
+</blockquote>
+<p><strong>模拟</strong></p>
+<p>​    考虑到，比如说有序列12345678，那么不管怎么操作，1357，2468的相对位置是不变的（循环一下），所以我们只需要知道1和2的位置，就能确定所有的位置。而1和2的位置可以通过模拟出来。</p>
+<blockquote>
+<p><strong>CF641D</strong>:有两个不同的骰子，点数为$1~n$。得到每个点数的概率可能不同（总和一定是$1$）。掷出这两个骰子，得到点数$a$，$b$。取$max(a,b)$, $min(a,b)$。给出$max(a,b)=c$的概率分布，和min(a,b)=c的概率分布。还原两个骰子点数的概率分布。所有概率之和为$1$。$n&lt;=100,000$</p>
+</blockquote>
+<p><strong>概率</strong>(1A)</p>
+<p>​    注意到，我们可以列出这样2个方程：<br>​    $sumy <em> x[p] + sumx </em> y[p] + x[p] <em> y[p] = Pmax$<br>​    $x[p] + y[p] = Pmax + Pmin$<br>​    然后解这两个方程<br>​    $y[p] = Pmax + Pmin - x[p]$<br>​    $sumy </em> x[p] + sumx <em> (Pmax + Pmin - x[p]) + x[p] </em> (Pmax + Pmin - x[p]) = Pmax$</p>
+<p>​    $p[x]^2  + (Pmax + Pmin + sumy - sumx) <em> x[p]  + ((Pmax + Pmin )</em>sumx - Pmax) = 0$<br>​    注意，当b^2-4ac几乎等于0的时候(可能小于0），那么不妨让b^2-4ac等于0</p>
+<blockquote>
+<p><strong>CF641E:</strong>有三个操作:$1$ $x$ $y$，在第$x$秒插入一个$y$；$2$ $x$ $y$，在第$x$秒移走一个$y$ ；$3$ $x$ $y$, 问第$x$秒有多少个$y$ $(1 ≤ n ≤ 100 000) $</p>
+</blockquote>
+<p><strong>树状数组，MAP</strong>(2A)</p>
+<p>​    $multiset$的$count$复杂度竟然不是$log$的……好吧，这题把时间离散化，然后用树状数组，每个节点保存一个$MAP$，复杂度是$log^2$的，然后就可以过了。</p>
+<h5 id="Codeforces-Round-345-Div-1"><a href="#Codeforces-Round-345-Div-1" class="headerlink" title="Codeforces Round #345 (Div. 1)"></a><a href="http://codeforces.com/contest/650" target="_blank" rel="external">Codeforces Round #345 (Div. 1)</a></h5><blockquote>
+<p><strong>CF650D</strong>给定一个长度为n的数列，和m个询问，每个询问给出Ai,Bi表示把第Ai个数改成Bi之后，这个数列的最长上升子序列（严格大于,询问相互独立）</p>
+</blockquote>
+<p><strong>线段树</strong></p>
+<p>​    具体做法分成2部分。一方面，我们要求得改过之后经过改过的点的LIS。这个比较好实现，离散化之后排个序离线用两棵线段树正反两次扫描维护。另一方面，我们要求得不经过这个点的LIS我们再把这个分为两部分。如果原来的LIS（至少有一条）不包括那个点，那么答案就是原来的LIS。如果所有的LIS都包括那个点，那么答案就是原来的LIS-1。一个点如何可能是LIS中的一个呢？注意到，当他的前缀LIS加上后缀LIS等于总的LIS+1的时候。那么我们只需要统计，这个点是不是唯一的这个位置。怎么样算唯一呢？就是它的前缀LIS（或者后缀）长度，除了它，没有别的点了。因此，我们只需要满足2个条件，这个点就是原来的LIS-1了。</p>
+<p>​    $1、L(LIS)_i+R(LIS)_i=Lis+1$        $2、there.is.only.one.L(LIS)_i$</p>
+<p>​    还是通过正反两次扫描实现。</p>
+<h5 id="IndiaHacks-2016-Online-Edition"><a href="#IndiaHacks-2016-Online-Edition" class="headerlink" title="IndiaHacks 2016 - Online Edition "></a><a href="http://codeforces.com/contest/653" target="_blank" rel="external">IndiaHacks 2016 - Online Edition </a></h5><blockquote>
+<p><strong>CF653E:</strong>n个点，m条不能相连的边，点1的度为k（相连的边有且仅有k条）。问是否能构成一棵树。</p>
+</blockquote>
+<p><strong>set维护BFS</strong></p>
+<p>​    考虑将1除去之后，得到剩下的联通块，其中有一个联通块没有向1的边，说明impossible，否则，如果联通块的数量大于等于k，说明无解。——因为联通块里面是可以随意连的。那么如何求联通块呢，考虑BFS。但是普通的BFS的复杂度会到$O(N^2)$，而这题的N比较大，是撑不住的，注意到，选取点有很大的冗余——因为每个点最多只会被访问1次，那么如何选点的？考虑用一个set维护还没有被访问过的点，访问一个点，将这个点从set中删去。对于某个点开始，寻找set中的元素，如果可以访问，那么访问，同时删去。</p>
+<p>​    注意到，这个时间复杂度只有$O((n+m)log n)$。</p>
+<h5 id="Codeforces-Round-347-Div-1"><a href="#Codeforces-Round-347-Div-1" class="headerlink" title="Codeforces Round #347 (Div. 1)"></a><a href="http://codeforces.com/contest/663" target="_blank" rel="external">Codeforces Round #347 (Div. 1)</a></h5><blockquote>
+<p><strong>CF663B:</strong>给定一些类似$?+?-?=n$表达式，然后知道最后一个数字为n（给定），然后在前面填（1~n)的数，问可不可能有满足条件的等式，可能输出Possible并给出一组解。给定n个数，1, 2, 3, 4, 5, 6,…, n。有两种操作，第一个操作是所有数向右边移动x个位置，第二个操作奇数和偶数的位置互换。$n &lt;= 1,000,000$  $q &lt;= 2,000,000$</p>
+</blockquote>
+<p><strong>脑洞</strong>(2A)</p>
+<p>​    考虑对于使得表达式最小的式子，加是+1，减是-n，再考虑使得表达式最大的式子，加是+n，减是-1，那么如果n在两者之间，这个式子一定可以通过一定的改变得到，否则就是不行。</p>
+<p>​    为了实现简单，只要统计加法有多少，减法有多少就可以得到了。构造主要可以这样实现，对于每一个位置，找到一个最小的使得后面依旧可以填的(这个值不会很大)。这样好实现很多。然后n去掉这个值，继续处理。虽然可以二分，但是麻烦。注意如果你是改变n的，记得保存一个n的镜像。</p>
+<blockquote>
+<p><strong>CF663B:</strong>给出了一个数字的后缀，要求最终这个数字大于等于1989，并且在最小的情况下，这个数字之前没有被占用过。求最终拼凑的数字。</p>
+</blockquote>
+<p>不会QAQ</p>
+<blockquote>
+<p><strong>CF663C:</strong>有一个n个点，m条边的无向图，一开始，每条边的颜色都是给定的，然后玩家选择一个顶点，把相邻的边的颜色反转一下，问使得所有边颜色相同最少反转几下，输出那些反转的顶点，不可以输出-1.$(1 ≤ n, m ≤ 100 000)$</p>
+</blockquote>
+<p><strong>并查集</strong>(6A)</p>
+<p>​    不失一般性，考虑把所有边的颜色变成红色，那么可以把整个图分成不同的联通块，每个联通块分别处理。如果有一条边是蓝色的，说明这条边的左右两端的状态是不同的，如果是红色的，说明状态是相同的。对于一个联通块，显然只有2类。那么我们只需要在2类中取较小的一类即可。</p>
+<p>​    考虑用2个并查集，分别维护相同类和不同类。</p>
+<blockquote>
+<p><strong>CF663D:</strong></p>
+</blockquote>
+<p>不会QAQ</p>
+<blockquote>
+<p><strong>CF663E:</strong>有一个n*m的表格，包含0或1.每一次可以选择一行，或一列翻转(0&lt;-&gt;1)。求一些操作后，1的个数的最小值。$n&lt;=20, m&lt;=100000 $</p>
+</blockquote>
+<p><strong>FWT优化</strong>(4A)</p>
+<p>​    很容易想到一个暴力，是枚举行变化$O(2^n)$，然后贪心验证$O(n*m)$，然后利用位运算，可以通过预处理先得到$v_i$表示$i$，或者$i$的翻转包含的最少的1的个数($i$是一状压二进制)，$v_i = min(|i|,n-|i|)$，那么设某一列状压之后是$A_i$，当前枚举到行变化是$s$，那么如果用$Ans[s]$表示在s状态能够获得的最大$Ans$，用$cnt[i]$表示所有列中$i$出现了几次可以得到，</p>
+<p>$$\large Ans[s] =\sum<em>{i=0}^{2^n-1} v</em>{s⊕i} * cnt_i$$ ————然后，上面这个式子是可以通过FWT优化的，因为这个等价于存在两个向量$cnt$和$v$，然后要求它们的亦或卷积得到的另一个向量。</p>
+<p>$$\large Ans[s] = \sum_{j⊕k =i}cnt_j*v_k$$</p>
+<p>因此，跑一个</p>
+<p>$$FWT(A) = (FWT(A0)+FWT(A1),FWT(A0)-FWT(A1))$$</p>
+<p>$$IFWT(A)=IFWT((A0+A1) \div2,(A0-A1)\div2)$$</p>
+<p>最后来一个统计就有结果了——虽然我也不知道怎么构造，我也不知道怎么证明。</p>
+<h5 id="Codeforces-Round-349-Div-1"><a href="#Codeforces-Round-349-Div-1" class="headerlink" title="Codeforces Round #349 (Div. 1)"></a><a href="http://codeforces.com/contest/666" target="_blank" rel="external">Codeforces Round #349 (Div. 1)</a></h5><blockquote>
+<p><strong>CF666A</strong>给一个字符串，然后你你需要切一个长度至少为5的前缀下来，然后剩下的都得切成是长度为2或者3的字符串你需要连续的切出来的字符串都不一样，问你能够切出多少不同的块</p>
+</blockquote>
+<p><strong>DP</strong>(1A)</p>
+<p>​    DP，考虑后面相邻的即可。</p>
+<blockquote>
+<p><strong>CF666B</strong>给定一个有向图，请您选择4个不同的节点，使得从第一个点出发，经过第2，3个点，最后到达第4个点。最短路之和最大。n&lt;=3000, m&lt;=5000。按照顺序输出选择的节点。</p>
+<p><strong>CF666C</strong></p>
+</blockquote>
+<p><strong>DP</strong>(抄题解1A)</p>
+<p>​    首先需要看出方案数<strong>只和模式串的长度有关</strong>，和具体的字符无关。</p>
+<p>​    由于模式串的长度和规模为$10^5$，则不同长度模式串最多有$\sqrt {2*10^5}$种，因而如果如果我们若能在线性时间内推出某长度下的结果，复杂就会变成$O(n\sqrt n)$。</p>
+<p>​    具体记数的过程比较复杂，需要考虑枚举模式串为第一次匹配的情况。</p>
+<p>​    若$S$为主串，模式串为$P$，$a_i$为$|S|=i$时的方案数。</p>
+<p>​    $ai = 0$——$i&lt;|P|$</p>
+<p>​    $ai=26\times a_{i−1} + C(n−1,i−1)\times25^{i−|P|}$—–$i⩾|P|$</p>
+<p>​    $26a_{i−1}$包含了第一次匹配在$S1⋯Si−1$出现的情况，最后一个位置放啥都行。</p>
+<p>​    $C(n−1,i−1)\times25^{i−|P|}$ 是在$S_i$才出现第一次匹配的情况。$S<em>1⋯S</em>{i−1}$能匹配$P<em>1⋯P</em>{|P|−1}$且$Si=P|P|$。最后一位确定，然后在$S<em>1⋯S</em>{i−1}$选择$P<em>i⋯P</em>{|P|−1}$的匹配，即$C(n−1,i−1)$，剩余的位置每个位置都含有$25$种可能，因为不能是它之后第一个确定的位置的字符。</p>
+<h5 id="VK-Cup-2016-Round-3"><a href="#VK-Cup-2016-Round-3" class="headerlink" title="VK Cup 2016 - Round 3"></a><a href="http://codeforces.com/contest/643" target="_blank" rel="external">VK Cup 2016 - Round 3</a></h5><blockquote>
+<p><strong>CF643B</strong>给定$N$,$K$和$a$,$b$,$c$,$d$，问是否存在这样两条路劲，使得这两条路劲经过所有城市，并且从a到b，和从c到d，长度为N，整个边数不超过K。$(4 ≤ n ≤ 1000, n - 1 ≤ k ≤ 2n - 2) $</p>
+</blockquote>
+<p><strong>构造</strong>（4A）</p>
+<p>​    考虑分类讨论，能公用的尽量公用，注意到n=4的时候，a,b,c,d互不相同是不行的</p>
+<blockquote>
+<p><strong>CF643C</strong>要把1～n分成k组，每组内的数必须连续，组与组不相交且每个数必须属于一个组，并且任意i有一个参数$ti$。 如果$[l,r]$为一组，那么从l走到l+1的概率是$tl$，从$l+1$走到$l+2$的概率是$\frac{tl+tl+1}{tl+1}$，依次类推，从$l$要么走到$l+1$，要么原地不动，那么组$[l,r]$的费用就是从$l$走到$r$的期望次数。现在要分成k组，让总费用最小，每个数仅能属于一个组。 </p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/codeforces/" rel="tag"># codeforces</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/18/USACO/training/Section5/USACO5.4/USACO5-4/" rel="next" title="USACO5.4">
+                <i class="fa fa-chevron-left"></i> USACO5.4
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/19/想想/" rel="prev" title="想想">
+                想想 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/image1.jpg"
+               alt="EMOAIRX" />
+          <p class="site-author-name" itemprop="name">EMOAIRX</p>
+           
+              <p class="site-description motion-element" itemprop="description">OI Lover</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              dalao
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://cyanie.github.io/" title="XZA" target="_blank">XZA</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.cnblogs.com/zhouzhendong/" title="ZZD" target="_blank">ZZD</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.cnblogs.com/chunlvxiong/" title="CLJ" target="_blank">CLJ</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Codeforces-Round-308-Div-2"><span class="nav-number">1.</span> <span class="nav-text">Codeforces Round #308 (Div. 2)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Codeforces-Round-327-Div-1"><span class="nav-number">2.</span> <span class="nav-text">Codeforces Round #327 (Div. 1)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Codeforces-Round-330-Div-1"><span class="nav-number">3.</span> <span class="nav-text">Codeforces Round #330 (Div. 1)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Codeforces-Round-333-Div-1"><span class="nav-number">4.</span> <span class="nav-text">Codeforces Round #333 (Div. 1)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Codeforces-Round-334-Div-1"><span class="nav-number">5.</span> <span class="nav-text">Codeforces Round #334 (Div. 1)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Codeforces-Round-335-Div-1"><span class="nav-number">6.</span> <span class="nav-text">Codeforces Round #335 (Div. 1)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Codeforces-Round-336-Div-1"><span class="nav-number">7.</span> <span class="nav-text">Codeforces Round #336 (Div. 1)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Good-Bye-2015"><span class="nav-number">8.</span> <span class="nav-text">Good Bye 2015</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Wunder-Fund-Round-2016-Div-1-Div-2-combined"><span class="nav-number">9.</span> <span class="nav-text">Wunder Fund Round 2016 (Div. 1 + Div. 2 combined)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AIM-Tech-Round-Div-1"><span class="nav-number">10.</span> <span class="nav-text">AIM Tech Round (Div. 1)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Codeforces-Round-342-Div-2"><span class="nav-number">11.</span> <span class="nav-text">Codeforces Round #342 (Div. 2)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#VK-Cup-2016-Round-1"><span class="nav-number">12.</span> <span class="nav-text">VK Cup 2016 - Round 1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#VK-Cup-2016-Round-2"><span class="nav-number">13.</span> <span class="nav-text">VK Cup 2016 - Round 2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Codeforces-Round-345-Div-1"><span class="nav-number">14.</span> <span class="nav-text">Codeforces Round #345 (Div. 1)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#IndiaHacks-2016-Online-Edition"><span class="nav-number">15.</span> <span class="nav-text">IndiaHacks 2016 - Online Edition </span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Codeforces-Round-347-Div-1"><span class="nav-number">16.</span> <span class="nav-text">Codeforces Round #347 (Div. 1)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Codeforces-Round-349-Div-1"><span class="nav-number">17.</span> <span class="nav-text">Codeforces Round #349 (Div. 1)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#VK-Cup-2016-Round-3"><span class="nav-number">18.</span> <span class="nav-text">VK Cup 2016 - Round 3</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EMOAIRX</span>
+
+  
+</div>
+
+
+  <div class="powered-by"><a class="theme-link" href="https://hexo.io">Hexo</a> — OI路漫漫😊</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">平静是真言  &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  <!-- ҳ������С���� -->
+  <!-- script type="text/javascript" src="/js/src/love.js"></script>-->
+
+</body>
+</html>
