@@ -1,0 +1,36 @@
+Herd Sums
+
+
+Time Limit: 1000MS  Memory Limit: 65536K 
+Total Submissions: 17941  Accepted: 10516 
+
+Description
+
+The cows in farmer John's herd are numbered and branded with consecutive integers from 1 to N (1 <= N <= 10,000,000). When the cows come to the barn for milking, they always come in sequential order from 1 to N. 
+
+Farmer John, who majored in mathematics in college and loves numbers, often looks for patterns. He has noticed that when he has exactly 15 cows in his herd, there are precisely four ways that the numbers on any set of one or more consecutive cows can add up to 15 (the same as the total number of cows). They are: 15, 7+8, 4+5+6, and 1+2+3+4+5. 
+
+When the number of cows in the herd is 10, the number of ways he can sum consecutive cows and get 10 drops to 2: namely 1+2+3+4 and 10. 
+
+Write a program that will compute the number of ways farmer John can sum the numbers on consecutive cows to equal N. Do not use precomputation to solve this problem. 
+
+* Line 1: A single integer: N 
+
+
+Output
+
+* Line 1: A single integer that is the number of ways consecutive cow brands can sum to N. 
+
+
+Sample Input
+15
+
+Sample Output
+4
+
+Source
+
+USACO 2003 March Orange
+
+
+羊群和             时间限制：1000MS内存限制：65536k             共提交：17941接受：10516             描述             在农民约翰的牛群的奶牛编号和连续的品牌             整数从1到n（1 < n = < = 10000000）。当奶牛来到             挤奶的谷仓，他们总是按顺序从1到N.             农民约翰，在大学主修数学，喜欢数字，经常             寻找模式。他注意到，当他有15只奶牛在他的             牛群，确切地说，有四种方式，在任何一组或             更多的连续奶牛可以添加多达15个（相同的总数             牛）。他们是：15，7 + 8，4 + 6 + 5，和1 + 2 + 4 + 5。             当牛群中的牛群的数量是10，他可以和的数量的方式             连续奶牛，得到10下降到2：即1 + 2 + 3 + 4和10。             编写一个程序，将计算农民约翰可以总结的方式             在连续数等于n的奶牛不使用预计算             解决这个问题。             输入             * 1号线：一个单一的整数             输出             *第1行：一个整数，即连续牛品牌的方式数             可以和到n。             样本输入             十五             示例输出             四             源             2003三月USACO橙 

@@ -1,0 +1,44 @@
+Bank Interest
+
+
+Time Limit: 1000MS  Memory Limit: 65536K 
+Total Submissions: 15645  Accepted: 9344 
+
+Description
+
+Farmer John made a profit last year! He would like to invest it well but wonders how much money he will make. He knows the interest rate R (an integer between 0 and 20) that is compounded annually at his bank. He has an integer amount of money M in the range 100..1,000,000. He knows how many years Y (range: 0..400) he intends to invest the money in the bank. Help him learn how much money he will have in the future by compounding the interest for each year he saves. Print an integer answer without rounding. Answers for the test data are guaranteed to fit into a signed 32 bit integer.
+
+Input
+
+* Line 1: Three space-separated integers: R, M, and Y
+
+Output
+
+* Line 1: A single integer that is the number of dollars FJ will have after Y years.
+
+Sample Input
+5 5000 4
+
+Sample Output
+6077
+
+Hint
+
+INPUT DETAILS: 
+
+5% annual interest, 5000 money, 4 years 
+
+OUTPUT DETAILS: 
+
+Year 1: 1.05 * 5000 = 5250 
+Year 2: 1.05 * 5250 = 5512.5 
+Year 3: 1.05 * 5512.50 = 5788.125 
+Year 4: 1.05 * 5788.125 = 6077.53125 
+The integer part of 6077.53125 is 6077.
+
+Source
+
+USACO 2004 November
+
+
+银行利息             时间限制：1000MS内存限制：65536k             共提交：15645接受：9344             描述             去年农民约翰盈利了！他想投资得很好，但不知道他会赚多少钱.。他知道利率r（一个整数0和20之间），每年在他的银行。他有一个整数金额M的范围100…1000000。他知道多少年Y（范围：0。400）他打算投资银行的钱。帮助他学会他将来每年复利多少钱。打印一个整数的答案不四舍五入。测试数据的答案保证到一个有符号的32位整数。             输入             *第1行：三个空间分离整数：R，M和y             输出             * 1行：一个整数，是多少美元，FJ将Y年后。             样本输入             5 5000 4             示例输出             六千零七十七             提示             输入详细信息：             5%年度利息，5000钱，4年             输出细节：             年1：5250 * 5000 = 1.05             年2：5512.5 * 5250 = 1.05             年3：5788.125 * 5512.50 = 1.05             年4：6077.53125 * 5788.125 = 1.05             6077.53125的整数部分为6077。 

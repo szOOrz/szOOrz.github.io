@@ -1,0 +1,13 @@
+#include<cstdio>
+#include<cstring>
+#include<cmath>
+#include<cstdlib>
+#include<algorithm>
+int main()
+{
+	freopen("subset.in","r",stdin);
+	freopen
+	fclose(stdin);
+	fclose(stdout);
+	return 0;
+}
