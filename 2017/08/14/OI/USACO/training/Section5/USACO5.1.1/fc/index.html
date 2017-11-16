@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="USACO,计算几何," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Fencing the Cows 给你一些点，问包围这些点的最小花费是多少。">
+<meta name="keywords" content="USACO,计算几何">
+<meta property="og:type" content="article">
+<meta property="og:title" content="USACO5.1.1">
+<meta property="og:url" content="http://yoursite.com/2017/08/14/OI/USACO/training/Section5/USACO5.1.1/fc/index.html">
+<meta property="og:site_name" content="Emoairx">
+<meta property="og:description" content="Fencing the Cows 给你一些点，问包围这些点的最小花费是多少。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-18T03:26:59.328Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="USACO5.1.1">
+<meta name="twitter:description" content="Fencing the Cows 给你一些点，问包围这些点的最小花费是多少。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/14/OI/USACO/training/Section5/USACO5.1.1/fc/"/>
+
+
+
+
+
+  <title>USACO5.1.1 | Emoairx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Emoairx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/14/OI/USACO/training/Section5/USACO5.1.1/fc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Emoairx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">USACO5.1.1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-14T09:17:49+08:00">
+                2017-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>Fencing the Cows</strong></p>
+<p>给你一些点，问包围这些点的最小花费是多少。</p>
+<a id="more"></a>
+<p>本题的实质是求一个凸包</p>
+<blockquote>
+<p>为什么是凸包？</p>
+</blockquote>
+<p>很显然地发现，如果存在A-&gt;B-&gt;C，其中B是凹的，那么不如A-&gt;C来得赚。</p>
+<blockquote>
+<p>凸包是什么？请大家自行Baidu Or Google</p>
+</blockquote>
+<p>下面给出凸包的求法：</p>
+<p>首先明确什么是叉积</p>
+<p>对于点A，点B，它们的叉积就是</p>
+<p>|A| <em> |B| </em> sin(α)①</p>
+<p>其中|A|表示A的长度，α表示A到B的夹角</p>
+<p>我们可以通过α的正负来判断A和B相对于原点的位置（顺时针or逆时针）</p>
+<p>然而，叉积还有另外一个公式</p>
+<p>A.x <em> B.y - A.y </em> B.x②</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">Cross</span><span class="params">(Point a,Point b,Point c)</span></span>&#123;<span class="comment">//这里以c为源点 </span></div><div class="line">	<span class="keyword">return</span> (a.x - c.x) * (b.y - c.y) - (a.y - c.y) * (b.x - c.x);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个证明不给出，主要是通过单位向量之间的转换得到。</p>
+<p>那么我们可以通过公式②的正负性得到点之间的位置。</p>
+<p>凸包因为是凸多边形，对于相邻的3个点A，B，C（按照逆时针排序）</p>
+<p>必然满足相对于A来说，C在B的顺时针方向。</p>
+<p>而且我们还知道，凸包的顶点一定是给定的点中的。</p>
+<p>因此可以整理出下面的算法框架</p>
+<p>$选择最左的，如果相同选择最下面的——这个点一定是凸包中的点</p>
+<p>——好处很多，下面有提到</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> k = <span class="number">0</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</div><div class="line">	<span class="keyword">if</span> ((P[i].x &lt; P[k].x) || (<span class="built_in">fabs</span>(P[i].x-P[k].x)&lt;eps) &amp;&amp; (P[i].y &lt; P[k].y))&#123;</div><div class="line">		k = i;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">tmp = P[k];P[k] = P[<span class="number">0</span>];P[<span class="number">0</span>] = tmp;</div></pre></td></tr></table></figure>
+<p>$把其它的点与这个点之间，按照极角排序</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Point a,Point b)</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> Cross(a,b,p[<span class="number">0</span>]) &gt; <span class="number">0</span>;</div><div class="line">	<span class="comment">//大于0表示a在b的顺时针方向，所以a应该排在b的前面 </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>$逆时针一个点一个点考虑，要满足上面提到的性质——用一个栈维护</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">top = <span class="number">0</span>;</div><div class="line">Stack[top] . x = P[<span class="number">0</span>].x;</div><div class="line">Stack[top] . y = P[<span class="number">0</span>].y;</div><div class="line">top++;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</div><div class="line">	<span class="keyword">while</span> ((top &gt;= <span class="number">2</span>) &amp;&amp; (Cross(P[i],Stack[top<span class="number">-1</span>],Stack[top<span class="number">-2</span>]) &gt; <span class="number">0</span>)) top--;</div><div class="line">	Stack[top] . x = P[i].x;</div><div class="line">	Stack[top] . y = P[i].y;</div><div class="line">	top++;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>$直到考虑完所有点结束（不用重新考虑0号点)</p>
+<blockquote>
+<p>大家可以考虑一下为什么不用重新考虑</p>
+</blockquote>
+<p>上面的性质可以用一个栈来维护。</p>
+<p>那么凸包的周长就是所有凸包上的点之间的距离和</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">double</span> Ans = <span class="number">0</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;top;i++)&#123;</div><div class="line">	Ans = Ans + dis(Stack[i<span class="number">-1</span>],Stack[i]);</div><div class="line">&#125;</div><div class="line">Ans = Ans + dis(Stack[top<span class="number">-1</span>],Stack[<span class="number">0</span>]);</div><div class="line"><span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>,Ans);</div></pre></td></tr></table></figure>
+<p>做法虽然有点繁琐，但代码很好理解</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">ID:cqz15311</span></div><div class="line"><span class="comment">LANG:C++</span></div><div class="line"><span class="comment">PROG:fc</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-8</span>;</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span>&#123;</span></div><div class="line">	<span class="keyword">double</span> x,y;</div><div class="line">&#125;tmp,P[<span class="number">10005</span>],Stack[<span class="number">10005</span>];</div><div class="line"><span class="keyword">int</span> n; </div><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">Cross</span><span class="params">(Point a,Point b,Point c)</span></span>&#123;<span class="comment">//这里以c为源点 </span></div><div class="line">	<span class="keyword">return</span> (a.x - c.x) * (b.y - c.y) - (b.x - c.x) * (a.y - c.y);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Point a,Point b)</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> Cross(a,b,P[<span class="number">0</span>]) &gt; <span class="number">0</span>;</div><div class="line">	<span class="comment">//大于0表示a在b的顺时针方向，所以a应该排在b的前面 </span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</div><div class="line">	freopen(<span class="string">"fc.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</div><div class="line">	freopen(<span class="string">"fc.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%lf%lf"</span>,&amp;P[i].x,&amp;P[i].y);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> k = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</div><div class="line">		<span class="keyword">if</span> ((P[i].x &lt; P[k].x) || (<span class="built_in">fabs</span>(P[i].x-P[k].x)&lt;eps) &amp;&amp; (P[i].y &lt; P[k].y))&#123;</div><div class="line">			k = i;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	tmp = P[k];P[k] = P[<span class="number">0</span>];P[<span class="number">0</span>] = tmp;</div><div class="line">	sort(P+<span class="number">1</span>,P+n,cmp);</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> top;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</div><div class="line">	top = <span class="number">0</span>;</div><div class="line">	Stack[top] . x = P[<span class="number">0</span>].x;</div><div class="line">	Stack[top] . y = P[<span class="number">0</span>].y;</div><div class="line">	top++;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</div><div class="line">		<span class="keyword">while</span> ((top &gt;= <span class="number">2</span>) &amp;&amp; (Cross(P[i],Stack[top<span class="number">-1</span>],Stack[top<span class="number">-2</span>]) &gt; <span class="number">0</span>)) top--;</div><div class="line">		Stack[top] . x = P[i].x;</div><div class="line">		Stack[top] . y = P[i].y;</div><div class="line">		top++;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">dis</span><span class="params">(Point a,Point b)</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Write</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">double</span> Ans = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;top;i++)&#123;</div><div class="line">		Ans = Ans + dis(Stack[i<span class="number">-1</span>],Stack[i]);</div><div class="line">	&#125;</div><div class="line">	Ans = Ans + dis(Stack[top<span class="number">-1</span>],Stack[<span class="number">0</span>]);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>,Ans);</div><div class="line">	fclose(<span class="built_in">stdin</span>);</div><div class="line">	fclose(<span class="built_in">stdout</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	init();</div><div class="line">	solve();</div><div class="line">	Write();</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/USACO/" rel="tag"># USACO</a>
+          
+            <a href="/tags/计算几何/" rel="tag"># 计算几何</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/12/OI/USACO/training/Section4/4/USACO4.4.3-frameup/frameup/" rel="next" title="USACO4.4.3">
+                <i class="fa fa-chevron-left"></i> USACO4.4.3
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/14/OI/USACO/training/Section5/USACO5.1.2/starry/" rel="prev" title="USACO5.1.2">
+                USACO5.1.2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/image1.jpg"
+               alt="EMOAIRX" />
+          <p class="site-author-name" itemprop="name">EMOAIRX</p>
+           
+              <p class="site-description motion-element" itemprop="description">OI Lover</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              dalao
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://cyanie.github.io/" title="XZA" target="_blank">XZA</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.cnblogs.com/zhouzhendong/" title="ZZD" target="_blank">ZZD</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.cnblogs.com/chunlvxiong/" title="CLJ" target="_blank">CLJ</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EMOAIRX</span>
+
+  
+</div>
+
+
+  <div class="powered-by"><a class="theme-link" href="https://hexo.io">Hexo</a> — OI路漫漫😊</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">平静是真言  &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+
+  <!-- ҳ������С���� -->
+  <!-- script type="text/javascript" src="/js/src/love.js"></script>-->
+
+</body>
+</html>

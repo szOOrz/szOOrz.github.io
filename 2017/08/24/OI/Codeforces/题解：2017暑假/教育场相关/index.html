@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="codeforces," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="这是用来教人怎么做人的。">
+<meta name="keywords" content="codeforces">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Codeforces-Educational-Round">
+<meta property="og:url" content="http://yoursite.com/2017/08/24/OI/Codeforces/题解：2017暑假/教育场相关/index.html">
+<meta property="og:site_name" content="Emoairx">
+<meta property="og:description" content="这是用来教人怎么做人的。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-29T06:35:43.443Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Codeforces-Educational-Round">
+<meta name="twitter:description" content="这是用来教人怎么做人的。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/24/OI/Codeforces/题解：2017暑假/教育场相关/"/>
+
+
+
+
+
+  <title>Codeforces-Educational-Round | Emoairx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Emoairx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/24/OI/Codeforces/题解：2017暑假/教育场相关/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Emoairx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Codeforces-Educational-Round</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T14:48:58+08:00">
+                2017-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这是用来教人怎么做人的。</p>
+<a id="more"></a>
+<h5 id="Educational-Codeforces-Round-1"><a href="#Educational-Codeforces-Round-1" class="headerlink" title="Educational Codeforces Round 1"></a><a href="http://codeforces.com/contest/598" target="_blank" rel="external">Educational Codeforces Round 1</a></h5><blockquote>
+<p><strong>CF598A：</strong>求数字之和，但是要不算2的倍数</p>
+</blockquote>
+<p><strong>模拟</strong>(1A)</p>
+<p>​    等差数列求和公式，再减去2次倍数即可。$log$的复杂度</p>
+<blockquote>
+<p><strong>CF598B：</strong>给定一个字符串s，下标从1 - |s|。有m次操作，L R k - 表示讲[L, R]里面的字符右移k次，第R位右移一次到达第L位。问你经过m次变化后的字符串。</p>
+</blockquote>
+<p><strong>模拟</strong>(1A)</p>
+<p>​    考虑把k先对长度取模，然后用一个辅助数组直接暴力O(len)移动再代入。</p>
+<blockquote>
+<p><strong>CF598C：</strong>找到两个向量间夹角最小的那两个向量的位置;</p>
+</blockquote>
+<p><strong>精度</strong>(N A)</p>
+<p>​    要用atan2高精度做，用long double做，极角排序后求角度即可。</p>
+<blockquote>
+<p><strong>CF598D：</strong>给定一个$n \times m$的地图，有k次查询。每次查询，询问位置（x,y）的点连通块周围有多少个</p>
+</blockquote>
+<p><strong>flood fill</strong>(2A)</p>
+<p>​    先$N \times M$把所有位置的答案算出来，然后询问直接做</p>
+<blockquote>
+<p><strong>CF598E：</strong>一个n*m大的巧克力，你要吃k个单元的巧克力。每次切分都会有切的那条边长度平方的代价。问最小代价。</p>
+</blockquote>
+<p><strong>DP</strong>(4A)</p>
+<p>​    考虑直接用$dp[i,j,k]$表示状态为i,j,k的时候的答案，那么只需要暴力枚举分割线，以及左边多少，右边多少，取max。注意不要数组越界</p>
+<h5 id="Educational-Codeforces-Round-3"><a href="#Educational-Codeforces-Round-3" class="headerlink" title="Educational Codeforces Round 3"></a><a href="http://codeforces.com/contest/609" target="_blank" rel="external">Educational Codeforces Round 3</a></h5><blockquote>
+<p><strong>CF609A:</strong>给你一个m大的总内存和n个USB快闪驱动器，问你至少需要多少个USB快闪驱动器才能装满或者超过总内存。</p>
+</blockquote>
+<p><strong>贪心</strong>(1A)</p>
+<p>​    排个序，然后贪心贪大的，看减多少次小于等于0即可。</p>
+<blockquote>
+<p><strong>CF609B:</strong>给你一堆书和他们的种类，然后要挑两本书，他们不能是相同的种类，求有多少种挑法</p>
+</blockquote>
+<p><strong>容斥</strong>(1A)</p>
+<p>​    考虑所有情况，减去2本数在一起的情况，注意到m&lt;=10，比较容易。</p>
+<blockquote>
+<p><strong>CF609C:</strong>给你n个元素的序列a[]，每次可以任选两个元素使得其中一个减1，另一个加1，付出代价为1。问你最小的代价使得序列最平衡。</p>
+</blockquote>
+<p><strong>贪心</strong>(1A)</p>
+<p>​    考虑直接贪心做，把最后得到的那个序列通过总和，余数等算出来，然后考虑把当前排序，贪心地得到两者之间的绝对值的sum，那么最后答案就是这个sum/2</p>
+<blockquote>
+<p><strong>CF609D:</strong>给定m个物品（编号从1-m）以及它们的种类和价格（美元和英镑），其中种类1意味着购买该物品需要美元，反之需要英镑。已知在n天里，每天都会有美元和英镑的兑换率a[i]和b[i]，意味着用a[i]个burle可以换取1美元，英镑的兑换同理。现在你手上只有s个burle，你需要在n天里购买k个物品，要求每个物品只能买一次，问你最早在第几天可以完成任务，并输出购买方案。</p>
+</blockquote>
+<p><strong>二分答案，贪心</strong>(1A)</p>
+<p>​    考虑每种货币都在最小的同一天进行购买——在最便宜的一天购买，这样是最赚的。</p>
+<p>​    那么我们首先二分答案，那么接下来的事情就是枚举多少个英镑去买，多少个美元去买。那么同时我们之前预处理出一个前缀Min，那么$O(1)$得到在这种情况下，要花费多少burle，如果够的，那么就返回true。</p>
+<p>​    注意要保存一下ID。因为答案要输出购买方案。</p>
+<blockquote>
+<p><strong>CF609E：</strong>给你一幅图，问对于每条边，包含这条边的最小生成树。</p>
+</blockquote>
+<p><strong>并查集按秩合并</strong>(5A)</p>
+<p>​    倍增写挂了，发现这个好写多了。</p>
+<p>​    考虑先求出原图的最小生成树——按秩合并（用$m log m$的那个算法)，考虑到边权是递增的，那么每次加入一条边，这条边连接的两个联通块，那么联通块两边的点一定会经过这条边——这是有保证的。而Max也能保证。</p>
+<p>​    而按秩合并，可以保证树高不会超过log，所以复杂度是$O(m log m)$级别的。</p>
+<p>​    如果不是原图的边，然后就相当于去掉路劲上最大边权的点，然后加上这条边的边权。</p>
+<h5 id="Educational-Codeforces-Round-4"><a href="#Educational-Codeforces-Round-4" class="headerlink" title="Educational Codeforces Round 4"></a><a href="http://codeforces.com/contest/612" target="_blank" rel="external">Educational Codeforces Round 4</a></h5><blockquote>
+<p><strong>CF612C：</strong>给你一个只含有括号的字符串，你可以将一种类型的左括号改成另外一种类型，右括号改成另外一种右括号。问你最少修改多少次，才能使得这个字符串匹配，输出次数。</p>
+</blockquote>
+<p><strong>栈</strong>(1A)</p>
+<p>​    手工模拟一个栈，如果遇到不匹配的，那么就$Ans+1$.</p>
+<blockquote>
+<p><strong>CF612D：</strong>给出n个区间$[li,ri]$以及一个整数k，称一个数的令人满意的如果它至少被这n个区间中的k个区间覆盖，输出所有令人满意的数构成的区间 </p>
+</blockquote>
+<p><strong>差分</strong>(4A)</p>
+<p>​    运用差分思想，考虑$l[i]$的时候+1，$r[i]$的时候-1。注意到，一个点也算是一段，所以不能所谓的离散化之类的，考虑把所有读入之后按照位置排序，在位置相同的情况下，先排加，后排减。然后前缀和一发。</p>
+<blockquote>
+<p><strong>CF612E：</strong>定义置换的平方为1~n的排列做两次该置换得到的结果。已知一个置换的平方，求该置换。</p>
+</blockquote>
+<p><strong>构造</strong>(问$XZA$大佬的)</p>
+<p>​    大佬说，先找循环，分成不同的循环联通块。</p>
+<p>​    大佬还说，对于元素个数是奇数的，只需要往后移2位就行了，对于元素个数是偶数的，把相同元素个数的两两组合在一起，轮换着放——大佬说这是参考样例1的。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/codeforces/" rel="tag"># codeforces</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/24/OI/Codeforces/题解：2017暑假/组合计数相关/" rel="next" title="CF组合计数相关">
+                <i class="fa fa-chevron-left"></i> CF组合计数相关
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/25/OI/Codeforces/题解：2017暑假/CF543D && CF369C/" rel="prev" title="CF543D && CF369C">
+                CF543D && CF369C <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/image1.jpg"
+               alt="EMOAIRX" />
+          <p class="site-author-name" itemprop="name">EMOAIRX</p>
+           
+              <p class="site-description motion-element" itemprop="description">OI Lover</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              dalao
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://cyanie.github.io/" title="XZA" target="_blank">XZA</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.cnblogs.com/zhouzhendong/" title="ZZD" target="_blank">ZZD</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.cnblogs.com/chunlvxiong/" title="CLJ" target="_blank">CLJ</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Educational-Codeforces-Round-1"><span class="nav-number">1.</span> <span class="nav-text">Educational Codeforces Round 1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Educational-Codeforces-Round-3"><span class="nav-number">2.</span> <span class="nav-text">Educational Codeforces Round 3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Educational-Codeforces-Round-4"><span class="nav-number">3.</span> <span class="nav-text">Educational Codeforces Round 4</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EMOAIRX</span>
+
+  
+</div>
+
+
+  <div class="powered-by"><a class="theme-link" href="https://hexo.io">Hexo</a> — OI路漫漫😊</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">平静是真言  &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  <!-- ҳ������С���� -->
+  <!-- script type="text/javascript" src="/js/src/love.js"></script>-->
+
+</body>
+</html>

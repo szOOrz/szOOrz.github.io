@@ -248,7 +248,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/05/Codeforces/868/Codeforces Round #438/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/16/OI/网络流24题/第7题/7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="EMOAIRX">
@@ -267,7 +267,805 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/05/Codeforces/868/Codeforces Round #438/" itemprop="url">CF868</a></h1>
+                <a class="post-title-link" href="/2017/11/16/OI/网络流24题/第7题/7/" itemprop="url">试题库问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T18:31:59+08:00">
+                2017-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="试题库问题"><a href="#试题库问题" class="headerlink" title="试题库问题"></a>试题库问题</h1><p>提交地址：<a href="https://www.luogu.org/problemnew/show/P2763，https://loj.ac/problem/6006`不解为什么过不了`等" target="_blank" rel="external">https://www.luogu.org/problemnew/show/P2763，https://loj.ac/problem/6006`不解为什么过不了`等</a></p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>假设一个试题库中有 $n$ 道试题。每道试题都标明了所属类别。同一道题可能有多个类别属性。现要从题库中抽取 $m$ 道题组成试卷。并要求试卷包含指定类型的试题。试设计一个满足要求的组卷算法。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第 $1$ 行有 $2$ 个正整数 $k$ 和 $n$ 。$k$ 表示题库中试题类型总数，$n$ 表示题库中试题总数。第 $2$ 行有 $k$ 个正整数，第 $i$ 个正整数表示要选出的类型 $i$ 的题数。这 $k$ 个数相加就是要选出的总题数 $m$。</p>
+<p>接下来的 $n$ 行给出了题库中每个试题的类型信息。每行的第 $1$ 个正整数 $p$ 表明该题可以属于 $p$ 类，接着的 $p$ 个数是该题所属的类型号。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>第 $i$ 行输出 $i:$ 后接类型 $i$ 的题号。如果有多个满足要求的方案，只要输出一个方案。如果问题无解，则输出 <code>No Solution!</code>。</p>
+<h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">3 15</div><div class="line">3 3 4</div><div class="line">2 1 2</div><div class="line">1 3</div><div class="line">1 3</div><div class="line">1 3</div><div class="line">1 3</div><div class="line">3 1 2 3</div><div class="line">2 2 3</div><div class="line">2 1 3</div><div class="line">1 2</div><div class="line">1 2</div><div class="line">2 1 2</div><div class="line">2 1 3</div><div class="line">2 1 2</div><div class="line">1 1</div><div class="line">3 1 2 3</div></pre></td></tr></table></figure>
+<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1: 1 6 8</div><div class="line">2: 7 9 10</div><div class="line">3: 2 3 4 5</div></pre></td></tr></table></figure>
+<h4 id="数据范围与提示"><a href="#数据范围与提示" class="headerlink" title="数据范围与提示"></a>数据范围与提示</h4><p>$2≤k≤20,k≤n≤1000$</p>
+<p>这题类似一种套路题。</p>
+<p>怎么处理呢？</p>
+<p>我们从源点到每一个题目一条容量为1的边，每个题目到相应类别一条容量为1的边，相应类别到汇点容量为响应需要数的边，然后跑一遍最大流。</p>
+<p>考虑如果最大流不是m，那么<code>No solution</code></p>
+<p>否则的话，考虑哪些是可行的，可以通过寻找哪些类别和题目之间的边是相连的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1005</span>;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span></div><div class="line">	<span class="keyword">int</span> from,to,nxt,cap,flow;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Graph</span>&#123;</span></div><div class="line">	Edge edge[maxn*maxn*<span class="number">2</span>];</div><div class="line">	<span class="keyword">int</span> first[maxn],cur[maxn],path[maxn],nume,dist[maxn],cnt[maxn];</div><div class="line">	<span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3fffffff</span>;</div><div class="line">	<span class="keyword">int</span> N;<span class="comment">//总的节点数(0~N-1) </span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">		N = x;</div><div class="line"><span class="comment">//		printf("%d---",N);</span></div><div class="line">		nume = <span class="number">0</span>;</div><div class="line">		<span class="built_in">memset</span>(first,<span class="number">-1</span>,<span class="keyword">sizeof</span>(first));</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c)</span></span>&#123;</div><div class="line">		edge[nume] . from = a;</div><div class="line">		edge[nume] . to = b;</div><div class="line">		edge[nume] . nxt = first[a];</div><div class="line">		edge[nume] . cap = c;</div><div class="line">		edge[nume] . flow = <span class="number">0</span>;</div><div class="line">		first[a] = nume++;</div><div class="line">		edge[nume] . from = b;</div><div class="line">		edge[nume] . to = a;</div><div class="line">		edge[nume] . nxt = first[b];</div><div class="line">		edge[nume] . cap = <span class="number">0</span>;</div><div class="line">		edge[nume] . flow = <span class="number">0</span>;</div><div class="line">		first[b] = nume++;</div><div class="line"><span class="comment">//		printf("%d , %d  %d\n",a,b,c);</span></div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Reset</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nume;i++) edge[i].flow = <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">int</span> <span class="title">SAP</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> u,v,Max_flow,Min_flow;</div><div class="line">		Reset();</div><div class="line">		<span class="built_in">memset</span>(dist,<span class="number">0</span>,<span class="keyword">sizeof</span>(dist));</div><div class="line">		<span class="built_in">memset</span>(cnt,<span class="number">0</span>,<span class="keyword">sizeof</span>(cnt));</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++) cur[i] = first[i];</div><div class="line">		cnt[<span class="number">0</span>] = N;</div><div class="line">		u = s;</div><div class="line">		Max_flow = <span class="number">0</span>;</div><div class="line">		<span class="keyword">while</span> (dist[s]!=N+<span class="number">1</span>)&#123;</div><div class="line"><span class="comment">//			printf("%d(%d)\n",u,dist[u]);</span></div><div class="line">			<span class="keyword">if</span> (u==t)&#123;</div><div class="line">				Min_flow = inf;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> v=u;v!=s;v=edge[path[v]].from)&#123;</div><div class="line">					Min_flow = min(Min_flow,edge[path[v]].cap - edge[path[v]].flow);</div><div class="line">				&#125;</div><div class="line">				Max_flow += Min_flow;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> v=u;v!=s;v=edge[path[v]].from)&#123;</div><div class="line">					edge[path[v]].flow += Min_flow;</div><div class="line">					edge[path[v]^<span class="number">1</span>].flow -= Min_flow;</div><div class="line">				&#125;</div><div class="line">				u = s;</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				<span class="keyword">bool</span> found = <span class="literal">false</span>;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> &amp;e=cur[u];~e;e=edge[e].nxt)&#123;</div><div class="line">					<span class="keyword">if</span> (dist[edge[e].to]+<span class="number">1</span>==dist[u]&amp;&amp;edge[e].cap&gt;edge[e].flow)&#123;</div><div class="line">						path[edge[e].to] = e;</div><div class="line">						u = edge[e].to;</div><div class="line">						found = <span class="literal">true</span>;</div><div class="line">						<span class="keyword">break</span>;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span> (!found)&#123;</div><div class="line">					<span class="keyword">int</span> tmp = N+<span class="number">1</span>;</div><div class="line">					<span class="keyword">for</span> (<span class="keyword">int</span> e=first[u];~e;e=edge[e].nxt)&#123;</div><div class="line">						<span class="keyword">if</span> (edge[e].cap &gt; edge[e].flow)&#123;</div><div class="line">							tmp = min(tmp,dist[edge[e].to]+<span class="number">1</span>);</div><div class="line">						&#125;</div><div class="line">					&#125;</div><div class="line">					cnt[dist[u]]--;</div><div class="line">					<span class="keyword">if</span> (cnt[dist[u]] == <span class="number">0</span>) <span class="keyword">return</span> Max_flow;</div><div class="line">					dist[u] = tmp;</div><div class="line">					cnt[dist[u]]++;</div><div class="line">					cur[u] = first[u];</div><div class="line">					<span class="keyword">if</span> (u!=s) u = edge[path[u]].from;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> Max_flow;</div><div class="line">	&#125;</div><div class="line">&#125;G;</div><div class="line"></div><div class="line"><span class="keyword">int</span> k,n,x,p;</div><div class="line"><span class="keyword">int</span> Ans[<span class="number">21</span>][<span class="number">1005</span>];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;k,&amp;n);</div><div class="line">	G.init(k+n+<span class="number">2</span>);</div><div class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</div><div class="line">		G.add_edge(n+i,n+k+<span class="number">1</span>,x);</div><div class="line">		sum+=x;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		G.add_edge(<span class="number">0</span>,i,<span class="number">1</span>);</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;p);</div><div class="line">		<span class="keyword">while</span> (p--)&#123;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</div><div class="line">			G.add_edge(i,n+x,<span class="number">1</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	x = G.SAP(<span class="number">0</span>,n+k+<span class="number">1</span>);</div><div class="line">	<span class="keyword">if</span> (x!=sum)&#123;<span class="built_in">puts</span>(<span class="string">"No Solution!"</span>);<span class="keyword">return</span> <span class="number">0</span>;&#125;</div><div class="line">	<span class="built_in">memset</span>(Ans,<span class="number">0</span>,<span class="keyword">sizeof</span>(Ans));</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> e=G.first[i];~e;e=G.edge[e].nxt)&#123;</div><div class="line">			<span class="keyword">if</span> (G.edge[e].cap==G.edge[e].flow)&#123;</div><div class="line">				<span class="keyword">int</span> v = G.edge[e].to - n;</div><div class="line">				Ans[v][++Ans[v][<span class="number">0</span>]] = i;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)&#123;</div><div class="line">		sort(Ans[i],Ans[i]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d:"</span>,i);</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=Ans[i][<span class="number">0</span>];j++)&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">" %d"</span>,Ans[i][j]);</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">puts</span>(<span class="string">""</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/OI/网络流24题/第6题/6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Emoairx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/14/OI/网络流24题/第6题/6/" itemprop="url">最长不下降子序列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T18:51:30+08:00">
+                2017-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#最长不下降子序列</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>注：网上是最长递增子序列，但是好像都要是等于，所以干脆把题目改成最长不下降子序列了。</p>
+<p>下面出现的递增，均看作不下降即可。</p>
+<p>提交地址：<a href="http://codevs.cn/problem/1906/，https://www.luogu.org/problemnew/show/2766等" target="_blank" rel="external">http://codevs.cn/problem/1906/，https://www.luogu.org/problemnew/show/2766等</a></p>
+<p>给定正整数序列x1,…,xn 。求</p>
+<p>（1）计算其最长递增子序列的长度s。</p>
+<p>（2）计算从给定的序列中最多可取出多少个长度为s的递增子序列。</p>
+<p>（3）如果允许在取出的序列中多次使用x1和xn，则从给定序列中最多可取出多少个长度为s的递增子序列。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><p>输入格式：</p>
+<p>第1 行有1个正整数n，表示给定序列的长度。接下来的1 行有n个正整数n:x1, …, xn。</p>
+<p>输出格式：</p>
+<p>第1 行是最长递增子序列的长度s。第2行是可取出的长度为s 的递增子序列个数。第3行是允许在取出的序列中多次使用x1和xn时可取出的长度为s 的递增子序列个数。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><p>输入样例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">4</div><div class="line">3 6 2 5</div></pre></td></tr></table></figure>
+<p>输出样例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">2</div><div class="line">2</div><div class="line">3</div></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>$n≤500$</p>
+<h2 id="做法："><a href="#做法：" class="headerlink" title="做法："></a>做法：</h2><p>第一问是经典的DP，可以n log n解决，也可以直接N^2。不累赘。</p>
+<p>对于有多少个可以的。——网络流</p>
+<p>注意到每一个点只能被用一次，这非常重要。</p>
+<p>我们把每个点拆成2个，左边的向右边的连一条容量为1的边。</p>
+<p>对于$dp[i]$和$dp[j]$，满足$i$能转移到$j$($dp[j]=dp[i]+1$，并且$a[i]&lt;=a[j]$)，那么在$i$的第二个点到$j$的第一个点建立一条长度为1的边，然后对于$dp[i]=1$的，从S点到这个点的第一个点一条无穷大的边，如果$dp[i]=Ans1$的，从这个点的第二个点到T点一条无穷大的边。</p>
+<p>对于问题2，只需要把1,n这两个点自己之间的边权改成无穷大即可，可以通过直接加边快速实现。</p>
+<p>跑最大流，比如说SAP。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1305</span>;</div><div class="line"><span class="keyword">int</span> n,LIS,dp[maxn],a[maxn];</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span></div><div class="line">	<span class="keyword">int</span> from,to,nxt,cap,flow;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Graph</span>&#123;</span></div><div class="line">	Edge edge[maxn*maxn*<span class="number">2</span>];</div><div class="line">	<span class="keyword">int</span> first[maxn],cur[maxn],path[maxn],nume,dist[maxn],cnt[maxn];</div><div class="line">	<span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3fffffff</span>;</div><div class="line">	<span class="keyword">int</span> N;<span class="comment">//总的节点数(0~N-1) ，</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">		N = x;</div><div class="line">		nume = <span class="number">0</span>;</div><div class="line">		<span class="built_in">memset</span>(first,<span class="number">-1</span>,<span class="keyword">sizeof</span>(first));</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c)</span></span>&#123;</div><div class="line">		edge[nume] . from = a;</div><div class="line">		edge[nume] . to = b;</div><div class="line">		edge[nume] . nxt = first[a];</div><div class="line">		edge[nume] . cap = c;</div><div class="line">		edge[nume] . flow = <span class="number">0</span>;</div><div class="line">		first[a] = nume++;</div><div class="line">		edge[nume] . from = b;</div><div class="line">		edge[nume] . to = a;</div><div class="line">		edge[nume] . nxt = first[b];</div><div class="line">		edge[nume] . cap = <span class="number">0</span>;</div><div class="line">		edge[nume] . flow = <span class="number">0</span>;</div><div class="line">		first[b] = nume++;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Reset</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nume;i++) edge[i].flow = <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">int</span> <span class="title">SAP</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> u,v,Max_flow,Min_flow;</div><div class="line">		Reset();</div><div class="line">		<span class="built_in">memset</span>(dist,<span class="number">0</span>,<span class="keyword">sizeof</span>(dist));</div><div class="line">		<span class="built_in">memset</span>(cnt,<span class="number">0</span>,<span class="keyword">sizeof</span>(cnt));</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++) cur[i] = first[i];</div><div class="line">		cnt[<span class="number">0</span>] = N;</div><div class="line">		u = s;</div><div class="line">		Max_flow = <span class="number">0</span>;</div><div class="line">		<span class="keyword">while</span> (dist[s]!=N+<span class="number">1</span>)&#123;<span class="comment">//把N打成n好惨。</span></div><div class="line"><span class="comment">//			printf("%d(%d)\n",u,dist[u]);</span></div><div class="line">			<span class="keyword">if</span> (u==t)&#123;</div><div class="line">				Min_flow = inf;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> v=u;v!=s;v=edge[path[v]].from)&#123;</div><div class="line">					Min_flow = min(Min_flow,edge[path[v]].cap - edge[path[v]].flow);</div><div class="line">				&#125;</div><div class="line">				Max_flow += Min_flow;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> v=u;v!=s;v=edge[path[v]].from)&#123;</div><div class="line">					edge[path[v]].flow += Min_flow;</div><div class="line">					edge[path[v]^<span class="number">1</span>].flow -= Min_flow;</div><div class="line">				&#125;</div><div class="line">				u = s;</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				<span class="keyword">bool</span> found = <span class="literal">false</span>;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> &amp;e=cur[u];~e;e=edge[e].nxt)&#123;</div><div class="line">					<span class="keyword">if</span> (dist[edge[e].to]+<span class="number">1</span>==dist[u]&amp;&amp;edge[e].cap&gt;edge[e].flow)&#123;</div><div class="line">						path[edge[e].to] = e;</div><div class="line">						u = edge[e].to;</div><div class="line">						found = <span class="literal">true</span>;</div><div class="line">						<span class="keyword">break</span>;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span> (!found)&#123;</div><div class="line">					<span class="keyword">int</span> tmp = N+<span class="number">1</span>;</div><div class="line">					<span class="keyword">for</span> (<span class="keyword">int</span> e=first[u];~e;e=edge[e].nxt)&#123;</div><div class="line">						<span class="keyword">if</span> (edge[e].cap &gt; edge[e].flow)&#123;</div><div class="line">							tmp = min(tmp,dist[edge[e].to]+<span class="number">1</span>);</div><div class="line">						&#125;</div><div class="line">					&#125;</div><div class="line">					cnt[dist[u]]--;</div><div class="line">					<span class="keyword">if</span> (cnt[dist[u]] == <span class="number">0</span>) <span class="keyword">return</span> Max_flow;</div><div class="line">					dist[u] = tmp;</div><div class="line">					cnt[dist[u]]++;</div><div class="line">					cur[u] = first[u];</div><div class="line">					<span class="keyword">if</span> (u!=s) u = edge[path[u]].from;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> Max_flow;</div><div class="line">	&#125;</div><div class="line">&#125;G;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	dp[<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">	LIS = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">		dp[i] = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++)</div><div class="line">		<span class="keyword">if</span> (a[i] &gt;= a[j])</div><div class="line">			dp[i] = max(dp[i],dp[j]+<span class="number">1</span>);</div><div class="line">		LIS = max(LIS,dp[i]);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,LIS);</div><div class="line">	<span class="keyword">if</span> (LIS == <span class="number">1</span>)&#123;<span class="built_in">printf</span>(<span class="string">"%d\n%d\n"</span>,n,n);<span class="keyword">return</span> <span class="number">0</span>;&#125;</div><div class="line">	G.init(n+n+<span class="number">2</span>);</div><div class="line">	<span class="keyword">int</span> s = <span class="number">0</span>,t = n*<span class="number">2</span>+<span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="keyword">if</span> (dp[i]==<span class="number">1</span>) G.add_edge(<span class="number">0</span>,i,<span class="number">10000000</span>);</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;i;j++)&#123;</div><div class="line">			<span class="keyword">if</span> (dp[i] == dp[j] + <span class="number">1</span> &amp;&amp; a[i] &gt;= a[j])&#123;</div><div class="line">				G.add_edge(j+n,i,<span class="number">1</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (dp[i] == LIS) G.add_edge(i+n,<span class="number">2</span>*n+<span class="number">1</span>,<span class="number">10000000</span>);</div><div class="line">		G.add_edge(i,i+n,<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,G.SAP(s,t));</div><div class="line">	G.add_edge(<span class="number">1</span>,<span class="number">1</span>+n,<span class="number">10000000</span>);</div><div class="line">	G.add_edge(n,n+n,<span class="number">10000000</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,G.SAP(s,t));</div><div class="line">&#125;</div><div class="line"><span class="comment">/*网上有的数据怎么都是最长不下降子序列——坑惨*/</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/04/OI/NOIP/国王游戏/国王游戏做法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Emoairx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/04/OI/NOIP/国王游戏/国王游戏做法/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-04T17:10:54+08:00">
+                2017-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>���ǿ���S��ʾ�����˵����ֵĳ˻�</p>
+<p>���ǲ���������ĳһ��˳�������ŵ�</p>
+<p>$A[1]  A[2]  A[3]  A[4]  A[5]����$</p>
+<p>$B[1]  B[2]  B[3]  B[4]  B[5]����$</p>
+<p>�𰸵Ĺ�����:<br>��$C[1] = A[1] <em> B[1] ;C[2]= A[1] </em> A[2] <em> B[1] ;C[3] = A[1] </em> A[2] <em> A[3] </em> B[3] , ��������max$</p>
+<p>�����и��ŵ�һ�ֽ⣬������$i$��$j$$(i&lt;j)$</p>
+<p>��ô����$i$֮ǰ��$j$֮���Ķ���û��Ӱ����</p>
+<p>������$$\large T = \prod _{k=1}^{i-1} A[k]$$</p>
+<p>��ô�м���һ�ε�ÿһ��ֵ�Ĺ��׶��ֱ������ˣ�</p>
+<p>��$i$���Ĺ��ױ�����$C’[i] = C[i]  <em>B[j] </em> A[i] / (A[i] * B[i])$</p>
+<p>��$j$���Ĺ��ױ�����$C’[j] = C[j] <em> B[j] / A[i] </em>A[j] / B[i]$</p>
+<pre><code>$= C[j] * (A[j] * B[j] ) / (A[i] * B[i])$
+</code></pre><p>�м�����Щ�Ĺ��ױ�����</p>
+<p>$C’[k] =  C[k] <em> A[j] </em> B[i] / (A[i] *B[i])$</p>
+<p>��������֮�е�����ֵ�ǶԴ𰸵Ĺ���֮һ</p>
+<p>����$i$��$j$</p>
+<p>����$C[i] &gt; C[j]$</p>
+<p>��$A[i]<em>B[i]&gt;A[j]</em>B[j]$��ʱ��</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/26/OI/BZOJ/3143/BZOJ5043/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Emoairx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/26/OI/BZOJ/3143/BZOJ5043/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-26T21:55:30+08:00">
+                2017-10-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这题考虑each edge的经过期望，可以通过每一个点的期望算，每一个点的期望可以高斯消元来做。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/07/OI/Codeforces/NO725/CF725E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Emoairx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/07/OI/Codeforces/NO725/CF725E/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-07T16:09:50+08:00">
+                2017-10-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>选多个值不如选一个值，因为选了多个值</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/06/杂谈/有限/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Emoairx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/06/杂谈/有限/" itemprop="url">有限</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-06T15:52:48+08:00">
+                2017-10-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>1、求&lt;=n的水仙花数的个数(n &lt;= 10^(10^5))</strong></p>
+<p>​    三位的水仙花数共有4个：153，370，371，407；</p>
+<p>​    四位的四叶玫瑰数共有3个：1634，8208，9474；</p>
+<p>​    五位的五角星数共有3个：54748，92727，93084；</p>
+<p>​    六位的六合数只有1个：548834；</p>
+<p>​    七位的北斗七星数共有4个：1741725，4210818，9800817，9926315；</p>
+<p>​    八位的八仙花数共有3个：24678050，24678051，88593477</p>
+<p>这题似乎有点无从着手，但是</p>
+<p>​    <strong>最大的水仙花数有39位。十进制自然数中的所有水仙花数共有88个。</strong></p>
+<p>​    其实这也不难发现，因为总存在一个N，使得9^(N+1) &lt;= 10 ^ N</p>
+<p>​    是的，是有限的。</p>
+<p><strong>2、求&lt;=n的雪球素数的个数</strong>(n &lt;= 10^8)</p>
+<p>​    这题，不难用$trie$（或者$DFS$）很快的可以解决.</p>
+<p>​    可是若是(n&lt;=10^9呢？)</p>
+<p>​    不难发现，分块打表是一个好方法</p>
+<p>​    可是若是(n&lt;=10^18呢？)</p>
+<p>当n&lt;=10^9的时候，最大的雪球素数是$73939133$</p>
+<p>当n&lt;=10^18的时候，最大的雪球素数是$73939133$</p>
+<p>事实上，由上面一句话，我们已经可以猜到，当n趋向无穷大的时候，小于等于n的最大的雪球素数就是<strong>73939133</strong></p>
+<p>是的，他是有限的。</p>
+<p>​    我们常常赞叹大自然的神奇——素数是无限的，可是却总有那么多有限的有趣的数字。</p>
+<p>与无限相对的，是有限。</p>
+<p>​    $\Large\frac {\sum \times\prod }{True?False}$</p>
+<p>这里留下一个问题</p>
+<p>​    1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1……是多少</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/05/OI/Codeforces/868/Codeforces Round #438/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Emoairx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/05/OI/Codeforces/868/Codeforces Round #438/" itemprop="url">CF868</a></h1>
         
 
         <div class="post-meta">
@@ -387,7 +1185,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/02/USACO/月赛/USACO月赛/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/02/OI/USACO/月赛/USACO月赛/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="EMOAIRX">
@@ -406,7 +1204,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/02/USACO/月赛/USACO月赛/" itemprop="url">我好弱啊</a></h1>
+                <a class="post-title-link" href="/2017/10/02/OI/USACO/月赛/USACO月赛/" itemprop="url">我好弱啊</a></h1>
         
 
         <div class="post-meta">
@@ -1914,7 +2712,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/31/Codeforces/题解：初三上/codeforces/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/31/OI/Codeforces/题解：初三上/codeforces/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="EMOAIRX">
@@ -1933,7 +2731,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/31/Codeforces/题解：初三上/codeforces/" itemprop="url">codeforces刷题记录——初三上</a></h1>
+                <a class="post-title-link" href="/2017/08/31/OI/Codeforces/题解：初三上/codeforces/" itemprop="url">codeforces刷题记录——初三上</a></h1>
         
 
         <div class="post-meta">
@@ -2054,7 +2852,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/27/UOJ/UOJ/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/27/OI/UOJ/UOJ/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="EMOAIRX">
@@ -2073,7 +2871,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/27/UOJ/UOJ/" itemprop="url">UOJ刷题记录——做了一题也算做了。</a></h1>
+                <a class="post-title-link" href="/2017/08/27/OI/UOJ/UOJ/" itemprop="url">UOJ刷题记录——做了一题也算做了。</a></h1>
         
 
         <div class="post-meta">
@@ -2128,758 +2926,7 @@
 <p>​    考虑先输入两个正整数，然后输出它们的和。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/08/27/UOJ/UOJ/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/27/Codeforces/题解：2017暑假/动态规划相关/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="EMOAIRX">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/image1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Emoairx">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/27/Codeforces/题解：2017暑假/动态规划相关/" itemprop="url">CF动态规划相关——2017暑假</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-27T16:47:15+08:00">
-                2017-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>规划？</p>
-<p>还是动态的？</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/27/Codeforces/题解：2017暑假/动态规划相关/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/27/Codeforces/题解：2017暑假/图论相关/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="EMOAIRX">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/image1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Emoairx">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/27/Codeforces/题解：2017暑假/图论相关/" itemprop="url">CF图论简单题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-27T08:05:43+08:00">
-                2017-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p><strong>CF208C</strong>给定一个有n个节点的无向图。选一个点成为特殊点，与特殊点相连的边称之为特殊边。求，对于所有1~n的最短路，经过的特殊边数量的平均值的最大值。$n&lt;=100, m&lt;=n(n-1)/2$</p>
-</blockquote>
-<p><strong>DP</strong>(2A)——注意LL</p>
-<p>​    对于特殊在1或者n，答案是边数/总路劲。否则就是经过某个点的边数*2/总路径。</p>
-<p>​    考虑首先一次$bfs$，求出源点到某个点的距离</p>
-<p>​    考虑第二次$bfs$，求出源点到某个点有多少次条路</p>
-<p>​    考虑第三次$bfs$，在枚举出点的情况下，求出有多少最短路经过该点</p>
-<blockquote>
-<p><strong>CF154C</strong>有一个n个节点,m条边的无向图，问有多少个点对，使得除了它们之间的边之外，其他的连接方式相同$(1 ≤ n ≤ 10^6, 0 ≤ m ≤ 10^6)$</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/25/Codeforces/题解：2017暑假/数据结构相关/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="EMOAIRX">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/image1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Emoairx">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/25/Codeforces/题解：2017暑假/数据结构相关/" itemprop="url">CF简单数据结构</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-25T16:17:54+08:00">
-                2017-08-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>听说数据结构不能吃</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/25/Codeforces/题解：2017暑假/数据结构相关/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/25/Codeforces/题解：2017暑假/CF543D && CF369C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="EMOAIRX">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/image1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Emoairx">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/25/Codeforces/题解：2017暑假/CF543D && CF369C/" itemprop="url">CF543D && CF369C</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-25T10:30:25+08:00">
-                2017-08-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>树是什么？能吃吗</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/25/Codeforces/题解：2017暑假/CF543D && CF369C/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/24/Codeforces/题解：2017暑假/教育场相关/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="EMOAIRX">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/image1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Emoairx">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/24/Codeforces/题解：2017暑假/教育场相关/" itemprop="url">Codeforces-Educational-Round</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T14:48:58+08:00">
-                2017-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这是用来教人怎么做人的。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/24/Codeforces/题解：2017暑假/教育场相关/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/24/Codeforces/题解：2017暑假/组合计数相关/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="EMOAIRX">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/image1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Emoairx">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/24/Codeforces/题解：2017暑假/组合计数相关/" itemprop="url">CF组合计数相关</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T14:46:42+08:00">
-                2017-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>我为我<strong>听说过</strong>排列组合而感到高兴。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/24/Codeforces/题解：2017暑假/组合计数相关/#more" rel="contents">
+            <a class="btn" href="/2017/08/27/OI/UOJ/UOJ/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2921,7 +2968,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2969,7 +3016,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2982,7 +3029,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

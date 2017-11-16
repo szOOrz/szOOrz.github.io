@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="USACO," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="[TOC]">
+<meta name="keywords" content="USACO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="USACO5.3">
+<meta property="og:url" content="http://yoursite.com/2017/08/17/OI/USACO/training/Section5/USACO5.3/USACO5.3/index.html">
+<meta property="og:site_name" content="Emoairx">
+<meta property="og:description" content="[TOC]">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-19T05:09:47.438Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="USACO5.3">
+<meta name="twitter:description" content="[TOC]">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/17/OI/USACO/training/Section5/USACO5.3/USACO5.3/"/>
+
+
+
+
+
+  <title>USACO5.3 | Emoairx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Emoairx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/17/OI/USACO/training/Section5/USACO5.3/USACO5.3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EMOAIRX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Emoairx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">USACO5.3</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-17T12:41:43+08:00">
+                2017-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<a id="more"></a>
+<h1 id="USACO5-3-2"><a href="#USACO5-3-2" class="headerlink" title="USACO5.3.2"></a>USACO5.3.2</h1><h3 id="window"><a href="#window" class="headerlink" title="window"></a>window</h3><p>你刚刚接手一项窗体界面工程。窗体界面还算简单，而且幸运的是，你不必显示实际的窗体。有 5 种基本操作：</p>
+<ol>
+<li>创建一个新窗体</li>
+<li>将窗体置顶</li>
+<li>将窗体置底</li>
+<li>删除一个窗体</li>
+<li>输出窗体可见部分的百分比（就是，不被其它窗体覆盖的部分）。</li>
+</ol>
+<!--more-->
+<h3 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h3><p>USACO5.3.2-Window</p>
+<h3 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h3><p>这题采用模拟大法</p>
+<p>如何模拟</p>
+<p>我们可以用一个链表存储QAQ。</p>
+<p>保存底窗体，顶窗体。</p>
+<p>同时保存前面的那个窗体，后面的那个窗体。</p>
+<p>支持这些操作。</p>
+<p>1、Remove</p>
+<p>删除其中一个窗体</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">	<span class="keyword">if</span> (x == <span class="number">-1</span>) <span class="keyword">return</span>;</div><div class="line">	<span class="keyword">if</span> (x != tail) pre[nxt[x]] = pre[x];</div><div class="line">	<span class="keyword">if</span> (x != head) nxt[pre[x]] = nxt[x];</div><div class="line">	<span class="keyword">if</span> (x == tail) tail = pre[x];</div><div class="line">	<span class="keyword">if</span> (x == head) head = nxt[x];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2、Addhead</p>
+<p>在头加上一个窗体（用于置底操作）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Addhead</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">	pre[x] = <span class="number">-1</span>;</div><div class="line">	nxt[x] = head;</div><div class="line">	<span class="keyword">if</span> (head!=<span class="number">-1</span>) pre[head] = x;</div><div class="line">	head = x;</div><div class="line">	<span class="keyword">if</span> (tail==<span class="number">-1</span>) tail = x;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3、Addtail</p>
+<p>在尾部加上一个窗体（用于置顶操作）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Addtail</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">	nxt[x] = <span class="number">-1</span>;</div><div class="line">	pre[x] = tail;</div><div class="line">	<span class="keyword">if</span> (tail!=<span class="number">-1</span>) nxt[tail] = x;</div><div class="line">	tail = x;</div><div class="line">	<span class="keyword">if</span> (head==<span class="number">-1</span>) head = x;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>★顺着next指针寻找，利用漂浮法，矩阵切割，从而得到可以见到的面积。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> u,<span class="keyword">int</span> d,<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">	<span class="keyword">while</span> ((n != <span class="number">-1</span>) &amp;&amp; ((l &gt;= R[n]) || (r &lt;= L[n]) || (u &gt;= D[n]) || (d &lt;= U[n]))) n = nxt[n];</div><div class="line">	<span class="keyword">if</span> (n == <span class="number">-1</span>) <span class="keyword">return</span> (r-l) * (d-u);</div><div class="line">	<span class="keyword">int</span> rec = <span class="number">0</span>;</div><div class="line">	<span class="keyword">if</span> (l &lt; L[n])&#123;</div><div class="line">		rec += dfs(l,L[n],u,d,nxt[n]);</div><div class="line">		l = L[n];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (r &gt; R[n])&#123;</div><div class="line">		rec += dfs(R[n],r,u,d,nxt[n]);</div><div class="line">		r = R[n];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (u &lt; U[n])&#123;</div><div class="line">		rec += dfs(l,r,u,U[n],nxt[n]);</div><div class="line">		u = U[n];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (d &gt; D[n])&#123;</div><div class="line">		rec += dfs(l,r,D[n],d,nxt[n]);</div><div class="line">		d = D[n];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> rec;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="USACO5-3-3"><a href="#USACO5-3-3" class="headerlink" title="USACO5.3.3"></a>USACO5.3.3</h1><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给定一个有向图，然后在一些点上立flag，这些flag可以通过有向边传递</p>
+<p>1、问使得所有点都被弄上flag最少要立多少flag</p>
+<p>2、问最少加多少边使得这个图强连通</p>
+<!--more-->
+<h3 id="原题-1"><a href="#原题-1" class="headerlink" title="原题"></a>原题</h3><p>USACO5.3.3-schlnet</p>
+<h3 id="做法-1"><a href="#做法-1" class="headerlink" title="做法"></a>做法</h3><p><strong>很显然的做法</strong></p>
+<p>先<strong>强连通分量</strong>缩点，缩完点后，求有多少个没有入度，那么就是结果1</p>
+<p>第二问显然就是没有出度的分量和没有入度的分量之中取一个较大的。</p>
+<p>注意只有一个强连通分量的特判QAQ</p>
+<blockquote>
+<p>1A</p>
+</blockquote>
+<hr>
+<h1 id="USACO5-3-4"><a href="#USACO5-3-4" class="headerlink" title="USACO5.3.4"></a>USACO5.3.4</h1><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>一个N<em> N的矩阵中有T个点有树，(xi,yi)有一棵树，然后在N</em>N的范围内，问最大的没有树的正方形的边长是多少。(N&lt;=1000,T&lt;=10000)</p>
+<h3 id="原题-2"><a href="#原题-2" class="headerlink" title="原题"></a>原题</h3><p><strong>USACO5.3.4-bigbrn</strong></p>
+<p><strong>Big Barn</strong><br>A Special Treat<br>Farmer John wants to place a big square barn on his square farm. He hates to cut down trees on his farm and wants to find a location for his barn that enables him to build it only on land that is already clear of trees. For our purposes, his land is divided into N x N parcels. The input contains a list of parcels that contain trees. Your job is to determine and report the largest possible square barn that can be placed on his land without having to clear away trees. The barn sides must be parallel to the horizontal or vertical axis.</p>
+<p><strong>EXAMPLE</strong></p>
+<p>Consider the following grid of Farmer John’s land where <code>.&#39; represents a parcel with no trees and</code>#’ represents a parcel with trees:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">  1 2 3 4 5 6 7 8</div><div class="line">1 . . . . . . . .</div><div class="line">2 . # . . . # . .</div><div class="line">3 . . . . . . . .</div><div class="line">4 . . . . . . . .</div><div class="line">5 . . . . . . . .</div><div class="line">6 . . # . . . . .</div><div class="line">7 . . . . . . . .</div><div class="line">8 . . . . . . . .</div></pre></td></tr></table></figure>
+<p>The largest barn is 5 x 5 and can be placed in either of two locations in the lower right part of the grid.</p>
+<p>PROGRAM NAME: bigbrn</p>
+<p>INPUT FORMAT</p>
+<p>Line 1:    Two integers: N (1 &lt;= N &lt;= 1000), the number of parcels on a side, and T (1 &lt;= T &lt;= 10,000) the number of parcels with trees<br>Lines 2..T+1:    Two integers (1 &lt;= each integer &lt;= N), the row and column of a tree parcel<br>SAMPLE INPUT (file bigbrn.in)</p>
+<p>8 3<br>2 2<br>2 6<br>6 3<br>OUTPUT FORMAT</p>
+<p>The output file should consist of exactly one line, the maximum side length of John’s barn.</p>
+<p>SAMPLE OUTPUT (file bigbrn.out)</p>
+<p>5</p>
+<h3 id="做法-2"><a href="#做法-2" class="headerlink" title="做法"></a>做法</h3><p><strong>考虑枚举每一个点作为右下角的点，然后看能往左上角扩展多少。</strong></p>
+<p><strong>考虑用f[i,j]表示第i行，第j列的答案</strong></p>
+<p><strong>如果(i,j)是’#’，那么f[i,j] = 0</strong></p>
+<p><strong>否则</strong></p>
+<p><strong>f[i,j] = min( f[i,j-1],f[i-1,j],f[i-1,j-1]) + 1</strong></p>
+<p><strong>为什么是这样的呢？</strong></p>
+<p><strong>首先f[i-1,j-1]是比较好理解的</strong></p>
+<p><strong>假设f[i-1,j-1] = x</strong></p>
+<p><strong>那么还需要横着和竖着的两条都是x得到。</strong></p>
+<p><strong>那么好理解了吧QAQ</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/USACO/" rel="tag"># USACO</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/14/OI/USACO/training/Section5/USACO5.2.1/snail/" rel="next" title="USACO5.2.1">
+                <i class="fa fa-chevron-left"></i> USACO5.2.1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/18/OI/USACO/training/Section5/USACO5.4/USACO5.4.2/USACO5-4-2/" rel="prev" title="USACO5.4.2">
+                USACO5.4.2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/image1.jpg"
+               alt="EMOAIRX" />
+          <p class="site-author-name" itemprop="name">EMOAIRX</p>
+           
+              <p class="site-description motion-element" itemprop="description">OI Lover</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              dalao
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://cyanie.github.io/" title="XZA" target="_blank">XZA</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.cnblogs.com/zhouzhendong/" title="ZZD" target="_blank">ZZD</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.cnblogs.com/chunlvxiong/" title="CLJ" target="_blank">CLJ</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#USACO5-3-2"><span class="nav-number">1.</span> <span class="nav-text">USACO5.3.2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#window"><span class="nav-number">1.0.1.</span> <span class="nav-text">window</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原题"><span class="nav-number">1.0.2.</span> <span class="nav-text">原题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#做法"><span class="nav-number">1.0.3.</span> <span class="nav-text">做法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#USACO5-3-3"><span class="nav-number">2.</span> <span class="nav-text">USACO5.3.3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意"><span class="nav-number">2.0.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原题-1"><span class="nav-number">2.0.2.</span> <span class="nav-text">原题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#做法-1"><span class="nav-number">2.0.3.</span> <span class="nav-text">做法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#USACO5-3-4"><span class="nav-number">3.</span> <span class="nav-text">USACO5.3.4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-1"><span class="nav-number">3.0.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原题-2"><span class="nav-number">3.0.2.</span> <span class="nav-text">原题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#做法-2"><span class="nav-number">3.0.3.</span> <span class="nav-text">做法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EMOAIRX</span>
+
+  
+</div>
+
+
+  <div class="powered-by"><a class="theme-link" href="https://hexo.io">Hexo</a> — OI路漫漫😊</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">平静是真言  &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+
+  <!-- ҳ������С���� -->
+  <!-- script type="text/javascript" src="/js/src/love.js"></script>-->
+
+</body>
+</html>
