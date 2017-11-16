@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="网络流," />
 
 
 
@@ -95,17 +95,18 @@
 
 
 
-<meta name="description" content="圆桌问题有n个单位，每个单位有ri的人，有m个圆桌，每个圆桌可以容纳ci个人，要求使得同一个单位的人不在一个圆桌。求一种分组方法。">
+<meta name="description" content="有n个单位，每个单位有ri的人，有m个圆桌，每个圆桌可以容纳ci个人，要求使得同一个单位的人不在一个圆桌。求一种分组方法。">
+<meta name="keywords" content="网络流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="圆桌问题">
 <meta property="og:url" content="http://yoursite.com/2017/08/12/OI/网络流24题/第5题/5/index.html">
 <meta property="og:site_name" content="Emoairx">
-<meta property="og:description" content="圆桌问题有n个单位，每个单位有ri的人，有m个圆桌，每个圆桌可以容纳ci个人，要求使得同一个单位的人不在一个圆桌。求一种分组方法。">
+<meta property="og:description" content="有n个单位，每个单位有ri的人，有m个圆桌，每个圆桌可以容纳ci个人，要求使得同一个单位的人不在一个圆桌。求一种分组方法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-16T10:33:29.418Z">
+<meta property="og:updated_time" content="2017-11-16T12:43:36.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="圆桌问题">
-<meta name="twitter:description" content="圆桌问题有n个单位，每个单位有ri的人，有m个圆桌，每个圆桌可以容纳ci个人，要求使得同一个单位的人不在一个圆桌。求一种分组方法。">
+<meta name="twitter:description" content="有n个单位，每个单位有ri的人，有m个圆桌，每个圆桌可以容纳ci个人，要求使得同一个单位的人不在一个圆桌。求一种分组方法。">
 
 
 
@@ -315,7 +316,7 @@
       
 
       
-        <h1 id="圆桌问题"><a href="#圆桌问题" class="headerlink" title="圆桌问题"></a>圆桌问题</h1><p>有n个单位，每个单位有ri的人，有m个圆桌，每个圆桌可以容纳ci个人，要求使得同一个单位的人不在一个圆桌。求一种分组方法。</p>
+        <p>有n个单位，每个单位有ri的人，有m个圆桌，每个圆桌可以容纳ci个人，要求使得同一个单位的人不在一个圆桌。求一种分组方法。</p>
 <a id="more"></a>
 <p>考虑建立边</p>
 <p>相当于对于s到每个单位流一条ri的边，从圆桌到t连一条ci的边，每个单位和每个圆桌连一条1的边，然后跑一遍SAP。</p>
@@ -337,6 +338,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络流/" rel="tag"># 网络流</a>
+          
+        </div>
       
 
       
@@ -411,17 +418,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/image1.jpg"
@@ -498,22 +496,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#圆桌问题"><span class="nav-number">1.</span> <span class="nav-text">圆桌问题</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
