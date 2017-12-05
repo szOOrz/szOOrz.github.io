@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="codeforces," />
+  <meta name="keywords" content="DP,BZOJ,斜率优化," />
 
 
 
@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="这是用来教人怎么做人的。">
-<meta name="keywords" content="codeforces">
+<meta name="description" content="$dp[i]=min(dp[j]+(sum[i]-sum[j]+i-j-1-L)^2)$考虑如何优化">
+<meta name="keywords" content="DP,BZOJ,斜率优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces-Educational-Round">
-<meta property="og:url" content="http://yoursite.com/2017/08/24/OI/Codeforces/题解：2017暑假/教育场相关/index.html">
+<meta property="og:title" content="1010 [HNOI2008]玩具装箱toy">
+<meta property="og:url" content="http://yoursite.com/2017/12/05/OI/BZOJ/1010 [HNOI2008]玩具装箱toy/1010 [HNOI2008]玩具装箱toy/index.html">
 <meta property="og:site_name" content="Emoairx">
-<meta property="og:description" content="这是用来教人怎么做人的。">
+<meta property="og:description" content="$dp[i]=min(dp[j]+(sum[i]-sum[j]+i-j-1-L)^2)$考虑如何优化">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-29T06:35:43.443Z">
+<meta property="og:updated_time" content="2017-12-05T10:34:01.572Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Codeforces-Educational-Round">
-<meta name="twitter:description" content="这是用来教人怎么做人的。">
+<meta name="twitter:title" content="1010 [HNOI2008]玩具装箱toy">
+<meta name="twitter:description" content="$dp[i]=min(dp[j]+(sum[i]-sum[j]+i-j-1-L)^2)$考虑如何优化">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/24/OI/Codeforces/题解：2017暑假/教育场相关/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/05/OI/BZOJ/1010 [HNOI2008]玩具装箱toy/1010 [HNOI2008]玩具装箱toy/"/>
 
 
 
 
 
-  <title>Codeforces-Educational-Round | Emoairx</title>
+  <title>1010 [HNOI2008]玩具装箱toy | Emoairx</title>
   
 
 
@@ -249,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/24/OI/Codeforces/题解：2017暑假/教育场相关/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/05/OI/BZOJ/1010 [HNOI2008]玩具装箱toy/1010 [HNOI2008]玩具装箱toy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="EMOAIRX">
@@ -266,7 +266,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Codeforces-Educational-Round</h1>
+          <h1 class="post-title" itemprop="name headline">1010 [HNOI2008]玩具装箱toy</h1>
         
 
         <div class="post-meta">
@@ -278,8 +278,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T14:48:58+08:00">
-                2017-08-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-05T18:30:35+08:00">
+                2017-12-05
               </time>
             
 
@@ -316,79 +316,15 @@
       
 
       
-        <p>这是用来教人怎么做人的。</p>
+        <p>$dp[i]=min(dp[j]+(sum[i]-sum[j]+i-j-1-L)^2)$考虑如何优化</p>
 <a id="more"></a>
-<h5 id="Educational-Codeforces-Round-1"><a href="#Educational-Codeforces-Round-1" class="headerlink" title="Educational Codeforces Round 1"></a><a href="http://codeforces.com/contest/598" target="_blank" rel="external">Educational Codeforces Round 1</a></h5><blockquote>
-<p><strong>CF598A：</strong>求数字之和，但是要不算2的倍数</p>
-</blockquote>
-<p><strong>模拟</strong>(1A)</p>
-<p>​    等差数列求和公式，再减去2次倍数即可。$log$的复杂度</p>
-<blockquote>
-<p><strong>CF598B：</strong>给定一个字符串s，下标从1 - |s|。有m次操作，L R k - 表示讲[L, R]里面的字符右移k次，第R位右移一次到达第L位。问你经过m次变化后的字符串。</p>
-</blockquote>
-<p><strong>模拟</strong>(1A)</p>
-<p>​    考虑把k先对长度取模，然后用一个辅助数组直接暴力O(len)移动再代入。</p>
-<blockquote>
-<p><strong>CF598C：</strong>找到两个向量间夹角最小的那两个向量的位置;</p>
-</blockquote>
-<p><strong>精度</strong>(N A)</p>
-<p>​    要用atan2高精度做，用long double做，极角排序后求角度即可。</p>
-<blockquote>
-<p><strong>CF598D：</strong>给定一个$n \times m$的地图，有k次查询。每次查询，询问位置（x,y）的点连通块周围有多少个</p>
-</blockquote>
-<p><strong>flood fill</strong>(2A)</p>
-<p>​    先$N \times M$把所有位置的答案算出来，然后询问直接做</p>
-<blockquote>
-<p><strong>CF598E：</strong>一个n*m大的巧克力，你要吃k个单元的巧克力。每次切分都会有切的那条边长度平方的代价。问最小代价。</p>
-</blockquote>
-<p><strong>DP</strong>(4A)</p>
-<p>​    考虑直接用$dp[i,j,k]$表示状态为i,j,k的时候的答案，那么只需要暴力枚举分割线，以及左边多少，右边多少，取max。注意不要数组越界</p>
-<h5 id="Educational-Codeforces-Round-3"><a href="#Educational-Codeforces-Round-3" class="headerlink" title="Educational Codeforces Round 3"></a><a href="http://codeforces.com/contest/609" target="_blank" rel="external">Educational Codeforces Round 3</a></h5><blockquote>
-<p><strong>CF609A:</strong>给你一个m大的总内存和n个USB快闪驱动器，问你至少需要多少个USB快闪驱动器才能装满或者超过总内存。</p>
-</blockquote>
-<p><strong>贪心</strong>(1A)</p>
-<p>​    排个序，然后贪心贪大的，看减多少次小于等于0即可。</p>
-<blockquote>
-<p><strong>CF609B:</strong>给你一堆书和他们的种类，然后要挑两本书，他们不能是相同的种类，求有多少种挑法</p>
-</blockquote>
-<p><strong>容斥</strong>(1A)</p>
-<p>​    考虑所有情况，减去2本数在一起的情况，注意到m&lt;=10，比较容易。</p>
-<blockquote>
-<p><strong>CF609C:</strong>给你n个元素的序列a[]，每次可以任选两个元素使得其中一个减1，另一个加1，付出代价为1。问你最小的代价使得序列最平衡。</p>
-</blockquote>
-<p><strong>贪心</strong>(1A)</p>
-<p>​    考虑直接贪心做，把最后得到的那个序列通过总和，余数等算出来，然后考虑把当前排序，贪心地得到两者之间的绝对值的sum，那么最后答案就是这个sum/2</p>
-<blockquote>
-<p><strong>CF609D:</strong>给定m个物品（编号从1-m）以及它们的种类和价格（美元和英镑），其中种类1意味着购买该物品需要美元，反之需要英镑。已知在n天里，每天都会有美元和英镑的兑换率a[i]和b[i]，意味着用a[i]个burle可以换取1美元，英镑的兑换同理。现在你手上只有s个burle，你需要在n天里购买k个物品，要求每个物品只能买一次，问你最早在第几天可以完成任务，并输出购买方案。</p>
-</blockquote>
-<p><strong>二分答案，贪心</strong>(1A)</p>
-<p>​    考虑每种货币都在最小的同一天进行购买——在最便宜的一天购买，这样是最赚的。</p>
-<p>​    那么我们首先二分答案，那么接下来的事情就是枚举多少个英镑去买，多少个美元去买。那么同时我们之前预处理出一个前缀Min，那么$O(1)$得到在这种情况下，要花费多少burle，如果够的，那么就返回true。</p>
-<p>​    注意要保存一下ID。因为答案要输出购买方案。</p>
-<blockquote>
-<p><strong>CF609E：</strong>给你一幅图，问对于每条边，包含这条边的最小生成树。</p>
-</blockquote>
-<p><strong>并查集按秩合并</strong>(5A)</p>
-<p>​    倍增写挂了，发现这个好写多了。</p>
-<p>​    考虑先求出原图的最小生成树——按秩合并（用$m log m$的那个算法)，考虑到边权是递增的，那么每次加入一条边，这条边连接的两个联通块，那么联通块两边的点一定会经过这条边——这是有保证的。而Max也能保证。</p>
-<p>​    而按秩合并，可以保证树高不会超过log，所以复杂度是$O(m log m)$级别的。</p>
-<p>​    如果不是原图的边，然后就相当于去掉路劲上最大边权的点，然后加上这条边的边权。</p>
-<h5 id="Educational-Codeforces-Round-4"><a href="#Educational-Codeforces-Round-4" class="headerlink" title="Educational Codeforces Round 4"></a><a href="http://codeforces.com/contest/612" target="_blank" rel="external">Educational Codeforces Round 4</a></h5><blockquote>
-<p><strong>CF612C：</strong>给你一个只含有括号的字符串，你可以将一种类型的左括号改成另外一种类型，右括号改成另外一种右括号。问你最少修改多少次，才能使得这个字符串匹配，输出次数。</p>
-</blockquote>
-<p><strong>栈</strong>(1A)</p>
-<p>​    手工模拟一个栈，如果遇到不匹配的，那么就$Ans+1$.</p>
-<blockquote>
-<p><strong>CF612D：</strong>给出n个区间$[li,ri]$以及一个整数k，称一个数的令人满意的如果它至少被这n个区间中的k个区间覆盖，输出所有令人满意的数构成的区间 </p>
-</blockquote>
-<p><strong>差分</strong>(4A)</p>
-<p>​    运用差分思想，考虑$l[i]$的时候+1，$r[i]$的时候-1。注意到，一个点也算是一段，所以不能所谓的离散化之类的，考虑把所有读入之后按照位置排序，在位置相同的情况下，先排加，后排减。然后前缀和一发。</p>
-<blockquote>
-<p><strong>CF612E：</strong>定义置换的平方为1~n的排列做两次该置换得到的结果。已知一个置换的平方，求该置换。</p>
-</blockquote>
-<p><strong>构造</strong>(问$XZA$大佬的)</p>
-<p>​    大佬说，先找循环，分成不同的循环联通块。</p>
-<p>​    大佬还说，对于元素个数是奇数的，只需要往后移2位就行了，对于元素个数是偶数的，把相同元素个数的两两组合在一起，轮换着放——大佬说这是参考样例1的。</p>
+<p>$dp[i]=min(dp[j]+(A[i]-A[j]-c)^2)$<br>$(A[i]-(A[j]+c))^2 = A[i]^2 + (A[j]+c)^2 - 2<em>A[i]</em>(A[j]+c)$<br>得到<br>$dp[i] = min(dp[j]+A[i]^2 + (A[j]+c)^2 - 2<em>A[i]</em>(A[j]+c))$</p>
+<p>其中c &gt; 0<br>A满足单调递增 </p>
+<p>决策j比k优，且j在k的右边<br>则<br>$dp[j] + A[i]^2 + (A[j]+c)^2 - 2<em>A[i]</em>(A[j]+c) &lt; dp[k] + A[i]^2 + (A[k]+c)^2 - 2<em>A[i]</em>(A[k]+c)$<br>$dp[j] + (A[j]+c)^2 - 2<em>A[i]</em>(A[j]+c) &lt; dp[k] + (A[k]+c)^2 - 2<em>A[i]</em>(A[k]+c)$<br>$2<em>A[i]</em>(A[k]+c-A[j]-c) &lt; dp[k]-dp[j] + (A[k]+c)^2 - (A[j]+c)^2$<br>其中$A[i]&gt;0 ,A[k]-A[j]<0$ $2*a[i]*(a[k]-a[j])="" <="" dp[k]-dp[j]="" +="" (a[k]+c)^2="" -="" (a[j]+c)^2$="" $a[i]="">((dp[k]+ (A[k]+c)^2 - (dp[j]+(A[j]+c)^2)) / (A[k]<em>2-A[j]</em>2)$</0$></p>
+<p>设$y[i] = dp[i] + (A[i]+c)^2$<br>设$x[i] = A[i] * 2 $<br>则<br>$A[i]&gt;((y[k] - y[j]) / (x[k]-x[i])$<br>设$g[k,j] =  (y[k]-y[l]) / (x[k]-x[l])（其分母大于0）$</p>
+<p>如果存在$k &lt; j$且$g[k,j] &lt;= A[i] $，那么$k$不如$j$优</p>
+<p>相当于如果存在$j,k$<br>如果对于决策$i$<br>满足$i &gt; j &gt; k$<br>如果存在$g[k,j] &lt;= A[i] $<br>若$g[j,i]&lt;=A[i]$<br>则$i$比$j$优秀，$j$比$k$优秀，$k$无用。<br>若$g[j,i]&gt;A[i] $<br>即$g[i,j]&lt;=A[i] $<br>则$i$不如$j$优秀，又k不如j优秀，所以k无用。<br>故如果存在$k &lt; j$且$g[k,j] &lt;= A[i]$ ，那么k无用<br>另外<br>如果$g[i,j]&gt;g[j,k]$<br>如果$g[j,k]&lt;=A[i]$，那么j无用<br>如果$g[j,k]&gt;A[i]$，那么<br>$g[i,j] <g[j,k]>A[i]$，$j$无用。<br>因此，单调队列还需要维护队尾 </g[j,k]></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> sqr(x) ((x)*(x))</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">50050</span>;</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</div><div class="line">LL N,L,c,dp[maxn],A[maxn];</div><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">g</span><span class="params">(LL j,LL k)</span></span>&#123;</div><div class="line">	<span class="keyword">double</span> yj,yk,xj,xk;</div><div class="line">	<span class="comment">//满足j&lt;j </span></div><div class="line">	yj = dp[j] + sqr(A[j]+c);</div><div class="line">	yk = dp[k] + sqr(A[k]+c);</div><div class="line">	xj = A[j] * <span class="number">2</span>;</div><div class="line">	xk = A[k] * <span class="number">2</span> ;</div><div class="line">	<span class="keyword">return</span> <span class="number">1.0</span>*(yj-yk)/(xj-xk);</div><div class="line">&#125;</div><div class="line">LL front,rear,q[maxn];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>,&amp;N,&amp;L);</div><div class="line">	c = <span class="number">1</span>+L;</div><div class="line">	A[<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</div><div class="line">		<span class="keyword">int</span> c;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;c);</div><div class="line">		A[i] = A[i<span class="number">-1</span>] + c;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=N;i++)A[i] += i;</div><div class="line">	<span class="built_in">memset</span>(dp,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(dp));</div><div class="line">	dp[<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">	front = rear = <span class="number">0</span>;</div><div class="line">	q[rear++] = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</div><div class="line">		<span class="keyword">while</span> (rear-front&gt;=<span class="number">2</span> &amp;&amp; g(q[front],q[front+<span class="number">1</span>]) &lt;= A[i]) front++;</div><div class="line">		<span class="keyword">int</span> j = q[front];</div><div class="line">		dp[i] = dp[j]+sqr(A[i]-A[j] - c);</div><div class="line">		<span class="keyword">while</span> (rear-front&gt;=<span class="number">2</span> &amp;&amp; g(q[rear<span class="number">-2</span>],q[rear<span class="number">-1</span>])&gt;g(q[rear<span class="number">-1</span>],i)) rear--;</div><div class="line">		q[rear++] = i;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,dp[N]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -406,7 +342,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/codeforces/" rel="tag"># codeforces</a>
+            <a href="/tags/DP/" rel="tag"># DP</a>
+          
+            <a href="/tags/BZOJ/" rel="tag"># BZOJ</a>
+          
+            <a href="/tags/斜率优化/" rel="tag"># 斜率优化</a>
           
         </div>
       
@@ -419,8 +359,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/24/OI/Codeforces/题解：2017暑假/组合计数相关/" rel="next" title="CF组合计数相关">
-                <i class="fa fa-chevron-left"></i> CF组合计数相关
+              <a href="/2017/12/05/OI/BZOJ/1008 [HNOI2008]越狱/1008 [HNOI2008]越狱/" rel="next" title="1008 [HNOI2008]越狱">
+                <i class="fa fa-chevron-left"></i> 1008 [HNOI2008]越狱
               </a>
             
           </div>
@@ -428,10 +368,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/25/OI/Codeforces/题解：2017暑假/CF543D && CF369C/" rel="prev" title="CF543D && CF369C">
-                CF543D && CF369C <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -483,17 +419,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/image1.jpg"
@@ -570,22 +497,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Educational-Codeforces-Round-1"><span class="nav-number">1.</span> <span class="nav-text">Educational Codeforces Round 1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Educational-Codeforces-Round-3"><span class="nav-number">2.</span> <span class="nav-text">Educational Codeforces Round 3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Educational-Codeforces-Round-4"><span class="nav-number">3.</span> <span class="nav-text">Educational Codeforces Round 4</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -767,26 +678,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
